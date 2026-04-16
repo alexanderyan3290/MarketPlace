@@ -1,0 +1,466 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    /* Use 'Samsung Sharp Sans' se tiver o arquivo */
+}
+
+body {
+    background: #f3f5fa;
+}
+
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #dcdde1;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #f3f5fa;
+}
+
+
+
+/* LOGO */
+.logo {
+    font-size: clamp(18px, 2vw, 28px);
+    font-weight: bold;
+}
+
+/* MENU */
+.main-nav {
+    display: flex;
+    font-size: clamp(14px, 1.2vw, 18px);
+    list-style: none;
+    gap: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Fira Sasns', sans-serif;
+    font-weight: 600;
+}
+
+.main-nav a:hover {
+    color: #ccc;
+}
+
+
+/* ICONES */
+.header-icons {
+    display: flex;
+    gap: 20px;
+    font-size: clamp(16px, 1.5vw, 22px);
+    cursor: pointer;
+
+}
+
+/* banner*/
+.hero {
+    min-height: 76vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+.hero-content h1 {
+    font-size: clamp(24px, 3vw, 16vh);
+    margin: 15px 0;
+    background: linear-gradient(90deg, #19273c, #6b7280);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background: #425f65;
+    color: white;
+    border: none;
+    padding: 12px 12vh;
+    border-radius: 8px;
+    font-weight: 500px;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: black;
+    border: 1px solid #d1d5db;
+    padding: 12px 12vh;
+    border-radius: 8px;
+    font-weight: 500px;
+    cursor: pointer;
+}
+
+/* oferta */
+.offers-bar {
+    overflow: hidden;
+    background: #355e6b;
+    color: white;
+    padding: 10px 0;
+}
+
+.promo-track {
+    display: flex;
+    gap: 50px;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+.promo {
+    display: flex;
+    gap: 60px;
+}
+
+.promo p {
+    white-space: nowrap;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.promo span {
+    color: #00ff88;
+    font-weight: bold;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.img-primary {
+    position: absolute;
+    left: 0;
+    top: 55%;
+    transform: translateY(-50%);
+}
+
+.img-primary img {
+    display: block;
+    width: 60vh;
+    height: auto;
+}
+
+.img-primary img::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top rgba(0, 0, 0.4) transparent);
+
+    pointer-events: none;
+}
+
+.retangulo {
+    width: 100%;
+    height: 200px;
+    background: #173845;
+    clip-path: polygon(0 40%, 40% 40%, 45% 65%, 100% 65%, 100% 100%, 0% 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: -35px;
+    box-shadow: 2 15px 30px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+
+/* 4. Título Inferior */
+.main-offers h2 {
+    text-align: center;
+    font-size: 6vh;
+    margin: 50px;
+    color: #465741;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+/* CARDS */
+/* container dos produtos */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 220px);
+    /* largura fixa */
+    justify-content: center;
+    row-gap: 30px;
+    column-gap: 10px;
+    padding: 40px 20px;
+}
+
+/* card */
+.card {
+    max-width: 220px;
+    background: #fdfdFD;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.3s;
+    transition: all 0.6s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    border: 2px solid black;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 35px;
+    height: 35px;
+
+    background: white;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* área da imagem */
+.img-produto {
+    background: #f2f2f2;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* imagem */
+.img-produto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* título */
+.card h3 {
+    font-size: 18px;
+    margin-top: 15px;
+    padding: 2px;
+}
+
+/* categoria */
+.categoria {
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 10px 5px;
+}
+
+/* preço */
+.price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 5px;
+}
+
+.preco-atual {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.preco-antigo {
+    text-decoration: line-through;
+    font-size: 15px;
+    color: #999;
+}
+
+
+/* promoção */
+.promo {
+    color: #1a8f4c;
+    font-weight: bold;
+    padding: 10px 5px;
+}
+
+/*Pefil de venderes e suas metas*/
+.seller-deshboard {
+    grid-template-columns: repeat(2, 350px);
+    background: linear-gradient(to bottom, #031328, #acbeca);
+    justify-content: center;
+    gap: 20px;
+    margin: 90px 0;
+    padding: 50px;
+}
+
+/* 4. Título Inferior */
+.seller-deshboard h2 {
+    grid-column: span 2;
+    text-align: center;
+    font-size: 6vh;
+    margin: 30px;
+    color: #cad1c7;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+/* Vendedores */
+.card-vendedor {
+    background: #f3f5fa;
+    padding: 20px;
+    border-radius: 16px;
+    width: 350px;
+    height: 250px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* card grande */
+.meta {
+    grid-column: span 2;
+    width: 100%;
+    height: 100px;
+}
+
+/* títulos */
+.card-vendedor h3 {
+    font-size: 16px;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+/* texto principal */
+.card-vendedor p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* estrelas */
+.stars i {
+    background: linear-gradient(to right, #cc9743, #fff200);
+    font-size: 20px;
+    justify-content: center;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#nota {
+    font-weight: bold;
+    font-size: 20vh;
+    margin-top: 5px;
+    color: black;
+}
+
+/* barra */
+.barra {
+    width: 100%;
+    height: 10px;
+    background: #e5e7eb;
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+/* progresso */
+.progresso {
+    width: 0%;
+    height: 100%;
+    border-radius: 999px;
+    transition: width 1s ease;
+    background: linear-gradient(90deg, #6366f1, #3b82f6);
+}
+
+.slider-vendedores {
+    overflow: hidden;
+    width: 100%;
+}
+
+.track {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+}
+
+.grupo {
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 350px);
+    justify-content: center;
+    gap: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #051216;
+        color: #ffffff;
+
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><g fill='none' stroke='%23333333' stroke-width='1'><path d='M0 200 Q200 100 400 200 T800 200'/><path d='M0 230 Q200 130 400 230 T800 230'/><path d='M0 260 Q200 160 400 260 T800 260'/><path d='M0 290 Q200 190 400 290 T800 290'/></g></svg>");
+
+        background-size: 800px 400px;
+    }
+
+    .main-header {
+        background-color: #071b22;
+        border-bottom: 1px solid #7ddacf9a;
+    }
+
+    .main-nav a {
+        color: white;
+    }
+
+    .hero-content h1 {
+        background: linear-gradient(90deg, #eaebed, #6b7280);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .card {
+        background: #0e4338;
+    }
+
+    .retangulo{
+        background: #042322;
+    }
+
+    .seller-deshboard{
+           background: linear-gradient(to bottom, #122b45, #73787e); 
+    }
+}
+
+.animate {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s ease;
+}
+
+.animate.show {
+    opacity: 1;
+    transform: translateY(0);
+}
