@@ -11,6 +11,10 @@
 
 body {
     background: #f3f5fa;
+
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><g fill='none' stroke='%23333333' stroke-width='1'><path d='M0 200 Q200 100 400 200 T800 200'/><path d='M0 230 Q200 130 400 230 T800 230'/><path d='M0 260 Q200 160 400 260 T800 260'/><path d='M0 290 Q200 190 400 290 T800 290'/></g></svg>");
+
+        background-size: 800px 400px;
 }
 
 
@@ -95,7 +99,7 @@ body {
 }
 
 .btn-primary {
-    background: #425f65;
+    background: #44522c;
     color: white;
     border: none;
     padding: 12px 12vh;
@@ -117,7 +121,7 @@ body {
 /* oferta */
 .offers-bar {
     overflow: hidden;
-    background: #355e6b;
+    background: #596740;
     color: white;
     padding: 10px 0;
 }
@@ -416,43 +420,7 @@ body {
     gap: 20px;
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #051216;
-        color: #ffffff;
 
-        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><g fill='none' stroke='%23333333' stroke-width='1'><path d='M0 200 Q200 100 400 200 T800 200'/><path d='M0 230 Q200 130 400 230 T800 230'/><path d='M0 260 Q200 160 400 260 T800 260'/><path d='M0 290 Q200 190 400 290 T800 290'/></g></svg>");
-
-        background-size: 800px 400px;
-    }
-
-    .main-header {
-        background-color: #071b22;
-        border-bottom: 1px solid #7ddacf9a;
-    }
-
-    .main-nav a {
-        color: white;
-    }
-
-    .hero-content h1 {
-        background: linear-gradient(90deg, #eaebed, #6b7280);
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .card {
-        background: #0e4338;
-    }
-
-    .retangulo{
-        background: #042322;
-    }
-
-    .seller-deshboard{
-           background: linear-gradient(to bottom, #122b45, #73787e); 
-    }
-}
 
 .animate {
     opacity: 0;
