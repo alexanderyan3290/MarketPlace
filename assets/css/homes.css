@@ -241,7 +241,7 @@ body {
 /* container dos produtos */
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 220px);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     /* largura fixa */
     justify-content: center;
     row-gap: 30px;
@@ -251,7 +251,7 @@ body {
 
 /* card */
 .card {
-    max-width: 220px;
+    width: 100%;
     background: #fdfdFD;
     position: relative;
     cursor: pointer;
@@ -542,9 +542,24 @@ body {
         padding: 5px 10px;
         min-width: 180px;
     }
+}
 
+@media(max-width: 480px){
     .container{
-        width: 100%;
-        padding: 70px;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .hero{
+        padding-right: 50%;
+    }
+
+    .hero-content h1 {
+        align-items: center;
+    }
+
+
+    .hero-content p {
+        align-items: center;
+        margin-right: 25px;
     }
 }
