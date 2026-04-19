@@ -563,20 +563,19 @@ body {
 
 @media(max-width: 480px){
     .container{
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .hero{
-        padding-right: 50%;
+        padding-right: 20px;
     }
 
-    .hero-content h1 {
+    .hero-content {
         align-items: center;
     }
-
 
     .hero-content p {
         align-items: center;
-        margin-right: 25px;
+        margin: 10px 0;
     }
 }
