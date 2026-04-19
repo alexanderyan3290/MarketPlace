@@ -590,14 +590,23 @@ body {
     }
 
     .heart{
-        width: 75px;
-        height: 75px;
+        width: 80px;
+        height: 80px;
     }
 
+    
     .heart i{
-        font-size: 55px !important;
+        font-size: 60px !important;
+        line-height: 1 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
+    
+    .heart i::before{
+        font-size: 60px !important;
+    }
     .hero{
         padding: 20px;
         text-align: center;
