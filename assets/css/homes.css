@@ -571,7 +571,7 @@ body {
 
     .card{
         width: 100%;
-        min-height: 200px;
+        min-height: 400px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
