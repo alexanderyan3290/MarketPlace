@@ -313,7 +313,7 @@ body {
 .img-produto {
     background: #f2f2f2;
     width: 100%;
-    height: 200px;
+    aspect-ratio: 1/1;
 }
 
 .img-produto img {
@@ -571,7 +571,7 @@ body {
 
     .card{
         width: 100%;
-        min-height: 500px;
+        min-height: 340px;
         display: flex;
         flex-direction: column;
     }
