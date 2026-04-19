@@ -280,11 +280,9 @@ body {
 
 .heart i{
     font-size: 30px;
-}
-
-.vazio, .cheio{
     position: absolute;
 }
+
 /* estado inicial */
 .vazio {
     opacity: 1;
@@ -588,15 +586,12 @@ body {
     }
 
     .heart{
-        width: 40px;
-        height: 40px;
-        background: white;
-        border-radius: 50%;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        width: 65px;
+        height: 65px;
     }
 
     .heart i{
-        font-size: 70px !important;
+        font-size: 45px;
     }
 
     .hero{
