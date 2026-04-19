@@ -563,15 +563,15 @@ body {
 @media (max-width: 480px){
 
     .container{
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 5px;
         padding: 10px;
+        justify-items: center;
     }
 
     .card{
         width: 100%;
-        margin: 0 auto;
+        max-width: 160px;
     }
 
     .hero{
