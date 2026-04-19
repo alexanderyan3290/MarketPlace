@@ -275,8 +275,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 25px;
     cursor: pointer;
+}
+
+.heart i{
+    font-size: 30px;
 }
 
 .vazio, .cheio{
@@ -585,6 +588,15 @@ body {
         margin-top: auto;
     }
 
+    .heart{
+        width: 40px;
+        height: 40px;
+    }
+
+    .heart i{
+        font-size: 28px;
+    }
+
     .hero{
         padding: 20px;
         text-align: center;
@@ -601,9 +613,5 @@ body {
     .hero-content p {
         margin: 10px 0;
         font-size: 14px;
-    }
-
-    .heart i{
-        font-size: 40px;
     }
 }
