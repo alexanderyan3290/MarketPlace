@@ -603,7 +603,7 @@ body {
         font-size: 14px;
     }
 
-    .heart{
-        font-size: 70px;
+    .heart i{
+        font-size: 40px;
     }
 }
