@@ -167,6 +167,7 @@ body {
     height: auto;
 }
 
+/*Estilos de produtos*/
 .filtro {
     width: 80%;
     margin: 50px auto 40px;
@@ -248,13 +249,20 @@ body {
     padding: 40px 20px;
 }
 
-/* card */
+/* CARD */
 .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     width: 100%;
+    min-height: 320px;
+
     background: #fdfdfd;
     cursor: pointer;
     border: 2px solid transparent;
     position: relative;
+
     transition: all 0.6s ease, box-shadow 0.3s ease;
 }
 
@@ -264,30 +272,28 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* coração */
+/* CORAÇÃO */
 .heart {
     position: absolute;
     top: 10px;
     right: 10px;
     width: 35px;
     height: 35px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     cursor: pointer;
     z-index: 10;
 }
 
-.heart i{
-    font-size: 30px;
-    line-height: 1;
-}
-
-.vazio, .cheio{
+.heart i {
+    font-size: 28px;
     position: absolute;
 }
 
-/* estado inicial */
+/* estados */
 .vazio {
     opacity: 1;
 }
@@ -296,75 +302,84 @@ body {
     opacity: 0;
 }
 
-/* HOVER */
-.heart:hover .vazio {
-    opacity: 0;
-}
-
-.heart:hover .cheio {
-    opacity: 1;
-}
-
-/* CLIQUE */
+.heart:hover .vazio,
 .heart.ativo .vazio {
     opacity: 0;
 }
 
+.heart:hover .cheio,
 .heart.ativo .cheio {
     opacity: 1;
 }
 
-/* imagem */
+/* IMAGEM */
 .img-produto {
     background: #f2f2f2;
     width: 100%;
     aspect-ratio: 1/1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .img-produto img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
-/* título */
-.card h3 {
-    font-size: 16px;
-    padding: 8px;
+/* INFO (ÁREA PRINCIPAL) */
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
 }
 
-/* categoria */
+/* TÍTULO */
+.titulo {
+    font-size: 18px;
+    font-weight: 600;
+    min-height: 60px;
+}
+
+/* CATEGORIA */
 .categoria {
-    color: #8a8a8a;
-    font-size: 13px;
-    padding: 0 8px;
+    font-size: 12px;
+    color: #777;
 }
 
-/* preço */
+/* PREÇO */
 .price {
     display: flex;
-    gap: 8px;
     align-items: center;
-    padding: 5px 8px;
-}
-
-.preco-antigo {
-    text-decoration: line-through;
-    font-size: 13px;
-    color: #999;
+    gap: 8px;
 }
 
 .preco-atual {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
 }
 
-/* promoção */
-.promo {
-    color: #1a8f4c;
+.preco-antigo {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+/* PROMOÇÃO */
+.card .promo {
+    background: #315704;
+    color: white;
+
+    font-size: 15px;
     font-weight: bold;
-    font-size: 13px;
+
     padding: 5px 8px;
+    border-radius: 6px;
+
+    width: fit-content;
 }
 
 /*Pefil de venderes e suas metas*/
@@ -482,14 +497,14 @@ body {
     transform: translateY(0);
 }
 
-.footer{
+.footer {
     background: #5c664d;
     color: white;
     padding: 50px 20px 20px;
     margin-top: 50px;
 }
 
-.footer-container{
+.footer-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
@@ -497,35 +512,35 @@ body {
     margin: auto;
 }
 
-.footer-coll h3{
+.footer-coll h3 {
     margin-bottom: 20px;
 }
 
-.footer-coll p{
+.footer-coll p {
     color: #bbbbbbb6;
     font-size: 14px;
     line-height: 1.5;
 }
 
-.footer-coll ul{
+.footer-coll ul {
     list-style: none;
 }
 
-.footer-coll ul li{
+.footer-coll ul li {
     margin-bottom: 15px;
 }
 
-.footer-coll ul li a{
+.footer-coll ul li a {
     color: #bbb;
     text-decoration: none;
     transition: 0.3s;
 }
 
-.footer-coll ul li a:hover{
+.footer-coll ul li a:hover {
     color: white;
 }
 
-.footer-bottom{
+.footer-bottom {
     text-align: center;
     margin-top: 50px;
     border-top: 1px solid #bbb;
@@ -547,8 +562,113 @@ body {
     }
 }
 
-/* tablet */
-@media (max-width: 1024px) {
+/* ================= RESPONSIVO ================= */
+
+/* ================= RESPONSIVO ================= */
+
+/* 📱 MOBILE (até 480px) */
+@media (max-width: 480px) {
+
+    /* HERO */
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 20px;
+        padding: 20px 10px;
+
+        min-height: auto;
+        text-align: center;
+        width: 100%;
+    }
+
+    .img-primary img {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .hero-content h1,
+    .hero-content p {
+        text-align: center;
+        margin: 0;
+    }
+
+    .buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        padding: 12px;
+    }
+
+    /* FILTRO */
+    .filtro {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .item {
+        width: 100%;
+        min-width: auto;
+    }
+
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 8px;
+    }
+
+    /* CARD */
+    .card {
+        min-height: 280px; /* um pouco maior */
+        border-radius: 8px;
+    }
+
+    /* TEXTO */
+    
+    .heart i{
+        font-size: 60px;
+        margin-right: 20px;
+        margin-top: 20px;
+    }
+
+    .titulo{
+        font-size: 35px;
+        min-height: 80px;
+    }
+
+    .categoria{
+        font-size: 25px;
+        margin: 20px 0;
+    }
+
+    /* PREÇO */
+    .preco-atual {
+        font-size: 40px;
+    }
+
+    .preco-antigo {
+        font-size: 30px;
+    }
+
+    /* PROMO */
+    .card .promo {
+        font-size: 30px;
+        margin: 10px 0;
+        padding: 6px 10px;
+    }
+}
+
+/* 📲 TABLET (481px até 1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
 
     .hero {
         display: flex;
@@ -575,12 +695,10 @@ body {
     }
 
     .hero-content h1 {
-        align-items: center;
+        text-align: left;
     }
 
-
     .hero-content p {
-        align-items: center;
         margin-right: 25px;
     }
 
@@ -591,79 +709,29 @@ body {
     .btn-primary,
     .btn-secondary {
         width: auto;
-        padding: 12px 70px;
+        padding: 12px 40px;
     }
 
+    /* FILTRO */
     .filtro {
         width: 90%;
         max-width: 1200px;
         margin: 30px auto 20px;
+
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 5px;
+        gap: 10px;
         flex-wrap: wrap;
     }
 
     .item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        padding: 5px 10px;
-        min-width: 180px;
+        min-width: 150px;
     }
-}
 
-@media (max-width: 480px){
-
-    .container{
+    /* GRID */
+    .container {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        padding: 10px;
     }
 
-    .card{
-        width: 100%;
-        min-height: 320px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .img-produto{
-        width: 100%;
-        aspect-ratio: 1/1;
-    }
-
-    .price{
-        margin-top: auto;
-    }
-
-    .heart{
-        width: 65px;
-        height: 65px;
-    }
-
-    .heart i{
-        font-size: 45px;
-    }
-
-    .hero{
-        padding: 20px;
-        text-align: center;
-    }
-
-    .hero-content h1{
-        font-size: 20px;
-    }
-
-    .hero-content p {
-        margin: 10px 0;
-        font-size: 14px;
-    }
-
-    .footer-coll{
-        grid-template-columns: repeat(2, 1fr);
-        text-align: center;
-    }
 }
