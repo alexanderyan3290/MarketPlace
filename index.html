@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarketPlace</title>
     <link rel="stylesheet" href="assets/css/homes.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
@@ -28,6 +29,10 @@
         </div>
     </div>
     <nav class="main-header">
+
+        <div class="menu-toggle">
+            <i class='bx bx-menu-alt-left'></i>
+        </div>
         <!-- ================== LOGO ==================-->
         <div class="logo">
             <img src="assets/img/marketplace.png" alt="">
@@ -45,7 +50,7 @@
             <i class='bx bx-search-alt-2'></i>
             <i class='bx bx-heart'></i>
             <i class='bx bx-shopping-bag'></i>
-            <i class='bx bx-user'></i>
+            <button class="btn-login">Entrar</button>
         </div>
     </nav>
 
@@ -53,6 +58,7 @@
 
     <!-- ================== Baner ==================-->
     <section class="hero">
+        <div class="overlay"></div>
         <div class="img-primary"><img src="assets/img/modelo5.png" alt=""></div>
         <div class="hero-content animate">
             <h1>Olá, Explore o que <br> separamos para você</h1>
@@ -66,65 +72,38 @@
 
     <div class="filtro">
         <div class="item">
-            <span><i class='bx bx-cycling'></i></span>
+            <span><i class='bx bx-check-shield'></i></span>
             <div class="info">
-                <p>Esporte e lazer</p>
-                <select>
-                    <option>Select</option>
-                </select>
+                <h4>Compra <br> Segura</h4>
+
+                <p>Seu dados sempre protegidos</p>
+
             </div>
         </div>
 
         <div class="divisor"></div>
 
         <div class="item">
-            <span><i class='bx bx-headphone'></i></span>
+            <span><i class='bx bx-map'></i></span>
             <div class="info">
-                <p>Eletrônicos</p>
-                <select>
-                    <option>Select</option>
-                </select>
+                <h4>Entrega para <br>todo Brasil</h4>
+
+                <p>Rapidez e rastreio em tempo real</p>
+
             </div>
         </div>
 
         <div class="divisor"></div>
 
         <div class="item">
-            <span><i class='bx bx-closet'></i></span>
+            <span><i class='bx bx-heart'></i></span>
             <div class="info">
-                <p>Vestuário</p>
-                <select>
-                    <option>Select</option>
-                </select>
+                <h4>Você ajuda, <br>alguém crecer</h4>
+
+                <p>Cada compra gera impacto</p>
+
             </div>
         </div>
-
-        <div class="divisor"></div>
-
-        <div class="item">
-            <span><i class='bx bxs-baby-carriage'></i></span>
-            <div class="info">
-                <p>Infantil</p>
-                <select>
-                    <option>Select</option>
-                </select>
-            </div>
-        </div>
-
-
-        <div class="divisor"></div>
-
-        <div class="item">
-            <span><i class='bx bxs-cat'></i></span>
-            <div class="info">
-                <p>Pet Shop</p>
-                <select>
-                    <option>Select</option>
-                </select>
-            </div>
-        </div>
-
-        <button class="btn-opc">Ver mais<i class='bx bx-right-arrow-alt'></i></button>
     </div>
 
 
