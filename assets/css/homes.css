@@ -22,10 +22,12 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: #93a27b;
+    background: #43542a;
 }
 
-
+.menu-toggle {
+    display: none;
+}
 
 /* LOGO */
 .logo {
@@ -58,10 +60,28 @@ body {
 .header-icons {
     display: flex;
     color: white;
+    align-items: center;
     gap: 20px;
     font-size: clamp(16px, 1.5vw, 22px);
     cursor: pointer;
 
+}
+
+.btn-login {
+    background: none;
+    color: rgb(255, 255, 255);
+    border: 2px solid #d1d5db;
+    padding: 10px 20px;
+    font-size: 14px;
+    gap: 5px;
+    border-radius: 8px;
+    font-weight: 200px;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    color: rgb(255, 255, 255);
+    border: 2px solid #ffffff;
 }
 
 /* banner*/
@@ -75,16 +95,25 @@ body {
 
 }
 
+.hero-content {
+    position: absolute;
+    text-align: center;
+    z-index: 2;
+    width: 90%;
+}
+
+
+
 .hero-content h1 {
     font-size: clamp(24px, 3vw, 16vh);
     margin: 15px 0;
-    background: linear-gradient(90deg, #19273c, #6b7280);
+    background: linear-gradient(70deg, #ffffff, #dbf7e9);
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero-content p {
-    color: #6b7280;
+    color: #ffffff;
     margin-bottom: 25px;
 }
 
@@ -96,8 +125,9 @@ body {
 }
 
 .btn-primary {
-    background: #93a27b;
-    color: white;
+    background: #ffffff;
+    color: black;
+    font-size: 15px;
     border: none;
     padding: 12px 90px;
     border-radius: 8px;
@@ -106,8 +136,9 @@ body {
 }
 
 .btn-secondary {
-    background: #ffffff;
-    color: black;
+    background: none;
+    color: white;
+    font-size: 15px;
     border: 1px solid #d1d5db;
     padding: 12px 90px;
     border-radius: 8px;
@@ -156,25 +187,35 @@ body {
 
 .img-primary {
     position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
     left: 0;
-    top: 51%;
-    transform: translateY(-50%);
 }
 
 .img-primary img {
-    display: block;
-    width: 60vh;
-    height: auto;
+    width: 440px;
+    margin-top: 8px;
+}
+
+/* overlay escuro */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.377);
+    z-index: 1;
 }
 
 /*Estilos de produtos*/
 .filtro {
-    width: 80%;
-    margin: 50px auto 40px;
+    width: 100%;
+    margin: 0 auto 30px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 35px;
-
+    background: #3c4729;
+    color: white;
     padding: 15px 20px;
 }
 
@@ -195,45 +236,19 @@ body {
     gap: 5px;
 }
 
-.item select {
-    border: none;
-    outline: none;
-    font-size: 13px;
-    background: transparent;
-    cursor: pointer;
+.item h4 {
+    font-size: 15px;
+}
 
+.item p {
+    margin-top: 10px;
+    font-size: 13px;
 }
 
 .divisor {
     width: 1px;
     height: 30px;
-    background: #333;
-}
-
-.btn-opc {
-    display: inline-flex;
-    background: #315704;
-    color: white;
-    border: none;
-    gap: 10px;
-    padding: 10px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-left: 10px;
-    transition: 0.3s;
-}
-
-.btn-opc i {
-    align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-
-.btn-opc:hover {
-    content: "i";
-    background: #1a8f26;
+    background: #898989;
 }
 
 
@@ -549,189 +564,460 @@ body {
     color: #ffffff;
 }
 
-/* ================= RESPONSIVO ================= */
-
-/* notebook */
-@media (max-width: 1280px) {
-    .container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .img-primary img {
-        width: 50vh;
-    }
-}
 
 /* ================= RESPONSIVO ================= */
-
-/* ================= RESPONSIVO ================= */
-
-/* 📱 MOBILE (até 480px) */
+/* ================= MOBILE NOVO (ESTILO BANNER FULL) ================= */
 @media (max-width: 480px) {
 
-    /* HERO */
-    .hero {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        gap: 20px;
-        padding: 20px 10px;
-
-        min-height: auto;
-        text-align: center;
-        width: 100%;
+    .offers-bar {
+        overflow: hidden;
+        background: #f6f6f6;
+        padding: 15px 0;
     }
 
-    .img-primary img {
-        width: 100%;
-        max-width: 250px;
+    .promo p {
+        font-weight: 200;
+        font-size: 20px;
+        font-family: "Bebas Neue", sans-serif;
+
     }
 
-    .hero-content h1,
-    .hero-content p {
-        text-align: center;
-        margin: 0;
-    }
-
-    .buttons {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-        width: 100%;
-        padding: 12px;
-    }
-
-    /* FILTRO */
-    .filtro {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
-
-    .item {
-        width: 100%;
-        min-width: auto;
-    }
-
-
-    .container {
+    .main-header {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-        padding: 8px;
-    }
-
-    /* CARD */
-    .card {
-        min-height: 280px; /* um pouco maior */
-        border-radius: 8px;
-    }
-
-    /* TEXTO */
-    
-    .heart i{
-        font-size: 60px;
-        margin-right: 20px;
-        margin-top: 20px;
-    }
-
-    .titulo{
-        font-size: 35px;
-        min-height: 80px;
-    }
-
-    .categoria{
-        font-size: 25px;
-        margin: 20px 0;
-    }
-
-    /* PREÇO */
-    .preco-atual {
-        font-size: 40px;
-    }
-
-    .preco-antigo {
-        font-size: 30px;
-    }
-
-    /* PROMO */
-    .card .promo {
-        font-size: 30px;
-        margin: 10px 0;
-        padding: 6px 10px;
-    }
-}
-
-/* 📲 TABLET (481px até 1024px) */
-@media (min-width: 481px) and (max-width: 1024px) {
-
-    .hero {
-        display: flex;
-        min-height: 430px;
+        grid-template-columns: auto 1fr auto;
         align-items: center;
-        justify-content: space-between;
-        flex-direction: row;
+        padding: 15px 20px;
+    }
+
+    .menu-toggle {
+        font-size: 25px;
+        color: white;
+        justify-self: start;
+        display: block;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .logo {
+        display: flex;
+        justify-self: center;
+        align-items: center;
+        font-size: 20px;
+    }
+
+    .header-icons {
+        display: flex;
+        justify-content: flex-end;
         gap: 20px;
+        font-size: 22px;
+
+    }
+
+    .btn-login {
+        padding: 7px 15px;
+        font-size: 14px;
+    }
+
+
+    /* ===== HERO FULL SCREEN ===== */
+    .hero {
+        position: relative;
+        height: 80px;
+        min-height: 500px;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
     }
 
     .img-primary {
-        position: relative;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
         left: 0;
-        top: 13px;
-        transform: none;
-        flex: 0 0 auto;
-        display: flex;
-        justify-content: center;
     }
 
     .img-primary img {
-        width: 100%;
-        max-width: 300px;
+        width: 380px;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+    }
+
+    /* overlay escuro */
+    .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 1;
+    }
+
+    /* TEXTO CENTRAL */
+    .hero-content {
+        position: absolute;
+        text-align: center;
+        bottom: 50px;
+        z-index: 2;
+        width: 90%;
     }
 
     .hero-content h1 {
-        text-align: left;
+        font-size: 40px;
+        background: linear-gradient(90deg, #ffffff, #bcbbbb);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .hero-content p {
-        margin-right: 25px;
+        font-size: 14px;
+        margin-top: 15px;
+        color: #eee;
     }
 
+    /* BOTÕES */
     .buttons {
-        justify-content: flex-start;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
     }
 
     .btn-primary,
     .btn-secondary {
-        width: auto;
-        padding: 12px 40px;
+        padding: 10px 50px;
+        border-radius: 10px;
+        font-weight: bold;
+        border: none;
     }
 
-    /* FILTRO */
-    .filtro {
-        width: 90%;
-        max-width: 1200px;
-        margin: 30px auto 20px;
+    .btn-primary {
+        background: white;
+        color: black;
+    }
 
+    .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 1px solid white;
+    }
+
+    /* ===== HEADER SIMPLES ===== */
+    .main-nav {
+        display: none;
+    }
+
+    /* ===== FILTRO ===== */
+    .filtro {
         display: flex;
+        flex-direction: row;
         align-items: center;
         justify-content: space-between;
         gap: 10px;
-        flex-wrap: wrap;
+        padding: 2px;
+        flex-wrap: nowrap;
     }
 
     .item {
-        min-width: 150px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex: 1;
+        min-width: 0;
     }
 
-    /* GRID */
+    .item span i {
+        font-size: 18px;
+    }
+
+    .info h4 {
+        font-size: 12px;
+    }
+
+    .info p {
+        font-size: 10px;
+    }
+
+    /* ===== PRODUTOS ===== */
     .container {
         grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
     }
 
+    .card {
+        position: relative;
+        min-height: 260px;
+    }
+
+    .card:hover {
+        border: 2px solid transparent;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .titulo {
+        font-size: 14px;
+        min-height: 40px;
+    }
+
+    .categoria {
+        font-size: 11px;
+    }
+
+    .preco-atual {
+        font-size: 16px;
+    }
+
+    .preco-antigo {
+        font-size: 12px;
+    }
+
+    .card .promo {
+        font-size: 12px;
+    }
+
+    .heart{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 10;
+        cursor: pointer;
+
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .heart i {
+        font-size: 28px;
+        pointer-events: none;
+    }
+
+    .heart .cheio{
+        opacity: 0;
+    }
+
+    .heart .vazio{
+        opacity: 1;
+    }
+
+    .heart.ativo .cheio{
+        opacity: 1;
+    }
+
+    .heart.ativo .vazio{
+        opacity: 0;
+    }
+}
+
+/* ================= TABLETE================= */
+@media (min-width: 481px) and (max-width: 1024px) {
+
+    .offers-bar {
+        overflow: hidden;
+        background: #f6f6f6;
+        padding: 12px 0;
+    }
+
+    .promo p {
+        font-size: 15px;
+    }
+
+    .main-header {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        padding: 15px 20px;
+    }
+
+    .menu-toggle {
+        font-size: 25px;
+        color: white;
+        justify-self: start;
+        display: block;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .logo {
+        display: flex;
+        justify-self: center;
+        align-items: center;
+        font-size: 35px;
+    }
+
+    .header-icons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+        font-size: 25px;
+
+    }
+
+    /* ===== HERO FULL SCREEN ===== */
+    .hero {
+        position: relative;
+        height: 80px;
+        min-height: 500px;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .img-primary {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        left: 0;
+    }
+
+    .img-primary img {
+        width: 380px;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+    }
+
+    /* overlay escuro */
+    .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.377);
+        z-index: 1;
+    }
+
+    /* TEXTO CENTRAL */
+    .hero-content {
+        position: absolute;
+        text-align: center;
+        bottom: 50px;
+        z-index: 2;
+        width: 90%;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+        background: linear-gradient(90deg, #ffffff, #bcbbbb);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+        margin-top: 15px;
+        color: white;
+    }
+
+    /* BOTÕES */
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 10px 70px;
+        border-radius: 10px;
+        font-weight: bold;
+        border: none;
+    }
+
+    .btn-primary {
+        background: white;
+        color: black;
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 1px solid white;
+    }
+
+    /* ===== HEADER SIMPLES ===== */
+    .main-nav {
+        display: none;
+    }
+
+    /* ===== FILTRO ===== */
+    .filtro {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .item span {
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .info h4 {
+        margin: 0;
+        font-weight: 100;
+    }
+
+    .info p {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 100;
+    }
+
+    /* ===== PRODUTOS ===== */
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .card {
+        min-height: 260px;
+    }
+
+    .titulo {
+        font-size: 14px;
+        min-height: 40px;
+    }
+
+    .categoria {
+        font-size: 11px;
+    }
+
+    .preco-atual {
+        font-size: 16px;
+    }
+
+    .preco-antigo {
+        font-size: 12px;
+    }
+
+    .card .promo {
+        font-size: 12px;
+    }
+
+    .heart i {
+        font-size: 22px;
+    }
 }
