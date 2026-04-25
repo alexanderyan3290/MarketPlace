@@ -274,19 +274,28 @@ document.addEventListener("click", function(e) {
     const heart = e.target.closest(".heart");
     if (!heart) return;
 
-    const card = heart.closest(".card");
-    const nome = card.querySelector("h3").textContent;
+    e.preventDefault();
+    e.stopPropagation();
 
-    heart.classList.toggle("ativo");
+    const icon = heart.querySelector("i");
+
+    const card = heart.closest(".card");
+    const nome = card.querySelector("h3").textContent.trim();
 
     let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
-    if (heart.classList.contains("ativo")) {
+    const ativo = heart.classList.contains("ativo");
+
+    if (ativo) {
+        heart.classList.remove("ativo");
+        icon.classList.replace("bxs-heart", "bx-heart");
+        favoritos = favoritos.filter(item => item !== nome);
+    } else {
+        heart.classList.add("ativo");
+        icon.classList.replace("bx-heart", "bxs-heart");
         if (!favoritos.includes(nome)) {
             favoritos.push(nome);
         }
-    } else {
-        favoritos = favoritos.filter(item => item !== nome);
     }
 
     localStorage.setItem("favoritos", JSON.stringify(favoritos));
