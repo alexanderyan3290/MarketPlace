@@ -18,7 +18,10 @@
         </div>
     </div>
 
+    <!-- ===================== TOPO FIXO ===================== -->
     <div class="top-fixed">
+
+        <!-- BARRA DE OFERTAS -->
         <div class="offers-bar">
             <div class="promo-track">
                 <div class="promo">
@@ -28,422 +31,217 @@
                     <p>PARCELE ATÉ 3X SEM JUROS</p>
                 </div>
                 <div class="promo">
-                    <p>DEVOLUÇÃO FACILIDADE E SEM CUSTO</p>
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
                     <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
                     <p><span>20%</span> OFF NO PIX</p>
-                    <p>PARCELE ATÉ 3X SEM JUROS</p>
                     <p>PARCELE ATÉ 3X SEM JUROS</p>
                 </div>
             </div>
         </div>
+
+        <!-- MENU PRINCIPAL -->
         <nav class="main-header">
             <div class="menu-toggle">
                 <i class='bx bx-menu-alt-left'></i>
             </div>
-            <!-- LOGO -->
             <div class="logo">
                 <img src="assets/img/marketplace.png" alt="">
                 <span>MarketPlace</span>
             </div>
-            <!-- MENU -->
             <div class="main-nav">
                 <a href="#">MASCULINO</a>
                 <a href="#">FEMININO</a>
                 <a href="#">INFANTIL</a>
                 <a href="#">ESPORTE</a>
             </div>
-            <!-- ÍCONES -->
             <div class="header-icons">
-                <!-- LUPA -->
                 <i class='bx bx-search-alt-2 search-btn'></i>
-                <!-- CORAÇÃO -->
                 <div class="favorite-menu">
-
                     <i class='bx bx-heart' id="favBtn"></i>
-
-                    <!-- NUMERO -->
                     <span id="favCount">0</span>
-
                 </div>
-                <!-- SACOLA -->
                 <i class='bx bx-shopping-bag' id="bagBtn"></i>
-                <button id="abrir" class="btn-login">
-                    Entrar
-                </button>
+                <button id="abrir" class="btn-login">Entrar</button>
             </div>
         </nav>
+
     </div>
 
-    <!-- TELA DE BUSCA -->
-
+    <!-- ===================== BUSCA ===================== -->
     <div class="search-container">
-
-        <!-- TOPO -->
         <div class="search-header">
-
-            <!-- LOGO -->
             <div class="search-logo">
                 <img src="assets/img/marketplace.png" alt="">
             </div>
-
-            <!-- INPUT -->
             <div class="search-input-area">
-
                 <i class='bx bx-search'></i>
-
                 <input type="text" class="search-box" placeholder="Buscar produtos...">
-
             </div>
-
-            <!-- CANCELAR -->
-            <button class="close-search">
-                Cancelar
-            </button>
-
+            <button class="close-search">Cancelar</button>
         </div>
-
-        <!-- ÁREA DOS PRODUTOS -->
-
         <div class="search-products">
-
             <h3>Produtos sugeridos</h3>
-
-            <div class="products-space">
-
-            </div>
-
+            <div class="products-space"></div>
         </div>
-
     </div>
 
-
-
-    <!-- ======================================================
-     PAINEL FAVORITOS
-====================================================== -->
-
+    <!-- ===================== PAINEL FAVORITOS ===================== -->
     <div class="fav-panel">
-
-        <!-- TOPO -->
         <div class="fav-top">
-
             <h2>Favoritos</h2>
-
-            <span id="closeFav" class="close-fav">
-                &times;
-            </span>
-
+            <span id="closeFav" class="close-fav">&times;</span>
         </div>
-
-        <!-- ITENS -->
-        <div id="favItems" class="favItems">
-        </div>
-
+        <div id="favItems" class="favItems"></div>
     </div>
 
     <!-- ===================== PAINEL SACOLA ===================== -->
-
     <div class="bag-panel" id="bagPanel">
-
-        <!-- TOPO -->
         <div class="bag-top">
-
             <h2>Sua Sacola</h2>
-
             <i class='bx bx-x close-bag' id="closeBag"></i>
-
         </div>
-
-        <!-- PRODUTOS -->
         <div class="bagItems" id="bagItems">
-
             <div class="empty-bag">
                 <p>Nenhum produto adicionado</p>
             </div>
-
         </div>
-
-        <!-- RODAPÉ -->
         <div class="bag-footer">
-
             <div class="total">
                 <h3>Total</h3>
-
-                <span id="totalPrice">
-                    R$ 0,00
-                </span>
+                <span id="totalPrice">R$ 0,00</span>
             </div>
-
-            <button class="finish-btn">
-                Finalizar Compra
-            </button>
-
+            <button class="finish-btn" id="finishBtn">Finalizar Compra</button>
         </div>
-
     </div>
 
-    <!-- ================== MODAL LOGIN ================== -->
+    <!-- ===================== MODAL LOGIN ===================== -->
     <div class="login-modal" id="loginModal">
-
         <div class="login-card">
-
-            <span class="fechar" id="fecharLogin">
-                <i class='bx bx-x'></i>
-            </span>
-
+            <span class="fechar" id="fecharLogin"><i class='bx bx-x'></i></span>
             <h2>Bem-vindo</h2>
             <p>Entre na sua conta</p>
-
             <form id="loginForm">
                 <div class="login-box">
                     <i class='bx bx-envelope'></i>
                     <input type="email" placeholder="Seu e-mail" required>
                 </div>
-
                 <div class="login-box">
                     <i class='bx bx-lock-alt'></i>
                     <input type="password" id="senha" placeholder="Sua senha" required>
                 </div>
-
                 <a href="cadastro.html" class="trocar-senha">Esqueceu sua senha?</a>
-
-                <button type="submit" class="btn-entrar">
-                    Entrar
-                </button>
-
-                <span class="criar-conta">
-                    Não possui conta? <a href="#" id="irCadastro">Criar agora</a>
-                </span>
+                <button type="submit" class="btn-entrar">Entrar</button>
+                <span class="criar-conta">Não possui conta? <a href="#" id="irCadastro">Criar agora</a></span>
             </form>
-
         </div>
-
     </div>
 
-
-
-
-    <!-- ========================= MODAL CADASTRO ========================= -->
-
+    <!-- ===================== MODAL CADASTRO ===================== -->
     <div class="cadastro-modal" id="cadastroModal">
-
         <div class="cadastro-card">
-
-            <!-- FECHAR -->
-
-            <span class="fechar" id="fecharCadastro">
-                <i class='bx bx-x'></i>
-            </span>
-
-            <!-- TITULO -->
-
+            <span class="fechar" id="fecharCadastro"><i class='bx bx-x'></i></span>
             <h2>Criar Conta</h2>
-
-            <p>
-                Preencha seus dados para criar uma conta.
-            </p>
-
-            <!-- FORM CADASTRO -->
-
+            <p>Preencha seus dados para criar uma conta.</p>
             <form id="cadastroForm">
-
-                <!-- NOME -->
-
                 <div class="cadastro-box">
                     <label>Nome Completo <span>*</span></label>
                     <input type="text" placeholder="Seu nome completo" required>
-
                 </div>
-
-                <!-- EMAIL -->
-
                 <div class="cadastro-box">
                     <label>E-mail <span>*</span></label>
                     <input type="email" placeholder="seu@email.com" required>
-
                 </div>
-
-                <!-- CPF -->
-
                 <div class="cadastro-box cpf-box" id="cpfBox">
                     <label>CPF <span>*</span></label>
                     <input type="text" placeholder="CPF" required>
-
                 </div>
-
-                <!-- LOCALIZAÇÃO -->
-
                 <div class="cadastro-box">
-
                     <label>Localização <span>*</span></label>
-
                     <input type="text" id="localizacao" list="lista-cidades" placeholder="Cidade, Estado" required>
-
                     <datalist id="lista-cidades"></datalist>
-
                 </div>
-
-                <!-- SENHA -->
-
                 <div class="cadastro-box">
                     <label>Senha <span>*</span></label>
                     <input type="password" id="senhaCadastro" placeholder="Mínimo 6 caracteres" required>
-
                     <span class="mostrar-senha" onclick="mostrarSenha('senhaCadastro', this)">
-
                         <i class='bx bx-hide'></i>
-
                     </span>
-
                 </div>
-
-                <!-- CONFIRMAR SENHA -->
-
                 <div class="cadastro-box">
                     <label>Confirma Senha <span>*</span></label>
                     <input type="password" id="confirmarSenha" placeholder="Confirme a senha" required>
-
                 </div>
-
-                <!-- TIPO CONTA -->
                 <div class="tipo-conta">
-
                     <div class="slider"></div>
-
                     <button type="button" class="ativo" id="btnCliente">Cliente</button>
-
                     <button type="button" id="btnVendedor">Vendedor</button>
-
                 </div>
-
-                <!-- TERMOS -->
-
                 <div class="termos">
-
-                    <p>
-                        Ao criar sua conta, afirmo que concordo com a
-                        <a href="#">Política de Privacidade</a>
-                        e os
+                    <p>Ao criar sua conta, afirmo que concordo com a
+                        <a href="#">Política de Privacidade</a> e os
                         <a href="#">Termos de Uso</a>.
-                        da plataforma.
                     </p>
-
                     <div class="check-termos">
-
                         <input type="checkbox" required>
-
-                        <label>
-                            Li e aceito os termos de uso
-                        </label>
-
+                        <label>Li e aceito os termos de uso</label>
                     </div>
-
-
                 </div>
-
-                <!-- BOTÃO -->
-
-                <button type="submit" class="btn-criar">
-
-                    Criar Conta
-
-                </button>
-
-                <span class="criar-conta">
-                    já possuo conta? <a href="#" id="irLogin"> Entrar </a>
-                </span>
-
+                <button type="submit" class="btn-criar">Criar Conta</button>
+                <span class="criar-conta">Já possuo conta? <a href="#" id="irLogin">Entrar</a></span>
             </form>
-
         </div>
-
     </div>
 
-    <!-- ================== Baner 01 ==================-->
+    <!-- ===================== BANNERS ===================== -->
     <section class="hero">
         <div class="slide active slide1">
             <div class="img-primary"><img src="assets/img/modelo5.png" alt=""></div>
             <div class="hero-content1 animate">
-                <h1>Olá, Explore o que <br> separamos para você</h1>
-                <p>Compre algo incrivel e ajude alguém a alcançar sua meta.</p>
+                <h1>Olá, Explore o que nossos<br> venderores separam para você</h1>
+                <p>Compre algo incrível e ajude alguém a alcançar sua meta.</p>
                 <div class="button1">
                     <button class="btn-primary">Compra Agora <i class='bx bx-right-arrow-alt'></i></button>
                 </div>
             </div>
         </div>
 
-
-
-        <!-- ================== Baner 02 ==================-->
         <div class="slide slide2">
-
             <div class="circle-bg"></div>
             <div class="discount-circle">
                 <h2>20%</h2>
                 <p>NA PRIMEIRA</p>
                 <span>COMPRA.</span>
-
             </div>
-
             <div class="hero-content2 animate">
                 <h1>ESCOLHAS<br> <span>conscientes</span>,<br> FUTURO MELHOR.</h1>
                 <p>Produtos de qualidade que <br> cuidam de você e do planeta.</p>
-
                 <div class="info-items">
                     <div class="info-box">
-                        <span>
-                            <i class='bx bx-leaf'></i>
-                        </span>
-
-                        <div class="info-bann">
-                            <h4>PRODUTOS <br> SUSTENTÁVEIS</h4>
-                        </div>
+                        <span><i class='bx bx-leaf'></i></span>
+                        <div class="info-bann"><h4>PRODUTOS <br> SUSTENTÁVEIS</h4></div>
                     </div>
-
                     <div class="line"></div>
-
                     <div class="info-box">
-                        <span>
-                            <i class='bx bx-check-shield'></i>
-                        </span>
-                        <div class="info">
-                            <h4>QUALIDADE<br> GARANTIDA</h4>
-                        </div>
+                        <span><i class='bx bx-check-shield'></i></span>
+                        <div class="info"><h4>QUALIDADE<br> GARANTIDA</h4></div>
                     </div>
-
                     <div class="line"></div>
-
                     <div class="info-box">
-                        <span>
-                            <i class='bx bx-basket'></i>
-                        </span>
-                        <div class="info">
-                            <h4>COMPRA E<br> FAÇA O BEM</h4>
-                        </div>
+                        <span><i class='bx bx-basket'></i></span>
+                        <div class="info"><h4>COMPRA E<br> FAÇA O BEM</h4></div>
                     </div>
-
                 </div>
-
                 <div class="button2">
                     <button class="btn-secondary">Compra Agora <i class='bx bx-right-arrow-alt'></i></button>
                 </div>
             </div>
-
             <div class="img-secondary2"><img src="assets/img/planta.png" alt=""></div>
             <div class="img-secondary"><img src="assets/img/banmodelo2.png" alt=""></div>
-
-
         </div>
 
-
-
-        <!-- ================== Baner 03 ==================-->
-
         <div class="slide slide3">
-
             <div class="circle-bi"></div>
             <div class="circle-bh"></div>
-
             <div class="hero-content3 animate">
                 <h1>ALCANCE SUAS<br> <span>METAS.</span></h1>
                 <h2>SUPERE LIMITES,<br> CONQUISTE MAIS!</h2>
@@ -461,282 +259,282 @@
         </div>
     </section>
 
+    <!-- ===================== FILTRO ===================== -->
     <div class="filtro">
         <div class="item">
             <span><i class='bx bx-check-shield'></i></span>
             <div class="info">
                 <h4>Compra <br> Segura</h4>
-
-                <p>Seu dados sempre protegidos</p>
-
+                <p>Seus dados sempre protegidos</p>
             </div>
         </div>
-
         <div class="divisor"></div>
-
         <div class="item">
             <span><i class='bx bx-map'></i></span>
             <div class="info">
                 <h4>Entrega para <br>todo Brasil</h4>
-
                 <p>Rapidez e rastreio em tempo real</p>
-
             </div>
         </div>
-
         <div class="divisor"></div>
-
         <div class="item">
             <span><i class='bx bx-heart'></i></span>
             <div class="info">
-                <h4>Você ajuda, <br>alguém crecer</h4>
-
+                <h4>Você ajuda, <br>alguém crescer</h4>
                 <p>Cada compra gera impacto</p>
-
             </div>
         </div>
     </div>
 
-
-
-
-    <!-- ====================== PRODUTOS 01 ====================== -->
+    <!-- ===================== PRODUTOS 01 ===================== -->
     <section class="main-offers animate">
-        <div class="container" id="produtos-container01">
-
-        </div>
+        <div class="container" id="produtos-container01"></div>
     </section>
 
-
-    <!-- ====================== PERFIL DE VENDEDORES ====================== -->
+    <!-- ===================== VENDEDORES ===================== -->
     <section class="seller-deshboard">
         <h2>VENDEDORES</h2>
         <div class="slider-vendedores">
             <div class="track">
+
                 <!-- Loja 01 -->
                 <div class="grupo">
-
                     <div class="card-vendedor meta">
                         <h3>Meta</h3>
-                        <div class="barra">
-                            <div class="progresso"></div>
-                        </div>
+                        <div class="barra"><div class="progresso"></div></div>
                         <p class="meta-text"></p>
                     </div>
-
-                    <!-- ESSA DIV É OBRIGATÓRIA -->
                     <div class="linha-inferior">
-
-                        <div class="card-vendedor loja">
-                            <h3>Loja</h3>
-                            <p class="nome">Loja do João</p>
-                        </div>
-
                         <div class="card-vendedor avaliacao">
-                            <h3>Avaliação</h3>
+                            <div class="nota-grande"></div>
                             <div class="stars"></div>
-                            <p class="nota"></p>
+                            <p class="texto-avaliacoes"></p>
                         </div>
-
-                        <div class="card-vendedor contato">
-                            <h3>Contato</h3>
-                            <p>@lojadojoao</p>
+                        <div class="card-vendedor distribuicao">
+                            <h3>Distribuição</h3>
+                            <div class="lista-distribuicao"></div>
                         </div>
-
+                        <div class="card-vendedor reputacao">
+                            <h3>Reputação</h3>
+                            <div class="reputacao_info">
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
+                                    <strong class="satisfacao-num">0%</strong>
+                                </div>
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
+                                    <strong class="recomendacao-num">0</strong>
+                                </div>
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
+                                    <strong class="comentario-num">0</strong>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
-
-
 
                 <!-- Loja 02 -->
                 <div class="grupo">
-
                     <div class="card-vendedor meta">
                         <h3>Meta</h3>
-                        <div class="barra">
-                            <div class="progresso"></div>
-                        </div>
+                        <div class="barra"><div class="progresso"></div></div>
                         <p class="meta-text"></p>
                     </div>
-
-                    <!-- ESSA DIV É OBRIGATÓRIA -->
                     <div class="linha-inferior">
-
-                        <div class="card-vendedor loja">
-                            <h3>Loja</h3>
-                            <p class="nome">Loja do João</p>
-                        </div>
-
                         <div class="card-vendedor avaliacao">
-                            <h3>Avaliação</h3>
+                            <div class="nota-grande"></div>
                             <div class="stars"></div>
-                            <p class="nota"></p>
+                            <p class="texto-avaliacoes"></p>
                         </div>
-
-                        <div class="card-vendedor contato">
-                            <h3>Contato</h3>
-                            <p>@lojadojoao</p>
+                        <div class="card-vendedor distribuicao">
+                            <h3>Distribuição</h3>
+                            <div class="lista-distribuicao"></div>
                         </div>
-
+                        <div class="card-vendedor reputacao">
+                            <h3>Reputação</h3>
+                            <div class="reputacao_info">
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
+                                    <strong class="satisfacao-num">0%</strong>
+                                </div>
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
+                                    <strong class="recomendacao-num">0</strong>
+                                </div>
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
+                                    <strong class="comentario-num">0</strong>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
 
                 <!-- Loja 03 -->
                 <div class="grupo">
-
                     <div class="card-vendedor meta">
                         <h3>Meta</h3>
-                        <div class="barra">
-                            <div class="progresso"></div>
-                        </div>
+                        <div class="barra"><div class="progresso"></div></div>
                         <p class="meta-text"></p>
                     </div>
-
-                    <!-- ESSA DIV É OBRIGATÓRIA -->
                     <div class="linha-inferior">
-
-                        <div class="card-vendedor loja">
-                            <h3>Loja</h3>
-                            <p class="nome">Loja do João</p>
-                        </div>
-
                         <div class="card-vendedor avaliacao">
-                            <h3>Avaliação</h3>
+                            <div class="nota-grande"></div>
                             <div class="stars"></div>
-                            <p class="nota"></p>
+                            <p class="texto-avaliacoes"></p>
                         </div>
-
-                        <div class="card-vendedor contato">
-                            <h3>Contato</h3>
-                            <p>@lojadojoao</p>
+                        <div class="card-vendedor distribuicao">
+                            <h3>Distribuição</h3>
+                            <div class="lista-distribuicao"></div>
                         </div>
-
+                        <div class="card-vendedor reputacao">
+                            <h3>Reputação</h3>
+                            <div class="reputacao_info">
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
+                                    <strong class="satisfacao-num">0%</strong>
+                                </div>
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
+                                    <strong class="recomendacao-num">0</strong>
+                                </div>
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
+                                    <strong class="comentario-num">0</strong>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
-
 
                 <!-- Loja 04 -->
                 <div class="grupo">
-
                     <div class="card-vendedor meta">
                         <h3>Meta</h3>
-                        <div class="barra">
-                            <div class="progresso"></div>
-                        </div>
+                        <div class="barra"><div class="progresso"></div></div>
                         <p class="meta-text"></p>
                     </div>
-
-                    <!-- ESSA DIV É OBRIGATÓRIA -->
                     <div class="linha-inferior">
-
-                        <div class="card-vendedor loja">
-                            <h3>Loja</h3>
-                            <p class="nome">Loja do João</p>
-                        </div>
-
                         <div class="card-vendedor avaliacao">
-                            <h3>Avaliação</h3>
+                            <div class="nota-grande"></div>
                             <div class="stars"></div>
-                            <p class="nota"></p>
+                            <p class="texto-avaliacoes"></p>
                         </div>
-
-                        <div class="card-vendedor contato">
-                            <h3>Contato</h3>
-                            <p>@lojadojoao</p>
+                        <div class="card-vendedor distribuicao">
+                            <h3>Distribuição</h3>
+                            <div class="lista-distribuicao"></div>
                         </div>
-
+                        <div class="card-vendedor reputacao">
+                            <h3>Reputação</h3>
+                            <div class="reputacao_info">
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
+                                    <strong class="satisfacao-num">0%</strong>
+                                </div>
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
+                                    <strong class="recomendacao-num">0</strong>
+                                </div>
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
+                                    <strong class="comentario-num">0</strong>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
 
                 <!-- Loja 05 -->
                 <div class="grupo">
-
                     <div class="card-vendedor meta">
                         <h3>Meta</h3>
-                        <div class="barra">
-                            <div class="progresso"></div>
-                        </div>
+                        <div class="barra"><div class="progresso"></div></div>
                         <p class="meta-text"></p>
                     </div>
-
-                    <!-- ESSA DIV É OBRIGATÓRIA -->
                     <div class="linha-inferior">
-
-                        <div class="card-vendedor loja">
-                            <h3>Loja</h3>
-                            <p class="nome">Loja do João</p>
-                        </div>
-
                         <div class="card-vendedor avaliacao">
-                            <h3>Avaliação</h3>
+                            <div class="nota-grande"></div>
                             <div class="stars"></div>
-                            <p class="nota"></p>
+                            <p class="texto-avaliacoes"></p>
                         </div>
-
-                        <div class="card-vendedor contato">
-                            <h3>Contato</h3>
-                            <p>@lojadojoao</p>
+                        <div class="card-vendedor distribuicao">
+                            <h3>Distribuição</h3>
+                            <div class="lista-distribuicao"></div>
                         </div>
-
+                        <div class="card-vendedor reputacao">
+                            <h3>Reputação</h3>
+                            <div class="reputacao_info">
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
+                                    <strong class="satisfacao-num">0%</strong>
+                                </div>
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
+                                    <strong class="recomendacao-num">0</strong>
+                                </div>
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
+                                    <strong class="comentario-num">0</strong>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
 
                 <!-- Loja 06 -->
                 <div class="grupo">
-
                     <div class="card-vendedor meta">
                         <h3>Meta</h3>
-                        <div class="barra">
-                            <div class="progresso"></div>
-                        </div>
+                        <div class="barra"><div class="progresso"></div></div>
                         <p class="meta-text"></p>
                     </div>
-
-                    <!-- ESSA DIV É OBRIGATÓRIA -->
                     <div class="linha-inferior">
-
-                        <div class="card-vendedor loja">
-                            <h3>Loja</h3>
-                            <p class="nome">Loja do João</p>
-                        </div>
-
                         <div class="card-vendedor avaliacao">
-                            <h3>Avaliação</h3>
+                            <div class="nota-grande"></div>
                             <div class="stars"></div>
-                            <p class="nota"></p>
+                            <p class="texto-avaliacoes"></p>
                         </div>
-
-                        <div class="card-vendedor contato">
-                            <h3>Contato</h3>
-                            <p>@lojadojoao</p>
+                        <div class="card-vendedor distribuicao">
+                            <h3>Distribuição</h3>
+                            <div class="lista-distribuicao"></div>
                         </div>
-
+                        <div class="card-vendedor reputacao">
+                            <h3>Reputação</h3>
+                            <div class="reputacao_info">
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
+                                    <strong class="satisfacao-num">0%</strong>
+                                </div>
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
+                                    <strong class="recomendacao-num">0</strong>
+                                </div>
+                                <div class="reputacao-item">
+                                    <div class="reputacao-texto"><i class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
+                                    <strong class="comentario-num">0</strong>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- ====================== PRODUTOS 02 ====================== -->
+    <!-- ===================== PRODUTOS 02 ===================== -->
     <section class="main-offers animate">
-        <div class="container" id="produtos-container02">
-
-        </div>
+        <div class="container" id="produtos-container02"></div>
     </section>
 
+    <!-- ===================== RODAPÉ ===================== -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-coll">
                 <h3>MarketPlace</h3>
                 <p>Encontre os melhores produtos com os melhores preços.</p>
             </div>
-
             <div class="footer-coll">
                 <h3>PRODUTOS</h3>
                 <ul>
@@ -747,23 +545,21 @@
                     <li><a href="#">Roupa</a></li>
                     <li><a href="#">Acessórios</a></li>
                     <li><a href="#">Pet Shop</a></li>
-                    <li><a href="#">Eletronicos</a></li>
+                    <li><a href="#">Eletrônicos</a></li>
                 </ul>
             </div>
-
             <div class="footer-coll">
                 <h3>SUPORTE</h3>
                 <ul>
                     <li><a href="#">Podemos Ajudar</a></li>
-                    <li><a href="#">Atendimento a Clinte</a></li>
-                    <li><a href="#">Dúvida Frequente</a></li>
+                    <li><a href="#">Atendimento ao Cliente</a></li>
+                    <li><a href="#">Dúvidas Frequentes</a></li>
                     <li><a href="#">Como Comprar</a></li>
                     <li><a href="#">Entregas e Fretes</a></li>
                     <li><a href="#">Opções de Pagamento</a></li>
                     <li><a href="#">Troca e Devolução</a></li>
                 </ul>
             </div>
-
             <div class="footer-coll">
                 <h3>INFORMAÇÃO CORPORATIVA</h3>
                 <ul>
@@ -771,11 +567,9 @@
                 </ul>
             </div>
         </div>
-
         <div class="footer-bottom">
-            <p>&copy; 2026 MarketPlace - Todos os direitos resevados</p>
+            <p>&copy; 2026 MarketPlace - Todos os direitos reservados</p>
         </div>
-
     </footer>
 
     <script src="assets/js/modelo.js"></script>
@@ -786,5 +580,4 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_API&libraries=places"></script>
 
 </body>
-
 </html>
