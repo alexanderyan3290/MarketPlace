@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/telas.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- ===================== TOPO FIXO ===================== -->
+    <div class="top-fixed">
+
+        <!-- BARRA DE OFERTAS -->
+        <div class="offers-bar">
+            <div class="promo-track">
+                <div class="promo">
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
+                    <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
+                    <p><span>20%</span> OFF NO PIX</p>
+                    <p>PARCELE ATÉ 3X SEM JUROS</p>
+                </div>
+                <div class="promo">
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
+                    <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
+                    <p><span>20%</span> OFF NO PIX</p>
+                    <p>PARCELE ATÉ 3X SEM JUROS</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU PRINCIPAL -->
+        <nav class="main-header">
+            <div class="menu-toggle">
+                <i class='bx bx-menu-alt-left'></i>
+            </div>
+            <div class="logo">
+                <img src="assets/img/marketplace.png" alt="">
+                <span>MarketPlace</span>
+            </div>
+            <div class="main-nav">
+                <a href="#">MASCULINO</a>
+                <a href="#">FEMININO</a>
+                <a href="#">INFANTIL</a>
+                <a href="#">ESPORTE</a>
+            </div>
+            <div class="header-icons">
+                <i class='bx bx-search-alt-2 search-btn'></i>
+                <div class="favorite-menu">
+                    <i class='bx bx-heart' id="favBtn"></i>
+                    <span id="favCount">0</span>
+                </div>
+                <i class='bx bx-shopping-bag' id="bagBtn"></i>
+                <div class="perfil-menu">
+                    <span>Olá, alexander</span>
+                    <i class='bx bx-user'></i>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ===================== BUSCA ===================== -->
+    <div class="search-container">
+        <div class="search-header">
+            <div class="search-logo">
+                <img src="assets/img/marketplace.png" alt="">
+            </div>
+            <div class="search-input-area">
+                <i class='bx bx-search'></i>
+                <input type="text" class="search-box" placeholder="Buscar produtos...">
+            </div>
+            <button class="close-search">Cancelar</button>
+        </div>
+        <div class="search-products">
+            <div class="search-layout">
+
+                <aside class="sidebar-category active">
+                    <button class="sidebar-btn">Moda</button>
+                    <div class="sidebar-submenu">
+                        <a href="">Camisetas</a>
+                        <a href="">Tênis</a>
+                    </div>
+                </aside>
+            </div>
+            <h3>Produtos sugeridos</h3>
+            <div class="products-space"></div>
+        </div>
+    </div>
+
+    <!-- ===================== PAINEL FAVORITOS ===================== -->
+    <div class="fav-panel">
+        <div class="fav-top">
+            <h2>Favoritos</h2>
+            <span id="closeFav" class="close-fav">&times;</span>
+        </div>
+        <div id="favItems" class="favItems"></div>
+    </div>
+
+    <!-- ===================== PAINEL SACOLA ===================== -->
+    <div class="bag-panel" id="bagPanel">
+        <div class="bag-top">
+            <h2>Sua Sacola</h2>
+            <i class='bx bx-x close-bag' id="closeBag"></i>
+        </div>
+        <div class="bagItems" id="bagItems">
+            <div class="empty-bag">
+                <p>Nenhum produto adicionado</p>
+            </div>
+        </div>
+        <div class="bag-footer">
+            <div class="total">
+                <h3>Total</h3>
+                <span id="totalPrice">R$ 0,00</span>
+            </div>
+            <button class="finish-btn" id="finishBtn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- ===================== BANNERS ===================== -->
+    <section class="banners">
+        <div class="slide active slide1">
+
+            <div class="biblioteca-img">
+                <img src="../assets/img/biblioteca.jpeg" alt="">
+            </div>
+
+            <div class="overlay"></div>
+
+            <div class="biblioteca-content1 animate-up">
+                <h1>BIBLIOTECA <br> COMUNITÁRIA</h1>
+
+                <p>Conhecimento que transforma. <br>Comunidade que cresce.</p>
+
+                <div class="icones">
+                    <div class="infor">
+                        <i class="bx bx-book-open"></i>
+                        <span>Aprenda</span>
+                    </div>
+
+                    <div class="infor">
+                        <i class="bx bx-group"></i>
+                        <span>Compartilhe</span>
+                    </div>
+
+                    <div class="infor">
+                        <i class="bx bx-heart"></i>
+                        <span>Transforme</span>
+                    </div>
+                </div>
+
+                <h2>Sua história pode começar<span>na próxima página.</span></h2>
+            </div>
+
+            <div class="circulo-info ">
+                <i class="bx bx-book-open"></i>
+                <p>Um espaço <br>aberto para
+                </p>
+                <strong>TODOS.</strong>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="categoria">
+        <div class="opcoes">
+            <i class='bx bx-closet'></i>
+            <span>Roupa</span>
+        </div>
+
+        <div class="opcoes">
+            <i class='bx bx-bed'></i>
+            <span>Móveis</span>
+        </div>
+
+        <div class="opcoes">
+            <i class='bx bx-restaurant'></i>
+            <span>comida</span>
+        </div>
+
+        <div class="opcoes">
+            <i class='bx bx-desktop'></i>
+            <span>Eletrônicos</span>
+        </div>
+
+        <div class="opcoes">
+            <i class='bx bx-joystick'></i>
+            <span>Brinquedos</span>
+        </div>
+
+        <div class="opcoes">
+            <i class='bx bxl-baidu'></i>
+            <span>Pet Shop</span>
+        </div>
+
+        <div class="opcoes">
+            <i class='bx bx-cycling'></i>
+            <span>Esporte</span>
+        </div>
+
+        <div class="opcoes">
+            <i class='bx bx-book'></i>
+            <span>Livros</span>
+        </div>
+    </div>
+
+
+    <!-- ===================== PRODUTOS 01 ===================== -->
+    <section class="main-offers animate">
+        <div class="container" id="produtos-container01"></div>
+    </section>
+
+    <script src="/assets/js/telas.js"></script>
+    <script src="/assets/js/favorito.js"></script>
+    <script src="/assets/js/sacola.js"></script>
+</body>
+
+</html>
