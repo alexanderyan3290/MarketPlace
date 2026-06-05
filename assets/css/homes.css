@@ -5,9 +5,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&family=Permanent+Marker&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 
-/* -------------------------------------------------------------
+/* =============================================================
+   VARIÁVEIS GLOBAIS
+   ============================================================= */
+
+:root {
+    --cor-primaria: rgb(245, 60, 3);
+    --cor-hover: rgb(188, 131, 8);
+    --cor-fundo: #f3f5fa;
+    --cor-borda: #dcdde1;
+    --cor-sombra: rgba(0, 0, 0, 0.15);
+    --raio-painel: 18px;
+    --transicao: 0.3s ease;
+    --transicao-painel: 0.4s ease;
+}
+
+
+/* =============================================================
    RESET BÁSICO
-   ------------------------------------------------------------- */
+   ============================================================= */
 
 * {
     margin: 0;
@@ -16,31 +32,33 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-    background: #f3f5fa;
-}
-
 html,
-body{
+body {
     overflow-x: hidden;
 }
 
-body.loading{
+body {
+    background: var(--cor-fundo);
+    /* Compensa a altura do header fixo (barra de ofertas ~40px + menu ~66px) */
+    padding-top: 106px;
+}
+
+body.loading {
     overflow: hidden;
     height: 100vh;
 }
 
 
-/* -------------------------------------------------------------
+/* =============================================================
    TELA DE CARREGAMENTO (SPLASH)
-   ------------------------------------------------------------- */
+   ============================================================= */
 
 .splash {
     position: fixed;
     inset: 0;
     overflow: hidden;
     touch-action: none;
-    background: white;
+    background: #e9f0ff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,34 +75,42 @@ body.loading{
     font-size: 30px;
     font-weight: bold;
     color: #d11f00;
-    border-radius: 4px solid #111;
     padding-right: 5px;
     animation: blink .7s infinite;
 }
 
 
-/* -------------------------------------------------------------
-   HEADER
-   ------------------------------------------------------------- */
+/* =============================================================
+   HEADER & NAVEGAÇÃO
+   ============================================================= */
 
 .top-fixed {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10000;
+    z-index: 9999;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
+/* Classe adicionada pelo JS ao rolar para baixo */
+.top-fixed.hidden {
+    transform: translateY(-100%);
+}
+
+/* Classe adicionada pelo JS ao sair do topo */
+.top-fixed.scrolled {
+    box-shadow: 0 4px 20px var(--cor-sombra);
+}
+
+/* .main-header é apenas layout interno — sem position próprio */
 .main-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    border-bottom: 1px solid #dcdde1;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: #f3f5fa;
+    border-bottom: 1px solid var(--cor-borda);
+    background: var(--cor-fundo);
 }
 
 .menu-toggle {
@@ -94,14 +120,14 @@ body.loading{
 .logo {
     font-size: clamp(18px, 2vw, 28px);
     font-weight: bold;
-    color: rgb(245, 60, 3);
+    color: var(--cor-primaria);
 }
 
 .main-nav {
     display: flex;
-    font-size: clamp(14px, 1.2vw, 18px);
     list-style: none;
     gap: 20px;
+    font-size: clamp(14px, 1.2vw, 18px);
 }
 
 .main-nav a {
@@ -109,18 +135,19 @@ body.loading{
     color: black;
     font-family: 'Fira Sans', sans-serif;
     font-weight: 600;
+    transition: color var(--transicao);
 }
 
 .main-nav a:hover {
-    color: rgb(188, 131, 8);
+    color: var(--cor-hover);
 }
 
 .header-icons {
     display: flex;
-    color: black;
     align-items: center;
     gap: 20px;
     font-size: clamp(16px, 1.5vw, 22px);
+    color: black;
     cursor: pointer;
 }
 
@@ -130,10 +157,10 @@ body.loading{
     border: none;
     padding: 10px 20px;
     font-size: 14px;
-    gap: 5px;
     border-radius: 30px;
     font-weight: 200;
     cursor: pointer;
+    transition: background var(--transicao);
 }
 
 .btn-login:hover {
@@ -141,9 +168,9 @@ body.loading{
 }
 
 
-/* -------------------------------------------------------------
+/* =============================================================
    BARRA DE PESQUISA
-   ------------------------------------------------------------- */
+   ============================================================= */
 
 .search-container {
     position: fixed;
@@ -225,9 +252,124 @@ body.loading{
 }
 
 
-/* -------------------------------------------------------------
-   FAVORITOS — ÍCONE DO MENU
-   ------------------------------------------------------------- */
+/* =============================================================
+   PAINÉIS LATERAIS — BASE COMPARTILHADA
+   ============================================================= */
+
+.fav-panel,
+.bag-panel {
+    position: fixed;
+    top: 106px;
+    right: -420px;
+    width: 420px;
+    height: calc(100vh - 106px);
+    background: #fff;
+    box-shadow: -10px 0 30px var(--cor-sombra);
+    z-index: 9999;
+    transition: var(--transicao-painel);
+    display: flex;
+    flex-direction: column;
+}
+
+body.fav-open .fav-panel,
+body.bag-open .bag-panel {
+    right: 0;
+}
+
+.fav-top,
+.bag-top {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fav-top h2,
+.bag-top h2 {
+    font-size: 24px;
+    color: #111;
+}
+
+.close-fav,
+.close-bag {
+    font-size: 30px;
+    cursor: pointer;
+    color: #555;
+}
+
+.favItems,
+.bagItems {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.favItems::-webkit-scrollbar,
+.bagItems::-webkit-scrollbar {
+    width: 6px;
+}
+
+.favItems::-webkit-scrollbar-thumb,
+.bagItems::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.fav-item,
+.bag-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: var(--raio-painel);
+    margin-bottom: 15px;
+    background: #fafafa;
+}
+
+.fav-item img,
+.bag-item img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    background: #f3f3f3;
+    border-radius: 12px;
+}
+
+.fav-info,
+.bag-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fav-info h4,
+.bag-info h4 {
+    font-size: 15px;
+    color: #111;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.fav-price,
+.bag-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+.empty-fav,
+.empty-bag {
+    text-align: center;
+    margin-top: 50px;
+    color: #777;
+}
+
+
+/* =============================================================
+   FAVORITOS — ESPECÍFICO
+   ============================================================= */
 
 .favorite-menu {
     position: relative;
@@ -259,91 +401,11 @@ body.loading{
     justify-content: center;
 }
 
-
-/* -------------------------------------------------------------
-   FAVORITOS — PAINEL LATERAL
-   ------------------------------------------------------------- */
-
-.fav-panel {
-    position: fixed;
-    top: 106px;
-    right: -420px;
-    width: 420px;
-    height: calc(100vh - 106px);
-    background: #fff;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
-    z-index: 9999;
-    transition: .4s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-body.fav-open .fav-panel {
-    right: 0;
-}
-
-.fav-top {
-    padding: 20px;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.fav-top h2 {
-    font-size: 24px;
-    color: #111;
-}
-
-.close-fav {
-    font-size: 30px;
-    cursor: pointer;
-    color: #555;
-}
-
-.favItems {
-    flex: 1;
-    overflow-y: auto;
-    padding: 20px;
-}
-
 .fav-item {
-    display: flex;
-    gap: 15px;
-    padding: 15px;
-    border: 1px solid #eee;
-    border-radius: 18px;
-    margin-bottom: 15px;
-    background: #fafafa;
     position: relative;
 }
 
-.fav-item img {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-    background: #f3f3f3;
-    border-radius: 12px;
-}
-
-.fav-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.fav-info h4 {
-    font-size: 15px;
-    color: #111;
-    line-height: 1.4;
-    margin-bottom: 8px;
-}
-
-.fav-price {
-    font-size: 18px;
-    font-weight: bold;
-    color: #000;
+.fav-info .fav-price {
     margin-bottom: 12px;
 }
 
@@ -358,7 +420,7 @@ body.fav-open .fav-panel {
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: .3s;
+    transition: var(--transicao);
 }
 
 .fav-bag-btn:hover {
@@ -376,136 +438,20 @@ body.fav-open .fav-panel {
     font-size: 20px;
 }
 
-.empty-fav {
-    text-align: center;
-    margin-top: 50px;
-    color: #777;
-}
 
-.favItems::-webkit-scrollbar { width: 6px; }
-.favItems::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
-
-
-/* -------------------------------------------------------------
-   CORAÇÃO — CARD DE PRODUTO
-   ------------------------------------------------------------- */
-
-/* Painel lateral (display: block/none) */
-.heart .cheio  { display: none; }
-.heart .vazio  { display: block; }
-.heart.ativo .vazio { display: none; }
-.heart.ativo .cheio { display: block; }
-
-/* Card grid (opacity) */
-.heart {
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-}
-
-.heart i {
-    font-size: 28px;
-    position: absolute;
-    transition: opacity 0.2s ease;
-}
-
-.heart .cheio  { opacity: 0; }
-.heart .vazio  { opacity: 1; }
-
-.heart:not(.ativo):hover .vazio { opacity: 0; }
-.heart:not(.ativo):hover .cheio { opacity: 1; }
-
-.heart.ativo .vazio { opacity: 0; }
-.heart.ativo .cheio { opacity: 1; }
-
-
-/* -------------------------------------------------------------
-   SACOLA — PAINEL LATERAL
-   ------------------------------------------------------------- */
-
-.bag-panel {
-    position: fixed;
-    top: 106px;
-    right: -420px;
-    width: 420px;
-    height: calc(100vh - 106px);
-    background: #fff;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
-    z-index: 9999;
-    transition: .4s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-body.bag-open .bag-panel {
-    right: 0;
-}
-
-.bag-top {
-    padding: 20px;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.bag-top h2 {
-    font-size: 24px;
-    color: #111;
-}
+/* =============================================================
+   SACOLA — ESPECÍFICO
+   ============================================================= */
 
 .close-bag {
     font-size: 28px;
-    cursor: pointer;
-    color: #555;
-}
-
-.bagItems {
-    flex: 1;
-    overflow-y: auto;
-    padding: 20px;
-}
-
-.bag-item {
-    display: flex;
-    gap: 15px;
-    padding: 15px;
-    border: 1px solid #eee;
-    border-radius: 18px;
-    margin-bottom: 15px;
-    background: #fafafa;
-}
-
-.bag-item img {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-    background: #f3f3f3;
-    border-radius: 12px;
 }
 
 .bag-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
 }
 
-.bag-info h4 {
-    font-size: 15px;
-    color: #111;
-    line-height: 1.4;
-}
-
-.bag-price {
-    font-size: 18px;
-    font-weight: bold;
-    color: #000;
+.bag-info .bag-price {
     margin-top: 6px;
 }
 
@@ -555,8 +501,14 @@ body.bag-open .bag-panel {
     margin-bottom: 15px;
 }
 
-.total h3 { font-size: 18px; }
-.total span { font-size: 22px; font-weight: bold; }
+.total h3 {
+    font-size: 18px;
+}
+
+.total span {
+    font-size: 22px;
+    font-weight: bold;
+}
 
 .finish-btn {
     width: 100%;
@@ -568,21 +520,58 @@ body.bag-open .bag-panel {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: .3s;
+    transition: var(--transicao);
 }
 
-.finish-btn:hover { background: #c53f09; }
-
-.empty-bag {
-    text-align: center;
-    margin-top: 50px;
-    color: #777;
+.finish-btn:hover {
+    background: #c53f09;
 }
 
-.bagItems::-webkit-scrollbar { width: 6px; }
-.bagItems::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
 
-/* Sacola — ícone card */
+/* =============================================================
+   CORAÇÃO — ÍCONE DE FAVORITO
+   ============================================================= */
+
+.heart {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+.heart i {
+    font-size: 28px;
+    position: absolute;
+    transition: opacity 0.2s ease;
+}
+
+.heart .cheio {
+    opacity: 0;
+}
+
+.heart .vazio {
+    opacity: 1;
+}
+
+.heart:not(.ativo):hover .vazio,
+.heart.ativo .vazio {
+    opacity: 0;
+}
+
+.heart:not(.ativo):hover .cheio,
+.heart.ativo .cheio {
+    opacity: 1;
+}
+
+
+/* =============================================================
+   SACOLA — ÍCONE DO CARD
+   ============================================================= */
+
 .bag {
     width: 35px;
     height: 35px;
@@ -593,20 +582,33 @@ body.bag-open .bag-panel {
     position: relative;
 }
 
-.bag i { font-size: 24px; position: absolute; }
-.bag .vazio  { opacity: 1; }
-.bag .cheio  { opacity: 0; }
+.bag i {
+    font-size: 24px;
+    position: absolute;
+}
+
+.bag .vazio {
+    opacity: 1;
+}
+
+.bag .cheio {
+    opacity: 0;
+}
 
 .bag:hover .vazio,
-.bag.ativo  .vazio { opacity: 0; }
+.bag.ativo .vazio {
+    opacity: 0;
+}
 
 .bag:hover .cheio,
-.bag.ativo  .cheio { opacity: 1; }
+.bag.ativo .cheio {
+    opacity: 1;
+}
 
 
-/* -------------------------------------------------------------
+/* =============================================================
    MODAL — LOGIN
-   ------------------------------------------------------------- */
+   ============================================================= */
 
 .login-modal {
     position: fixed;
@@ -619,7 +621,7 @@ body.bag-open .bag-panel {
     z-index: 999999;
     opacity: 0;
     visibility: hidden;
-    transition: 0.3s;
+    transition: var(--transicao);
 }
 
 .login-modal.active {
@@ -677,7 +679,9 @@ body.bag-open .bag-panel {
     font-size: 15px;
 }
 
-.login-box input::placeholder { color: #a19d9d; }
+.login-box input::placeholder {
+    color: #a19d9d;
+}
 
 .btn-entrar {
     width: 100%;
@@ -694,7 +698,7 @@ body.bag-open .bag-panel {
     flex-direction: column;
     gap: 5px;
     text-decoration: none;
-    transition: 0.3s;
+    transition: var(--transicao);
 }
 
 .btn-entrar:hover {
@@ -725,7 +729,9 @@ body.bag-open .bag-panel {
     text-decoration: none;
 }
 
-.trocar-senha:hover { color: black; }
+.trocar-senha:hover {
+    color: black;
+}
 
 .fechar {
     position: absolute;
@@ -737,14 +743,21 @@ body.bag-open .bag-panel {
 }
 
 @keyframes aparecer {
-    from { transform: scale(0.9); opacity: 0; }
-    to   { transform: scale(1);   opacity: 1; }
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 
-/* -------------------------------------------------------------
+/* =============================================================
    MODAL — CADASTRO
-   ------------------------------------------------------------- */
+   ============================================================= */
 
 .cadastro-modal {
     position: fixed;
@@ -762,7 +775,7 @@ body.bag-open .bag-panel {
     z-index: 999999;
     opacity: 0;
     visibility: hidden;
-    transition: 0.3s;
+    transition: var(--transicao);
 }
 
 .cadastro-modal.active {
@@ -780,10 +793,12 @@ body.bag-open .bag-panel {
     z-index: 10000;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
     transform: scale(0.9);
-    transition: 0.3s;
+    transition: var(--transicao);
 }
 
-.cadastro-modal.active .cadastro-card { transform: scale(1); }
+.cadastro-modal.active .cadastro-card {
+    transform: scale(1);
+}
 
 .cadastro-card h2 {
     text-align: center;
@@ -827,7 +842,7 @@ body.bag-open .bag-panel {
     padding: 0 18px;
     outline: none;
     font-size: 15px;
-    transition: 0.3s;
+    transition: var(--transicao);
 }
 
 .cadastro-box input:focus {
@@ -835,7 +850,9 @@ body.bag-open .bag-panel {
     box-shadow: 0 0 10px rgba(255, 128, 74, 0.2);
 }
 
-.cpf-box { display: none; }
+.cpf-box {
+    display: none;
+}
 
 .mostrar-senha {
     position: absolute;
@@ -869,7 +886,9 @@ body.bag-open .bag-panel {
     transition: 0.35s ease;
 }
 
-.slider.vendedor { left: 50%; }
+.slider.vendedor {
+    left: 50%;
+}
 
 .tipo-conta button {
     width: 50%;
@@ -881,10 +900,12 @@ body.bag-open .bag-panel {
     font-size: 17px;
     font-weight: 600;
     color: #444;
-    transition: 0.3s;
+    transition: var(--transicao);
 }
 
-.tipo-conta button.ativo { color: #fff; }
+.tipo-conta button.ativo {
+    color: #fff;
+}
 
 .termos {
     width: 100%;
@@ -909,7 +930,9 @@ body.bag-open .bag-panel {
     font-weight: 600;
 }
 
-.termos a:hover { text-decoration: underline; }
+.termos a:hover {
+    text-decoration: underline;
+}
 
 .check-termos {
     display: flex;
@@ -917,7 +940,10 @@ body.bag-open .bag-panel {
     gap: 10px;
 }
 
-.check-termos label { font-size: 14px; color: #333; }
+.check-termos label {
+    font-size: 14px;
+    color: #333;
+}
 
 .btn-criar {
     width: 100%;
@@ -929,15 +955,17 @@ body.bag-open .bag-panel {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    transition: var(--transicao);
 }
 
-.btn-criar:hover { background: #cf2a08; }
+.btn-criar:hover {
+    background: #cf2a08;
+}
 
 
-/* -------------------------------------------------------------
+/* =============================================================
    BANNERS (HERO / CARROSSEL)
-   ------------------------------------------------------------- */
+   ============================================================= */
 
 .hero {
     min-height: 600px;
@@ -959,7 +987,9 @@ body.bag-open .bag-panel {
     justify-content: center;
 }
 
-.slide.active { opacity: 1; }
+.slide.active {
+    opacity: 1;
+}
 
 .dots {
     position: absolute;
@@ -977,7 +1007,7 @@ body.bag-open .bag-panel {
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.4);
     cursor: pointer;
-    transition: 0.3s;
+    transition: var(--transicao);
 }
 
 .dot.active {
@@ -1034,7 +1064,7 @@ body.bag-open .bag-panel {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    transition: 0.3s;
+    transition: var(--transicao);
 }
 
 .btn-primary i {
@@ -1044,7 +1074,9 @@ body.bag-open .bag-panel {
     border-radius: 20px;
 }
 
-.btn-primary:hover { width: 300px; }
+.btn-primary:hover {
+    width: 300px;
+}
 
 .img-primary {
     position: absolute;
@@ -1178,11 +1210,17 @@ body.bag-open .bag-panel {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    transition: 0.3s;
+    transition: var(--transicao);
 }
 
-.btn-secondary i { color: white; font-size: 20px; }
-.btn-secondary:hover { width: 210px; }
+.btn-secondary i {
+    color: white;
+    font-size: 20px;
+}
+
+.btn-secondary:hover {
+    width: 210px;
+}
 
 .circle-bg {
     position: absolute;
@@ -1190,6 +1228,7 @@ body.bag-open .bag-panel {
     height: 600px;
     border-radius: 50%;
     background: #3d4f39;
+    box-shadow: 1px 5px 20px 20px #ffffffbf;
     right: -50px;
     top: -40px;
     z-index: 0;
@@ -1212,9 +1251,21 @@ body.bag-open .bag-panel {
     border: 1px solid white;
 }
 
-.discount-circle span { font-size: 14px; letter-spacing: 3px; }
-.discount-circle h2  { font-size: 60px; margin: 0; line-height: 1; }
-.discount-circle p   { font-size: 24px; margin: 0; }
+.discount-circle span {
+    font-size: 14px;
+    letter-spacing: 3px;
+}
+
+.discount-circle h2 {
+    font-size: 60px;
+    margin: 0;
+    line-height: 1;
+}
+
+.discount-circle p {
+    font-size: 24px;
+    margin: 0;
+}
 
 /* --- Slide 3 --- */
 
@@ -1293,7 +1344,6 @@ body.bag-open .bag-panel {
 .img-tertiary2 img {
     width: 400px;
     margin-top: 20px;
-    align-items: end;
 }
 
 .button3 {
@@ -1315,11 +1365,17 @@ body.bag-open .bag-panel {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    transition: 0.3s;
+    transition: var(--transicao);
 }
 
-.btn-tertiary i { color: white; font-size: 20px; }
-.btn-tertiary:hover { width: 210px; }
+.btn-tertiary i {
+    color: white;
+    font-size: 20px;
+}
+
+.btn-tertiary:hover {
+    width: 210px;
+}
 
 .circle-bh {
     position: absolute;
@@ -1344,9 +1400,9 @@ body.bag-open .bag-panel {
 }
 
 
-/* -------------------------------------------------------------
+/* =============================================================
    BARRA DE OFERTAS (TICKER)
-   ------------------------------------------------------------- */
+   ============================================================= */
 
 .offers-bar {
     overflow: hidden;
@@ -1366,18 +1422,30 @@ body.bag-open .bag-panel {
     gap: 60px;
 }
 
-.promo p    { font-weight: 300; color: black; }
-.promo span { color: #40c959; font-weight: bold; }
+.promo p {
+    font-weight: 300;
+    color: black;
+}
+
+.promo span {
+    color: #40c959;
+    font-weight: bold;
+}
 
 @keyframes scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 
-/* -------------------------------------------------------------
+/* =============================================================
    BARRA DE INFORMAÇÕES
-   ------------------------------------------------------------- */
+   ============================================================= */
 
 .filtro {
     margin: 20px;
@@ -1399,9 +1467,18 @@ body.bag-open .bag-panel {
     padding: 5px 10px;
 }
 
-.item span { font-size: 25px; }
-.item h4   { font-size: 15px; }
-.item p    { margin-top: 10px; font-size: 13px; }
+.item span {
+    font-size: 25px;
+}
+
+.item h4 {
+    font-size: 15px;
+}
+
+.item p {
+    margin-top: 10px;
+    font-size: 13px;
+}
 
 .info {
     display: flex;
@@ -1416,9 +1493,9 @@ body.bag-open .bag-panel {
 }
 
 
-/* -------------------------------------------------------------
+/* =============================================================
    CARDS DE PRODUTO
-   ------------------------------------------------------------- */
+   ============================================================= */
 
 .container {
     display: grid;
@@ -1472,14 +1549,6 @@ body.bag-open .bag-panel {
     object-fit: contain;
 }
 
-.info {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 10px;
-    flex: 1;
-}
-
 .titulo {
     font-size: 18px;
     font-weight: 600;
@@ -1520,19 +1589,22 @@ body.bag-open .bag-panel {
     border-radius: 6px;
     width: fit-content;
     z-index: 10;
+    display: block;
+    gap: unset;
+    animation: none;
 }
 
 
-/* -------------------------------------------------------------
+/* =============================================================
    DASHBOARD DE VENDEDORES
-   ------------------------------------------------------------- */
+   ============================================================= */
 
-/* ===================== Pefil de venderes e suas metas =====================*/
 .seller-deshboard {
-    background: linear-gradient(to bottom, #031328, #acbeca);
+    background: linear-gradient(to bottom, #a30303, #410101);
     justify-content: center;
+    border-radius: 15px;
     gap: 20px;
-    margin: 90px 0;
+    margin: 90px 10px;
     padding: 50px;
 }
 
@@ -1564,9 +1636,16 @@ body.bag-open .bag-panel {
     color: #111;
 }
 
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px 0;
+}
+
 .stars i {
-    background: linear-gradient(to right, #cc9743, #fff200);
-    font-size: 20px;
+    font-size: 26px;
+    background: #f8df02;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -1584,8 +1663,8 @@ body.bag-open .bag-panel {
     width: 0%;
     height: 100%;
     border-radius: 999px;
+    background: linear-gradient(90deg, #06175b, #018cf7);
     transition: width 1s ease;
-    background: linear-gradient(90deg, #6366f1, #3b82f6);
 }
 
 .slider-vendedores {
@@ -1598,7 +1677,6 @@ body.bag-open .bag-panel {
     transition: transform 0.8s ease-in-out;
 }
 
-/* GRUPO — layout em coluna */
 .grupo {
     min-width: 100%;
     display: flex;
@@ -1608,13 +1686,11 @@ body.bag-open .bag-panel {
     padding: 20px 0;
 }
 
-/* META — card largo em cima */
 .card-vendedor.meta {
     width: 720px;
     height: 100px;
 }
 
-/* LINHA INFERIOR — 3 cards iguais */
 .linha-inferior {
     display: flex;
     flex-direction: row;
@@ -1625,12 +1701,150 @@ body.bag-open .bag-panel {
 .linha-inferior .card-vendedor {
     flex: 1;
     width: auto;
-    height: 200px;
+    height: 230px;
 }
 
-/* -------------------------------------------------------------
+.card-vendedor.avaliacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card-vendedor.avaliacao h3 {
+    position: absolute;
+    font-size: 18px;
+    color: #6b7280;
+    margin-bottom: 15px;
+}
+
+.nota-grande {
+    font-size: 70px;
+    font-weight: bold;
+    color: black;
+    line-height: 1;
+    margin: 10px 0;
+}
+
+.texto-avaliacoes p {
+    font-size: 18px;
+    color: #9ca3af;
+    margin-top: 10px;
+}
+
+.texto-avaliacoes strong {
+    color: #6b7280;
+}
+
+.card-vendedor.distribuicao {
+    display: flex;
+    flex-direction: column;
+}
+
+.lista-distribuicao {
+    margin-top: 10px;
+}
+
+.linha-avaliacao {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.estrelas-dist {
+    width: 30px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    color: #111;
+}
+
+.estrelas-dist i {
+    font-size: 16px;
+    color: #efd80a;
+}
+
+.barra-distribuicao {
+    flex: 1;
+    height: 7px;
+    background: #e5e7eb;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.preenchido-distribuicao {
+    height: 100%;
+    border-radius: 999px;
+    background: black;
+    transition: .4s;
+}
+
+.quantidade {
+    min-width: 20px;
+    text-align: right;
+    color: #111;
+    font-weight: 500;
+}
+
+.reputacao_info {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.reputacao-item {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reputacao-texto {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.reputacao-texto i {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px;
+}
+
+.satisfacao {
+    color: #028f07;
+    background: #01f70928;
+    border-radius: 7px;
+}
+
+.recomendacao {
+    color: #78028f;
+    background: #e701f728;
+    border-radius: 7px;
+}
+
+.comentario {
+    color: #02048f;
+    background: #018cf728;
+    border-radius: 7px;
+}
+
+.reputacao-texto span {
+    font-size: 16px;
+    color: #393838;
+}
+
+.reputacao-item strong {
+    color: #000;
+    padding-left: 45px;
+}
+
+
+/* =============================================================
    ANIMAÇÃO AO SCROLL
-   ------------------------------------------------------------- */
+   ============================================================= */
 
 .animate {
     opacity: 0;
@@ -1644,9 +1858,9 @@ body.bag-open .bag-panel {
 }
 
 
-/* -------------------------------------------------------------
+/* =============================================================
    RODAPÉ
-   ------------------------------------------------------------- */
+   ============================================================= */
 
 .footer {
     background: linear-gradient(to top, rgb(46, 17, 3), rgb(231, 79, 3));
@@ -1663,7 +1877,9 @@ body.bag-open .bag-panel {
     margin: auto;
 }
 
-.footer-coll h3 { margin-bottom: 20px; }
+.footer-coll h3 {
+    margin-bottom: 20px;
+}
 
 .footer-coll p {
     color: #bbbbbbb6;
@@ -1671,16 +1887,23 @@ body.bag-open .bag-panel {
     line-height: 1.5;
 }
 
-.footer-coll ul { list-style: none; }
-.footer-coll ul li { margin-bottom: 15px; }
+.footer-coll ul {
+    list-style: none;
+}
+
+.footer-coll ul li {
+    margin-bottom: 15px;
+}
 
 .footer-coll ul li a {
     color: #bbb;
     text-decoration: none;
-    transition: 0.3s;
+    transition: var(--transicao);
 }
 
-.footer-coll ul li a:hover { color: rgb(255, 242, 0); }
+.footer-coll ul li a:hover {
+    color: rgb(255, 242, 0);
+}
 
 .footer-bottom {
     text-align: center;
@@ -1696,22 +1919,12 @@ body.bag-open .bag-panel {
    RESPONSIVO
    ============================================================= */
 
-/* -------------------------------------------------------------
-   MOBILE  (≤ 480px)
-   ------------------------------------------------------------- */
+@media (max-width: 1024px) {
 
-@media (max-width: 480px) {
-
-    /* Ofertas */
-    .offers-bar { padding: 15px 0; }
-
-    .promo p {
-        font-weight: 200;
-        font-size: 20px;
-        font-family: "Bebas Neue", sans-serif;
+    body {
+        padding-top: 95px;
     }
 
-    /* Header */
     .main-header {
         display: grid;
         grid-template-columns: auto 1fr auto;
@@ -1720,65 +1933,25 @@ body.bag-open .bag-panel {
     }
 
     .menu-toggle {
-        font-size: 25px;
-        color: white;
-        justify-self: start;
         display: block;
+        justify-self: start;
+        color: white;
     }
 
-    .main-nav { display: none; }
+    .main-nav {
+        display: none;
+    }
 
     .logo {
         display: flex;
         justify-self: center;
         align-items: center;
-        font-size: 20px;
     }
 
-    .header-icons {
-        display: flex;
-        justify-content: flex-end;
-        gap: 20px;
-        font-size: 22px;
-    }
-
-    .btn-login { padding: 7px 15px; font-size: 14px; }
-
-    /* Painéis laterais */
-    .fav-panel,
-    .bag-panel {
-        width: 100%;
-        right: -100%;
-        top: 95px;
-        height: calc(100vh - 95px);
-    }
-
-    .fav-item,
-    .bag-item { gap: 12px; }
-
-    .fav-item img,
-    .bag-item img { width: 75px; height: 75px; }
-
-    .fav-info h4,
-    .bag-info h4 { font-size: 14px; }
-
-    .fav-price,
-    .bag-price { font-size: 16px; }
-
-    /* Modal login */
-    .login-card { width: 90%; padding: 25px; }
-    .login-card h2 { font-size: 26px; }
-
-    /* Modal cadastro */
-    .cadastro-card { width: 92%; padding: 25px; }
-
-    /* Hero */
     .hero {
         height: 80px;
         min-height: 500px;
         overflow: hidden;
-        align-items: center;
-        justify-content: center;
     }
 
     .img-primary {
@@ -1800,7 +1973,6 @@ body.bag-open .bag-panel {
     .overlay {
         position: absolute;
         inset: 0;
-        background: rgba(0, 0, 0, 0.35);
         z-index: 1;
     }
 
@@ -1819,7 +1991,11 @@ body.bag-open .bag-panel {
         -webkit-text-fill-color: transparent;
     }
 
-    .hero-content p { font-size: 14px; margin-top: 15px; color: #eee; }
+    .hero-content p {
+        font-size: 14px;
+        margin-top: 15px;
+        color: #eee;
+    }
 
     .buttons {
         display: flex;
@@ -1830,16 +2006,131 @@ body.bag-open .bag-panel {
 
     .btn-primary,
     .btn-secondary {
-        padding: 10px 50px;
         border-radius: 10px;
         font-weight: bold;
         border: none;
     }
 
-    .btn-primary  { background: white; color: black; }
-    .btn-secondary { background: transparent; color: white; border: 1px solid white; }
+    .btn-primary {
+        background: white;
+        color: black;
+    }
 
-    /* Filtro */
+    .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 1px solid white;
+    }
+
+    .fav-panel,
+    .bag-panel {
+        width: 100%;
+        right: -100%;
+        top: 95px;
+        height: calc(100vh - 95px);
+    }
+
+    .fav-item img,
+    .bag-item img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .fav-info h4,
+    .bag-info h4 {
+        font-size: 14px;
+    }
+
+    .fav-price,
+    .bag-price {
+        font-size: 16px;
+    }
+
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .card {
+        min-height: 260px;
+    }
+
+    .titulo {
+        font-size: 14px;
+        min-height: 40px;
+    }
+
+    .categoria {
+        font-size: 11px;
+    }
+
+    .preco-atual {
+        font-size: 16px;
+    }
+
+    .preco-antigo {
+        font-size: 12px;
+    }
+
+    .card .promo {
+        font-size: 12px;
+    }
+}
+
+/* -------------------------------------------------------------
+   MOBILE  (≤ 480px)
+   ------------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+    .offers-bar {
+        padding: 15px 0;
+    }
+
+    .promo p {
+        font-weight: 200;
+        font-size: 20px;
+        font-family: "Bebas Neue", sans-serif;
+    }
+
+    .menu-toggle {
+        font-size: 25px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .header-icons {
+        justify-content: flex-end;
+        gap: 20px;
+        font-size: 22px;
+    }
+
+    .btn-login {
+        padding: 7px 15px;
+        font-size: 14px;
+    }
+
+    .login-card {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .login-card h2 {
+        font-size: 26px;
+    }
+
+    .cadastro-card {
+        width: 92%;
+        padding: 25px;
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.35);
+    }
+
     .filtro {
         flex-direction: row;
         justify-content: space-between;
@@ -1848,31 +2139,29 @@ body.bag-open .bag-panel {
         flex-wrap: nowrap;
     }
 
-    .item { gap: 6px; flex: 1; min-width: 0; }
-    .item span i { font-size: 18px; }
-    .info h4 { font-size: 12px; }
-    .info p  { font-size: 10px; }
-
-    /* Produtos */
-    .container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        padding: 10px;
+    .item {
+        gap: 6px;
+        flex: 1;
+        min-width: 0;
     }
 
-    .card { min-height: 260px; }
+    .item span i {
+        font-size: 18px;
+    }
+
+    .info h4 {
+        font-size: 12px;
+    }
+
+    .info p {
+        font-size: 10px;
+    }
 
     .card:hover {
         border: 2px solid transparent;
         transform: none;
         box-shadow: none;
     }
-
-    .titulo       { font-size: 14px; min-height: 40px; }
-    .categoria    { font-size: 11px; }
-    .preco-atual  { font-size: 16px; }
-    .preco-antigo { font-size: 12px; }
-    .card .promo  { font-size: 12px; }
 
     .heart {
         position: absolute;
@@ -1882,14 +2171,11 @@ body.bag-open .bag-panel {
         -webkit-tap-highlight-color: transparent;
     }
 
-    .heart i { font-size: 28px; pointer-events: none; }
-
-    .heart .cheio       { opacity: 0; }
-    .heart .vazio       { opacity: 1; }
-    .heart.ativo .cheio { opacity: 1; }
-    .heart.ativo .vazio { opacity: 0; }
+    .heart i {
+        font-size: 28px;
+        pointer-events: none;
+    }
 }
-
 
 /* -------------------------------------------------------------
    TABLET  (481px – 1024px)
@@ -1897,109 +2183,32 @@ body.bag-open .bag-panel {
 
 @media (min-width: 481px) and (max-width: 1024px) {
 
-    /* Ofertas */
-    .offers-bar { padding: 12px 0; }
-    .promo p    { font-size: 15px; }
+    .offers-bar {
+        padding: 12px 0;
+    }
 
-    /* Header */
-    .main-header {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        align-items: center;
-        padding: 15px 20px;
+    .promo p {
+        font-size: 15px;
     }
 
     .menu-toggle {
         font-size: 25px;
-        color: white;
-        justify-self: start;
-        display: block;
     }
 
-    .main-nav { display: none; }
-
     .logo {
-        display: flex;
-        justify-self: center;
-        align-items: center;
         font-size: 35px;
     }
 
     .header-icons {
-        display: flex;
         justify-content: flex-end;
         gap: 20px;
         font-size: 25px;
     }
 
-    /* Hero */
-    .hero {
-        height: 80px;
-        min-height: 500px;
-        overflow: hidden;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .img-primary {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        bottom: 0;
-        left: 0;
-    }
-
-    .img-primary img {
-        width: 380px;
-        height: auto;
-        object-fit: contain;
-        object-position: center;
-        display: block;
-    }
-
     .overlay {
-        position: absolute;
-        inset: 0;
         background: rgba(0, 0, 0, 0.377);
-        z-index: 1;
     }
 
-    .hero-content {
-        position: absolute;
-        text-align: center;
-        bottom: 50px;
-        z-index: 2;
-        width: 90%;
-    }
-
-    .hero-content h1 {
-        font-size: 40px;
-        background: linear-gradient(90deg, #ffffff, #bcbbbb);
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .hero-content p { font-size: 14px; margin-top: 15px; color: white; }
-
-    .buttons {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 20px;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-        padding: 10px 70px;
-        border-radius: 10px;
-        font-weight: bold;
-        border: none;
-    }
-
-    .btn-primary  { background: white; color: black; }
-    .btn-secondary { background: transparent; color: white; border: 1px solid white; }
-
-    /* Filtro */
     .filtro {
         display: flex;
         align-items: center;
@@ -2015,7 +2224,11 @@ body.bag-open .bag-panel {
         width: 100%;
     }
 
-    .item span { font-size: 22px; display: flex; align-items: center; }
+    .item span {
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+    }
 
     .info {
         display: flex;
@@ -2024,21 +2237,16 @@ body.bag-open .bag-panel {
         text-align: left;
     }
 
-    .info h4 { margin: 0; font-weight: 100; }
-    .info p  { margin: 0; font-size: 14px; font-weight: 100; }
-
-    /* Produtos */
-    .container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        padding: 10px;
+    .info h4 {
+        font-weight: 100;
     }
 
-    .card          { min-height: 260px; }
-    .titulo        { font-size: 14px; min-height: 40px; }
-    .categoria     { font-size: 11px; }
-    .preco-atual   { font-size: 16px; }
-    .preco-antigo  { font-size: 12px; }
-    .card .promo   { font-size: 12px; }
-    .heart i       { font-size: 22px; }
+    .info p {
+        font-size: 14px;
+        font-weight: 100;
+    }
+
+    .heart i {
+        font-size: 22px;
+    }
 }
