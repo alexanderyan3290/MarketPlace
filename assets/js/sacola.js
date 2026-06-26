@@ -9,7 +9,7 @@ function adicionarSacolaFavorito(index){
     /* VERIFICA */
 
     const existe =
-        carrinho.find(item => item.nome === produto.nome);
+        carrinho.find(item => item.nome === produto.nome && item.tamanho === null && item.cor === null);
 
     if(existe){
 
@@ -38,7 +38,15 @@ function adicionarSacolaFavorito(index){
 
         precoTexto: produto.preco,
 
+        antigo: produto.antigo || null,
+
+        oferta: produto.oferta || null,
+
         img: produto.img,
+
+        tamanho: null,
+
+        cor: null,
 
         quantidade: 1
 
@@ -151,17 +159,23 @@ document.addEventListener("click", function(e){
     const img =
         card.querySelector("img").src;
 
+    const precoAntigoEl = card.querySelector(".preco-antigo");
+    const antigo = precoAntigoEl ? precoAntigoEl.innerText : null;
+
+    const promoEl = card.querySelector(".promo");
+    const oferta = promoEl ? promoEl.innerText : null;
+
     /* EXISTE */
 
     const produtoExistente =
-        carrinho.find(item => item.nome === nome);
+        carrinho.find(item => item.nome === nome && item.tamanho === null && item.cor === null);
 
     /* REMOVE */
 
     if(produtoExistente){
 
         carrinho =
-            carrinho.filter(item => item.nome !== nome);
+            carrinho.filter(item => !(item.nome === nome && item.tamanho === null && item.cor === null));
 
         bag.classList.remove("ativo");
 
@@ -176,7 +190,11 @@ document.addEventListener("click", function(e){
             nome,
             preco,
             precoTexto,
+            antigo,
+            oferta,
             img,
+            tamanho: null,
+            cor: null,
             quantidade: 1
 
         });
@@ -228,9 +246,11 @@ function atualizarSacola(){
 
     carrinho.forEach((produto, index) => {
 
-        total +=
-            produto.preco *
-            produto.quantidade;
+        const subtotal = produto.preco * produto.quantidade;
+
+        total += subtotal;
+
+        const subtotalTexto = "R$ " + subtotal.toFixed(2).replace(".", ",");
 
         bagItems.innerHTML += `
 
@@ -241,6 +261,11 @@ function atualizarSacola(){
             <div class="bag-info">
 
                 <h4>${produto.nome}</h4>
+
+                <div class="bag-variacoes">
+                    ${produto.tamanho ? `<span class="bag-tamanho">Tamanho: <strong>${produto.tamanho}</strong></span>` : ""}
+                    ${produto.cor ? `<span class="bag-cor">Cor: <strong>${produto.cor}</strong></span>` : ""}
+                </div>
 
                 <div class="bag-price">
 
@@ -264,6 +289,10 @@ function atualizarSacola(){
                         +
                     </button>
 
+                </div>
+
+                <div class="bag-subtotal">
+                    Total: <strong>${subtotalTexto}</strong>
                 </div>
 
                 <button
@@ -331,26 +360,98 @@ function removerItem(index){
     const nomeProduto =
         carrinho[index].nome;
 
+    const tamanhoProduto =
+        carrinho[index].tamanho;
+
+    const corProduto =
+        carrinho[index].cor;
+
     carrinho.splice(index, 1);
 
-    /* VOLTA ÍCONE */
+    /* VOLTA ÍCONE NOS CARDS (apenas para itens sem tamanho/cor) */
 
-    document.querySelectorAll(".card").forEach(card => {
+    if (tamanhoProduto === null && corProduto === null) {
+        document.querySelectorAll(".card").forEach(card => {
 
-        const titulo =
-            card.querySelector(".titulo").innerText;
+            const titulo =
+                card.querySelector(".titulo").innerText;
 
-        if(titulo === nomeProduto){
+            if(titulo === nomeProduto){
 
-            card
-            .querySelector(".bag")
-            .classList
-            .remove("ativo");
+                card
+                .querySelector(".bag")
+                .classList
+                .remove("ativo");
 
+            }
+
+        });
+    }
+
+    /* VOLTA ESTILO DO BOTÃO NA PÁGINA DE PRODUTO, se for o produto atual */
+
+    const btnCart = document.querySelector(".btn-cart");
+    if (btnCart) {
+        const raw = sessionStorage.getItem("produtoSelecionado");
+        if (raw) {
+            try {
+                const prodAtual = JSON.parse(raw);
+                if (prodAtual.nome === nomeProduto) {
+                    btnCart.textContent = "Adicionar ao carrinho";
+                    btnCart.style.background = "";
+                }
+            } catch (e) {}
         }
-
-    });
+    }
 
     atualizarSacola();
 
 }
+
+
+/* =====================================================
+   INTEGRAÇÃO COM A PÁGINA DE PRODUTO
+   (botão .btn-cart na tela de produto.html)
+===================================================== */
+
+document.addEventListener("adicionarNaSacola", (e) => {
+
+    const { nome, preco, antigo, oferta, img, tamanho, cor, quantidade } = e.detail;
+
+    const precoNumero = Number(
+        String(preco)
+            .replace("R$", "")
+            .replace(/\./g, "")
+            .replace(",", ".")
+            .trim()
+    );
+
+    const qtdSelecionada = quantidade && quantidade > 0 ? quantidade : 1;
+
+    const tamanhoFinal = tamanho || null;
+    const corFinal     = cor || null;
+
+    /* Produtos são considerados "iguais" se nome, tamanho E cor coincidirem */
+    const existente = carrinho.find(item =>
+        item.nome === nome && item.tamanho === tamanhoFinal && item.cor === corFinal
+    );
+
+    if (existente) {
+        existente.quantidade += qtdSelecionada;
+    } else {
+        carrinho.push({
+            nome,
+            preco: precoNumero,
+            precoTexto: preco,
+            antigo: antigo || null,
+            oferta: oferta || null,
+            img,
+            tamanho: tamanhoFinal,
+            cor: corFinal,
+            quantidade: qtdSelecionada
+        });
+    }
+
+    atualizarSacola();
+    document.body.classList.add("bag-open");
+});
