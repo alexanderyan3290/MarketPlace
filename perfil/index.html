@@ -1,0 +1,306 @@
+<!-- =============================================================
+   perfil/index.html
+   ============================================================= -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MetaMarket</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/perfil.css" />
+  <link rel="stylesheet" href="../assets/css/telas.css" />
+</head>
+<body>
+
+    <!-- ===================== SETA DE RETORNO ===================== -->
+    <a class="btn-voltar" id="btnVoltar" href="../cliente/index.html" onclick="voltarPagina(event)">
+        <i class='bx bx-arrow-back'></i>
+    </a>
+
+    <!-- ===================== TOPO FIXO ===================== -->
+    <div class="top-fixed">
+
+        <!-- BARRA DE OFERTAS -->
+        <div class="offers-bar">
+            <div class="promo-track">
+                <div class="promo">
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
+                    <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
+                    <p><span>20%</span> OFF NO PIX</p>
+                    <p>PARCELE ATÉ 3X SEM JUROS</p>
+                </div>
+                <div class="promo">
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
+                    <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
+                    <p><span>20%</span> OFF NO PIX</p>
+                    <p>PARCELE ATÉ 3X SEM JUROS</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU PRINCIPAL -->
+        <nav class="main-header">
+            <div class="menu-toggle">
+                <i class='bx bx-menu-alt-left'></i>
+            </div>
+            <div class="logo">
+                <img src="../assets/img/marketplace.png" alt="">
+                <span>MetaMarket</span>
+            </div>
+            <div class="main-nav">
+                <a href="../cliente/">HOME</a>
+                <a href="#">MASCULINO</a>
+                <a href="#">FEMININO</a>
+                <a href="#">INFANTIL</a>
+                <a href="#">ESPORTE</a>
+            </div>
+            <div class="header-icons">
+                <i class='bx bx-search-alt-2 search-btn'></i>
+                <div class="favorite-menu">
+                    <i class='bx bx-heart' id="favBtn"></i>
+                    <span id="favCount">0</span>
+                </div>
+                <i class='bx bx-shopping-bag' id="bagBtn"></i>
+                <div class="perfil-menu" id="profileBtn">
+                    <span>Olá, alexander</span>
+                    <i class='bx bx-user'></i>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ===================== BUSCA ===================== -->
+    <div class="search-container">
+        <div class="search-header">
+            <div class="search-logo">
+                <img src="../assets/img/marketplace.png" alt="">
+            </div>
+            <div class="search-input-area">
+                <i class='bx bx-search'></i>
+                <input type="text" class="search-box" placeholder="Buscar produtos...">
+            </div>
+            <button class="close-search">Cancelar</button>
+        </div>
+
+        <div class="search-body">
+
+            <!-- MENU LATERAL DE CATEGORIAS -->
+            <aside class="search-categories">
+                <h4>Categorias</h4>
+                <ul>
+                    <li class="cat-item active" data-categoria="todos">Todos</li>
+                    <li class="cat-item" data-categoria="masculino">Masculino</li>
+                    <li class="cat-item" data-categoria="feminino">Feminino</li>
+                    <li class="cat-item" data-categoria="infantil">Infantil</li>
+                    <li class="cat-item" data-categoria="roupas">Roupas</li>
+                    <li class="cat-item" data-categoria="moveis">Móveis</li>
+                    <li class="cat-item" data-categoria="eletrodomesticos">Eletrodomésticos</li>
+                    <li class="cat-item" data-categoria="brinquedos">Brinquedos</li>
+                    <li class="cat-item" data-categoria="petshop">Pet Shop</li>
+                    <li class="cat-item" data-categoria="esporte">Esporte</li>
+                    <li class="cat-item" data-categoria="livros">Livros</li>
+                </ul>
+            </aside>
+
+            <!-- ÁREA PRINCIPAL DE RESULTADOS -->
+            <div class="search-products">
+                <div class="products-space"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===================== PAINEL FAVORITOS ===================== -->
+    <div class="fav-panel">
+        <div class="fav-top">
+            <h2>Favoritos</h2>
+            <span id="closeFav" class="close-fav">&times;</span>
+        </div>
+        <div id="favItems" class="favItems"></div>
+    </div>
+
+    <!-- ===================== PAINEL SACOLA ===================== -->
+    <div class="bag-panel" id="bagPanel">
+        <div class="bag-top">
+            <h2>Sua Sacola</h2>
+            <i class='bx bx-x close-bag' id="closeBag"></i>
+        </div>
+        <div class="bagItems" id="bagItems">
+            <div class="empty-bag">
+                <p>Nenhum produto adicionado</p>
+            </div>
+        </div>
+        <div class="bag-footer">
+            <div class="total">
+                <h3>Total</h3>
+                <span id="totalPrice">R$ 0,00</span>
+            </div>
+            <button class="finish-btn" id="finishBtn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- ===================== PAINEL PERFIL ===================== -->
+    <div class="profile-panel" id="profilePanel">
+
+        <div class="profile-top">
+            <h2>Minha Conta</h2>
+            <i class='bx bx-x close-profile' id="closeProfile"></i>
+        </div>
+
+        <div class="profile-content">
+
+            <a href="../perfil/" class="profile-user profile-user-link">
+                <i class='bx bxs-user-circle'></i>
+                <h3>Alexander</h3>
+                <p>alexander@email.com</p>
+            </a>
+
+            <div class="profile-links">
+                <a href="#"><i class='bx bx-package'></i> Meus Pedidos</a>
+                <a href="#"><i class='bx bx-heart'></i> Favoritos</a>
+                <a href="#"><i class='bx bx-map'></i> Endereços</a>
+                <a href="../perfil/"><i class='bx bx-cog'></i> Configurações</a>
+                <a href="../index.html" class="logout">
+                    <i class='bx bx-log-out'></i> Sair
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+  <div class="page-wrapper">
+
+    <!-- LEFT: Main profile card -->
+    <div class="main-card">
+
+      <!-- Cover + Avatar -->
+      <div class="cover">
+        <img src="../assets/img/laranjaperf.jpg" alt="Cover" class="cover-img" />
+        <div class="avatar-wrap">
+          <img src="../assets/img/perfil.jpg" alt="Adrian Brewer" class="avatar" />
+        </div>
+      </div>
+
+      <!-- Name + Action -->
+      <div class="profile-header">
+        <div class="name-block">
+          <h1 class="name">Ryan Alexander silva</h1>
+          <p class="role">alexanderyan1276@gmail.com</p>
+          <p class="date">30/11/2004</p>
+          <p class="location-text">São Paulo, SP</p>
+          
+        </div>
+      </div>
+
+      <!-- About Me -->
+      <div class="about-section">
+ 
+        <div class="empty-card">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24" class="empty-icon"><rect x="4" y="2" width="16" height="20" rx="2" stroke="currentColor" stroke-width="1.3"/><circle cx="9" cy="8" r="2" stroke="currentColor" stroke-width="1.3"/><path stroke="currentColor" stroke-width="1.3" stroke-linecap="round" d="M13 8h3M13 12H8M13 15H8"/></svg>
+          <p class="empty-title">Sem endereço informado</p>
+          <p class="empty-subtitle">Veja seu endereço padrão aqui</p>
+          <button class="btn-complete">COMPLETE SEU ENDEREÇO</button>
+        </div>
+ 
+        <div class="empty-card">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24" class="empty-icon"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><path stroke="currentColor" stroke-width="1.3" d="M2 10h20"/><circle cx="17" cy="15" r="1.5" fill="currentColor"/><circle cx="19.5" cy="15" r="1.5" fill="currentColor" opacity="0.4"/></svg>
+          <p class="empty-title">Nenhum cartão de crédito informado</p>
+          <p class="empty-subtitle">Salvar como método de pagamento padrão</p>
+        </div>
+ 
+      </div>
+ 
+    </div>
+
+    <!-- RIGHT: Sidebar -->
+    <div class="sidebar">
+
+      <!-- Location -->
+      <div class="sidebar-card">
+        <h3 class="sidebar-title">Endereço</h3>
+        <div class="sidebar-row">
+          <i class='bx bx-map'></i>
+          <span>São Paulo, SP</span>
+        </div>
+      </div>
+
+      <!-- Login & Senha -->
+      <div class="sidebar-card login-card">
+        <div class="login-card-header">
+          <div class="login-title-row">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/><path stroke="currentColor" stroke-width="1.5" d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <h3 class="sidebar-title" style="margin-bottom:0;">Login &amp; Senha</h3>
+          </div>
+          <button class="btn-edit" aria-label="Editar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </button>
+        </div>
+        <p class="login-info">Login: alexanderyan1276@gmail.com</p>
+        <p class="login-info">Senha: <span class="password-dots">••••••••••</span></p>
+      </div>
+    </div>
+  </div>
+<footer class="footer">
+        <div class="footer-container">
+            <div class="footer-coll">
+                <h3>MarketPlace</h3>
+                <p>Encontre os melhores produtos com os melhores preços.</p>
+            </div>
+            <div class="footer-coll">
+                <h3>PRODUTOS</h3>
+                <ul>
+                    <li><a href="#">Mulher</a></li>
+                    <li><a href="#">Homem</a></li>
+                    <li><a href="#">Calçados</a></li>
+                    <li><a href="#">Tênis</a></li>
+                    <li><a href="#">Roupa</a></li>
+                    <li><a href="#">Acessórios</a></li>
+                    <li><a href="#">Pet Shop</a></li>
+                    <li><a href="#">Eletrônicos</a></li>
+                </ul>
+            </div>
+            <div class="footer-coll">
+                <h3>SUPORTE</h3>
+                <ul>
+                    <li><a href="#">Podemos Ajudar</a></li>
+                    <li><a href="#">Atendimento ao Cliente</a></li>
+                    <li><a href="#">Dúvidas Frequentes</a></li>
+                    <li><a href="#">Como Comprar</a></li>
+                    <li><a href="#">Entregas e Fretes</a></li>
+                    <li><a href="#">Opções de Pagamento</a></li>
+                    <li><a href="#">Troca e Devolução</a></li>
+                </ul>
+            </div>
+            <div class="footer-coll">
+                <h3>INFORMAÇÃO CORPORATIVA</h3>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MarketPlace - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/telas.js"></script>
+    <script src="../assets/js/favorito.js"></script>
+    <script src="../assets/js/sacola.js"></script>
+
+    <script>
+        // Seta de retorno: volta para a página anterior se vier do mesmo site,
+        // caso contrário vai para a área do cliente.
+        function voltarPagina(event) {
+            event.preventDefault();
+            if (document.referrer && document.referrer.includes(window.location.host) && document.referrer !== window.location.href) {
+                window.history.back();
+            } else {
+                window.location.href = "../cliente/";
+            }
+        }
+    </script>
+</body>
+</html>
