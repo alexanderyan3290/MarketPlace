@@ -1,0 +1,407 @@
+<!-- =============================================================
+   perfil-vendedor/publico.html
+   ============================================================= -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MetaMarket</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/perfil-vendedor.css" />
+    <link rel="stylesheet" href="../assets/css/telas.css" />
+</head>
+
+<body>
+
+    <!-- ===================== SETA DE RETORNO ===================== -->
+    <a class="btn-voltar" id="btnVoltar" href="../cliente/" onclick="voltarPagina(event)">
+        <i class='bx bx-arrow-back'></i>
+    </a>
+
+    <!-- ===================== TOPO FIXO ===================== -->
+    <div class="top-fixed">
+        <div class="offers-bar">
+            <div class="promo-track">
+                <div class="promo">
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
+                    <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
+                    <p><span>20%</span> OFF NO PIX</p>
+                    <p>PARCELE ATÉ 3X SEM JUROS</p>
+                </div>
+                <div class="promo">
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
+                    <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
+                    <p><span>20%</span> OFF NO PIX</p>
+                    <p>PARCELE ATÉ 3X SEM JUROS</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="main-header">
+            <div class="menu-toggle">
+                <i class='bx bx-menu-alt-left'></i>
+            </div>
+            <div class="logo">
+                <img src="../assets/img/marketplace.png" alt="">
+                <span>MetaMarket</span>
+            </div>
+            <div class="main-nav">
+                <a href="../cliente/">HOME</a>
+                <a href="#">MASCULINO</a>
+                <a href="#">FEMININO</a>
+                <a href="#">INFANTIL</a>
+                <a href="#">ESPORTE</a>
+            </div>
+            <div class="header-icons">
+                <i class='bx bx-search-alt-2 search-btn'></i>
+                <div class="favorite-menu">
+                    <i class='bx bx-heart' id="favBtn"></i>
+                    <span id="favCount">0</span>
+                </div>
+                <i class='bx bx-shopping-bag' id="bagBtn"></i>
+                <div class="perfil-menu" id="profileBtn">
+                    <span>Olá, alexander</span>
+                    <i class='bx bx-user'></i>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ===================== BUSCA ===================== -->
+    <div class="search-container">
+        <div class="search-header">
+            <div class="search-logo">
+                <img src="../assets/img/marketplace.png" alt="">
+            </div>
+            <div class="search-input-area">
+                <i class='bx bx-search'></i>
+                <input type="text" class="search-box" placeholder="Buscar produtos...">
+            </div>
+            <button class="close-search">Cancelar</button>
+        </div>
+        <div class="search-body">
+            <aside class="search-categories">
+                <h4>Categorias</h4>
+                <ul>
+                    <li class="cat-item active" data-categoria="todos">Todos</li>
+                    <li class="cat-item" data-categoria="masculino">Masculino</li>
+                    <li class="cat-item" data-categoria="feminino">Feminino</li>
+                    <li class="cat-item" data-categoria="infantil">Infantil</li>
+                    <li class="cat-item" data-categoria="roupas">Roupas</li>
+                    <li class="cat-item" data-categoria="moveis">Móveis</li>
+                    <li class="cat-item" data-categoria="eletrodomesticos">Eletrodomésticos</li>
+                    <li class="cat-item" data-categoria="brinquedos">Brinquedos</li>
+                    <li class="cat-item" data-categoria="petshop">Pet Shop</li>
+                    <li class="cat-item" data-categoria="esporte">Esporte</li>
+                    <li class="cat-item" data-categoria="livros">Livros</li>
+                </ul>
+            </aside>
+            <div class="search-products">
+                <div class="products-space"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== PAINEL FAVORITOS ===================== -->
+    <div class="fav-panel">
+        <div class="fav-top">
+            <h2>Favoritos</h2>
+            <span id="closeFav" class="close-fav">&times;</span>
+        </div>
+        <div id="favItems" class="favItems"></div>
+    </div>
+
+    <!-- ===================== PAINEL SACOLA ===================== -->
+    <div class="bag-panel" id="bagPanel">
+        <div class="bag-top">
+            <h2>Sua Sacola</h2>
+            <i class='bx bx-x close-bag' id="closeBag"></i>
+        </div>
+        <div class="bagItems" id="bagItems">
+            <div class="empty-bag">
+                <p>Nenhum produto adicionado</p>
+            </div>
+        </div>
+        <div class="bag-footer">
+            <div class="total">
+                <h3>Total</h3>
+                <span id="totalPrice">R$ 0,00</span>
+            </div>
+            <button class="finish-btn" id="finishBtn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- ===================== PAINEL PERFIL ===================== -->
+    <div class="profile-panel" id="profilePanel">
+        <div class="profile-top">
+            <h2>Minha Conta</h2>
+            <i class='bx bx-x close-profile' id="closeProfile"></i>
+        </div>
+        <div class="profile-content">
+            <a href="../perfil/" class="profile-user profile-user-link">
+                <i class='bx bxs-user-circle'></i>
+                <h3>Alexander</h3>
+                <p>alexander@email.com</p>
+            </a>
+            <div class="profile-links">
+                <a href="#"><i class='bx bx-package'></i> Meus Pedidos</a>
+                <a href="#"><i class='bx bx-heart'></i> Favoritos</a>
+                <a href="#"><i class='bx bx-map'></i> Endereços</a>
+                <a href="../perfil/"><i class='bx bx-cog'></i> Configurações</a>
+                <a href="../index.html" class="logout">
+                    <i class='bx bx-log-out'></i> Sair
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== MODAL META ===================== -->
+    <div class="meta-modal-overlay" id="metaModalOverlay">
+        <div class="meta-modal" id="metaModal">
+
+            <button class="meta-modal-close" id="metaModalClose">
+                <i class='bx bx-x'></i>
+            </button>
+
+            <!-- Cabeçalho com foto da campanha -->
+            <div class="meta-modal-cover">
+                <img src="../assets/img/biblioteca.jpeg" alt="Campanha" />
+                <div class="meta-modal-cover-overlay"></div>
+                <div class="meta-modal-cover-label">
+                    <span>CAMPANHA</span>
+                    <h2>Biblioteca Comunitária</h2>
+                </div>
+            </div>
+
+            <!-- Bloco da meta grande -->
+            <div class="meta-modal-body">
+
+                <div class="meta-modal-valores">
+                    <div class="meta-modal-valor-item">
+                        <span class="meta-modal-label">Arrecadado</span>
+                        <strong class="meta-modal-num arrecadado" id="modalArrecadado">R$ 4.800</strong>
+                    </div>
+                    <div class="meta-modal-separador"></div>
+                    <div class="meta-modal-valor-item">
+                        <span class="meta-modal-label">Meta</span>
+                        <strong class="meta-modal-num meta" id="modalMeta">R$ 5.000</strong>
+                    </div>
+                    <div class="meta-modal-separador"></div>
+                    <div class="meta-modal-valor-item">
+                        <span class="meta-modal-label">Faltam</span>
+                        <strong class="meta-modal-num faltam" id="modalFaltam">R$ 200</strong>
+                    </div>
+                </div>
+
+                <!-- Barra de progresso grande -->
+                <div class="meta-modal-barra-wrap">
+                    <div class="meta-modal-barra">
+                        <div class="meta-modal-progresso" id="modalProgresso"></div>
+                    </div>
+                    <span class="meta-modal-pct" id="modalPct">96%</span>
+                </div>
+
+                <!-- Divisor -->
+                <hr class="meta-modal-divider" />
+
+                <!-- Detalhes da campanha -->
+                <div class="meta-modal-detalhes">
+                    <h4>Sobre a campanha</h4>
+                    <p>
+                        Conhecimento que transforma. Comunidade que cresce.
+                        Cada compra realizada na loja ajuda a abastecer a Biblioteca
+                        Comunitária, levando livros, aprendizado e novas oportunidades
+                        para quem mais precisa. Sua história pode começar na próxima página.
+                    </p>
+
+                    <div class="meta-modal-info-grid">
+                        <div class="meta-modal-info-item">
+                            <i class='bx bx-map-pin'></i>
+                            <div>
+                                <span class="info-label">Localização</span>
+                                <span class="info-valor">Rio de Janeiro - RJ</span>
+                            </div>
+                        </div>
+                        <div class="meta-modal-info-item">
+                            <i class='bx bx-user'></i>
+                            <div>
+                                <span class="info-label">Vendedor</span>
+                                <span class="info-valor">SaberExpress</span>
+                            </div>
+                        </div>
+                        <div class="meta-modal-info-item">
+                            <i class='bx bx-book-open'></i>
+                            <div>
+                                <span class="info-label">Causa</span>
+                                <span class="info-valor">Educação e cultura</span>
+                            </div>
+                        </div>
+                        <div class="meta-modal-info-item">
+                            <i class='bx bx-trending-up'></i>
+                            <div>
+                                <span class="info-label">Progresso</span>
+                                <span class="info-valor" id="modalInfoPct">96% alcançado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+
+        <!-- LEFT: Main profile card -->
+        <div class="main-card">
+
+            <!-- Cover + Avatar -->
+            <div class="cover cover-vendedor">
+                <img src="../assets/img/biblioteca.jpeg" alt="Cover" class="cover-img" />
+                <div class="avatar-wrap">
+                    <img src="../assets/img/perfil.jpg" alt="Foto do vendedor" class="avatar" />
+                </div>
+            </div>
+
+            <!-- Name + Campanha -->
+            <div class="profile-header">
+                <div class="name-block">
+                    <h1 class="name">Ryan Alexander silva</h1>
+                    <p class="location-text">Rio de Janeiro - RJ</p>
+                </div>
+                <div class="campanha-block">
+                    <span class="campanha-label">CAMPANHA</span>
+                    <h3 class="campanha-titulo">Biblioteca Comunitária</h3>
+                    <p class="campanha-desc">
+                        Conhecimento que transforma. Comunidade que cresce.
+                        Cada compra realizada na sua loja ajuda a abastecer a Biblioteca
+                        Comunitária, levando livros, aprendizado e novas oportunidades
+                        para quem mais precisa. Sua história pode começar na próxima página.
+                    </p>
+                </div>
+            </div>
+
+            <!-- MEUS PRODUTOS -->
+            <div class="produtos-section">
+                <h3 class="produtos-titulo">Produtos do Vendedor</h3>
+                <div class="produtos-grid" id="produtosVendedorGrid"></div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT: Sidebar -->
+        <div class="sidebar">
+
+            <!-- Localização -->
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">Localização</h3>
+                <div class="sidebar-row">
+                    <i class='bx bx-map'></i>
+                    <span>Rio de Janeiro - RJ</span>
+                </div>
+            </div>
+
+            <!-- Meta — clicável -->
+            <div class="sidebar-card card-vendedor meta meta-card-clicavel" id="cardMeta">
+                <h3>Meta</h3>
+                <div class="barra">
+                    <div class="progresso" id="vendedorProgresso"></div>
+                </div>
+                <p class="meta-text" id="vendedorMetaTexto"></p>
+                <span class="ver-meta-btn">Ver detalhes <i class='bx bx-chevron-right'></i></span>
+            </div>
+
+            <!-- Avaliação — clicável -->
+            <a href="../avaliacao/" class="sidebar-card card-vendedor avaliacao avaliacao-link">
+                <h3>Avaliação</h3>
+                <div class="nota-grande" id="vendedorReputacao">0.0</div>
+                <div class="stars" id="vendedorStars"></div>
+                <p class="texto-avaliacoes" id="vendedorAvaliacoesTexto"></p>
+                <span class="ver-avaliacoes-btn">Ver todas as avaliações <i class='bx bx-chevron-right'></i></span>
+            </a>
+
+            <!-- Reputação -->
+            <div class="sidebar-card card-vendedor reputacao">
+                <h3>Reputação</h3>
+                <div class="reputacao_info">
+                    <div class="reputacao-item">
+                        <div class="reputacao-texto">
+                            <i class='bx bx-trending-up satisfacao'></i>
+                            <span>Satisfação</span>
+                        </div>
+                        <strong class="satisfacao-num" id="vendedorSatisfacao">0%</strong>
+                    </div>
+                    <div class="reputacao-item">
+                        <div class="reputacao-texto">
+                            <i class='bx bx-like recomendacao'></i>
+                            <span>Recomendação</span>
+                        </div>
+                        <strong class="recomendacao-num" id="vendedorRecomendacao">0</strong>
+                    </div>
+                    <div class="reputacao-item">
+                        <div class="reputacao-texto">
+                            <i class='bx bx-message-rounded comentario'></i>
+                            <span>Comentários</span>
+                        </div>
+                        <strong class="comentario-num" id="vendedorComentarios">0</strong>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-coll">
+                <h3>MarketPlace</h3>
+                <p>Encontre os melhores produtos com os melhores preços.</p>
+            </div>
+            <div class="footer-coll">
+                <h3>PRODUTOS</h3>
+                <ul>
+                    <li><a href="#">Mulher</a></li>
+                    <li><a href="#">Homem</a></li>
+                    <li><a href="#">Calçados</a></li>
+                    <li><a href="#">Tênis</a></li>
+                    <li><a href="#">Roupa</a></li>
+                    <li><a href="#">Acessórios</a></li>
+                    <li><a href="#">Pet Shop</a></li>
+                    <li><a href="#">Eletrônicos</a></li>
+                </ul>
+            </div>
+            <div class="footer-coll">
+                <h3>SUPORTE</h3>
+                <ul>
+                    <li><a href="#">Podemos Ajudar</a></li>
+                    <li><a href="#">Atendimento ao Cliente</a></li>
+                    <li><a href="#">Dúvidas Frequentes</a></li>
+                    <li><a href="#">Como Comprar</a></li>
+                    <li><a href="#">Entregas e Fretes</a></li>
+                    <li><a href="#">Opções de Pagamento</a></li>
+                    <li><a href="#">Troca e Devolução</a></li>
+                </ul>
+            </div>
+            <div class="footer-coll">
+                <h3>INFORMAÇÃO CORPORATIVA</h3>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MarketPlace - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/telas.js"></script>
+    <script src="../assets/js/perfil-publico.js"></script>
+    <script src="../assets/js/favorito.js"></script>
+    <script src="../assets/js/sacola.js"></script>
+
+</body>
+
+</html>
