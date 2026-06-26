@@ -1,0 +1,498 @@
+<!-- =============================================================
+   estoque/index.html
+   ============================================================= -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/estoque.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>MetaMarket - Gerenciamento de Estoque</title>
+</head>
+
+<body>
+
+    <!-- ===================== TOPO FIXO ===================== -->
+    <div class="top-fixed">
+
+        <!-- BARRA DE OFERTAS -->
+        <div class="offers-bar">
+            <div class="promo-track">
+                <div class="promo">
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
+                    <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
+                    <p><span>20%</span> OFF NO PIX</p>
+                    <p>PARCELE ATÉ 3X SEM JUROS</p>
+                </div>
+                <div class="promo">
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
+                    <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
+                    <p><span>20%</span> OFF NO PIX</p>
+                    <p>PARCELE ATÉ 3X SEM JUROS</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU PRINCIPAL -->
+        <nav class="main-header">
+            <div class="menu-toggle">
+                <i class='bx bx-menu-alt-left'></i>
+            </div>
+            <div class="logo">
+                <span>MetaMarket</span>
+            </div>
+            <div class="main-nav">
+                <a href="../vendedor/">Dashboard</a>
+                <a href="#" class="active-page">Estoque</a>
+                <a href="#">Pedidos</a>
+                <a href="#">Finanças</a>
+            </div>
+            <div class="header-icons">
+                <div class="perfil-menu" id="profileBtn">
+                    <span>Olá, <strong>alexander</strong></span>
+                    <i class='bx bx-user'></i>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ===================== SETA DE RETORNO ===================== -->
+    <a class="btn-voltar" href="../vendedor/index.htm">
+        <i class='bx bx-arrow-back'></i>
+    </a>
+
+    <!-- ===================== CONTEÚDO — GERENCIAMENTO DE ESTOQUE ===================== -->
+    <div class="estoque-container">
+
+        <!-- Cabeçalho da página -->
+        <div class="estoque-top">
+            <h1 class="page-title">Gerenciamento de Estoque</h1>
+            <button class="new-product-btn">
+                <i class='bx bx-plus'></i>
+                Novo Produto
+            </button>
+        </div>
+
+        <!-- Cards de resumo -->
+        <div class="summary-cards">
+            <div class="summary-card">
+                <span class="summary-label">PRODUTOS ATIVOS</span>
+                <div class="summary-value-row">
+                    <span class="summary-value">10</span>
+                    <span class="tag tag-green">No Ar</span>
+                </div>
+            </div>
+            <div class="summary-card">
+                <span class="summary-label">PRODUTOS INATIVOS</span>
+                <div class="summary-value-row">
+                    <span class="summary-value">2</span>
+                    <span class="tag tag-gray">Pausados</span>
+                </div>
+            </div>
+            <div class="summary-card">
+                <span class="summary-label">TOTAL EM ESTOQUE</span>
+                <div class="summary-value-row">
+                    <span class="summary-value">358 <small>un</small></span>
+                </div>
+            </div>
+            <div class="summary-card">
+                <span class="summary-label">PEDIDOS A ENVIAR</span>
+                <div class="summary-value-row">
+                    <span class="summary-value summary-value-orange">12</span>
+                    <span class="summary-suffix">novos</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filters-bar">
+            <div class="search-input-wrap">
+                <input type="text" placeholder="Buscar por nome, SKU ou ID...">
+            </div>
+            <div class="filters-right">
+                <div class="filter-select">
+                    <select>
+                        <option>Todos os Status</option>
+                        <option>Ativo</option>
+                        <option>Inativo</option>
+                        <option>Esgotado</option>
+                    </select>
+                    <i class='bx bx-chevron-down'></i>
+                </div>
+                <div class="filter-select">
+                    <select>
+                        <option>Categorias</option>
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                        <option>Infantil</option>
+                        <option>Esporte</option>
+                    </select>
+                    <i class='bx bx-chevron-down'></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabela de produtos -->
+        <div class="table-wrap">
+            <table class="estoque-table">
+                <thead>
+                    <tr>
+                        <th class="col-foto">FOTO</th>
+                        <th class="col-produto">PRODUTO / SKU</th>
+                        <th>CATEGORIA</th>
+                        <th>PREÇO</th>
+                        <th>DE</th>
+                        <th>QTD ESTOQUE</th>
+                        <th>STATUS</th>
+                        <th class="col-acoes">AÇÕES</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td class="col-foto">
+                            <div class="img-placeholder">
+                                <img src="https://imgnike-a.akamaihd.net/360x360/058868ID.jpg" alt="">
+                            </div>
+                        </td>
+                        <td class="col-produto">
+                            <p class="prod-nome">Tênis Nike Revolution 8</p>
+                            <p class="prod-sku">SKU: NK-REV8-001</p>
+                        </td>
+                        <td><span class="badge-tam badge-tam-orange">MASCULINO</span></td>
+                        <td class="prod-preco">R$ 303,99</td>
+                        <td class="prod-preco-antigo">R$ 399,99</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-value">18</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td><span class="status status-ativo">Ativo</span></td>
+                        <td class="col-acoes">
+                            <a href="#" class="action-link">Editar</a>
+                            <a href="#" class="action-link action-link-orange">Pausar</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-foto">
+                            <div class="img-placeholder">
+                                <img src="https://static.netshoes.com.br/produtos/camiseta-adidas-treino-basica-masculina/06/FB9-8626-006/FB9-8626-006_zoom1.jpg?ts=1776483991&ims=1088x" alt="">
+                            </div>
+                        </td>
+                        <td class="col-produto">
+                            <p class="prod-nome">Camiseta Adidas Treino Básica Masculina</p>
+                            <p class="prod-sku">SKU: AD-TRN-006</p>
+                        </td>
+                        <td><span class="badge-tam badge-tam-orange">MASCULINO</span></td>
+                        <td class="prod-preco">R$ 89,99</td>
+                        <td class="prod-preco-antigo">R$ 99,99</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-value">32</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td><span class="status status-ativo">Ativo</span></td>
+                        <td class="col-acoes">
+                            <a href="#" class="action-link">Editar</a>
+                            <a href="#" class="action-link action-link-orange">Pausar</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-foto">
+                            <div class="img-placeholder">
+                                <img src="https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/c69137ae0fbd469e91643ab2b967931a_9366/Camiseta_Essentials_de_malha_simples_com_logotipo_pequeno_Cinza_JF1091_21_model.jpg" alt="">
+                            </div>
+                        </td>
+                        <td class="col-produto">
+                            <p class="prod-nome">Camiseta Essentials Adidas Logotipo Pequeno</p>
+                            <p class="prod-sku">SKU: AD-ESS-JF1091</p>
+                        </td>
+                        <td><span class="badge-tam badge-tam-gray">ROUPAS</span></td>
+                        <td class="prod-preco">R$ 90,24</td>
+                        <td class="prod-preco-antigo">R$ 85,72</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-value">25</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td><span class="status status-ativo">Ativo</span></td>
+                        <td class="col-acoes">
+                            <a href="#" class="action-link">Editar</a>
+                            <a href="#" class="action-link action-link-orange">Pausar</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-foto">
+                            <div class="img-placeholder">
+                                <img src="https://static.netshoes.com.br/produtos/camiseta-lacoste-de-tenis-estampada-ultra-dry-masculina/60/S2E-04GX-060/S2E-04GX-060_zoom1.jpg?ts=1771429250&ims=1088x" alt="">
+                            </div>
+                        </td>
+                        <td class="col-produto">
+                            <p class="prod-nome">Camiseta Lacoste Tênis Estampada Ultra-Dry</p>
+                            <p class="prod-sku">SKU: LC-UD-04GX</p>
+                        </td>
+                        <td><span class="badge-tam badge-tam-orange">MASCULINO</span></td>
+                        <td class="prod-preco">R$ 259,13</td>
+                        <td class="prod-preco-antigo">R$ 345,51</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-value">9</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td><span class="status status-ativo">Ativo</span></td>
+                        <td class="col-acoes">
+                            <a href="#" class="action-link">Editar</a>
+                            <a href="#" class="action-link action-link-orange">Pausar</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-foto">
+                            <div class="img-placeholder">
+                                <img src="https://static.netshoes.com.br/produtos/camisa-polo-lacoste-regular-fit-paris-em-pique-stretch-masculina/34/D66-7497-034/D66-7497-034_zoom1.jpg?ts=1772942971&ims=1088x" alt="">
+                            </div>
+                        </td>
+                        <td class="col-produto">
+                            <p class="prod-nome">Camisa Polo Lacoste Regular Fit Paris Piqué Stretch</p>
+                            <p class="prod-sku">SKU: LC-PL-7497</p>
+                        </td>
+                        <td><span class="badge-tam badge-tam-orange">MASCULINO</span></td>
+                        <td class="prod-preco">R$ 503,10</td>
+                        <td class="prod-preco-antigo">R$ 649,00</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-value">6</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td><span class="status status-ativo">Ativo</span></td>
+                        <td class="col-acoes">
+                            <a href="#" class="action-link">Editar</a>
+                            <a href="#" class="action-link action-link-orange">Pausar</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-foto">
+                            <div class="img-placeholder">
+                                <img src="https://static.netshoes.com.br/produtos/camisa-brasil-jordan-ii-202627-torcedor-pro-masculina/08/MJU-002H-008/MJU-002H-008_zoom1.jpg?ts=1776276933&ims=1088x" alt="">
+                            </div>
+                        </td>
+                        <td class="col-produto">
+                            <p class="prod-nome">Camisa Brasil Jordan II 2026/27 Torcedor Pro</p>
+                            <p class="prod-sku">SKU: JD-BR-002H</p>
+                        </td>
+                        <td><span class="badge-tam badge-tam-orange">MASCULINO</span></td>
+                        <td class="prod-preco">R$ 359,99</td>
+                        <td class="prod-preco-antigo">R$ 449,99</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-value">14</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td><span class="status status-ativo">Ativo</span></td>
+                        <td class="col-acoes">
+                            <a href="#" class="action-link">Editar</a>
+                            <a href="#" class="action-link action-link-orange">Pausar</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-foto">
+                            <div class="img-placeholder">
+                                <img src="https://static.netshoes.com.br/produtos/regata-adidas-cropped-basketball-feminina/98/FBA-822T-198/FBA-822T-198_zoom1.jpg?ts=1773741351&ims=1088x" alt="">
+                            </div>
+                        </td>
+                        <td class="col-produto">
+                            <p class="prod-nome">Regata Adidas Cropped Basketball</p>
+                            <p class="prod-sku">SKU: AD-BK-822T</p>
+                        </td>
+                        <td><span class="badge-tam badge-tam-gray">ESPORTE</span></td>
+                        <td class="prod-preco">R$ 313,49</td>
+                        <td class="prod-preco-antigo">R$ 449,99</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-value">11</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td><span class="status status-ativo">Ativo</span></td>
+                        <td class="col-acoes">
+                            <a href="#" class="action-link">Editar</a>
+                            <a href="#" class="action-link action-link-orange">Pausar</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-foto">
+                            <div class="img-placeholder">
+                                <img src="https://static.netshoes.com.br/produtos/bone-dri-fit-nike-swoosh-unissex/06/SGL-03HY-006/SGL-03HY-006_zoom1.jpg?ts=1776398836&ims=1088x" alt="">
+                            </div>
+                        </td>
+                        <td class="col-produto">
+                            <p class="prod-nome">Boné Dri-FIT Nike Swoosh Unissex</p>
+                            <p class="prod-sku">SKU: NK-DF-03HY</p>
+                        </td>
+                        <td><span class="badge-tam badge-tam-gray">ESPORTE</span></td>
+                        <td class="prod-preco">R$ 85,49</td>
+                        <td class="prod-preco-antigo">R$ 199,99</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-value">40</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td><span class="status status-ativo">Ativo</span></td>
+                        <td class="col-acoes">
+                            <a href="#" class="action-link">Editar</a>
+                            <a href="#" class="action-link action-link-orange">Pausar</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-foto">
+                            <div class="img-placeholder">
+                                <img src="https://static.netshoes.com.br/produtos/bone-adidas-bball-3stripes-nl/30/FBA-84E3-030/FBA-84E3-030_zoom1.jpg?ts=1776428485&ims=1088x" alt="">
+                            </div>
+                        </td>
+                        <td class="col-produto">
+                            <p class="prod-nome">Boné Adidas Bball 3Stripes NL</p>
+                            <p class="prod-sku">SKU: AD-BB-84E3</p>
+                        </td>
+                        <td><span class="badge-tam badge-tam-gray">ESPORTE</span></td>
+                        <td class="prod-preco">R$ 111,92</td>
+                        <td class="prod-preco-antigo">R$ 139,90</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-value qty-value-zero">0</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td><span class="status status-esgotado">Esgotado</span></td>
+                        <td class="col-acoes">
+                            <a href="#" class="action-link">Editar</a>
+                            <a href="#" class="action-link action-link-orange">Ativar</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-foto">
+                            <div class="img-placeholder">
+                                <img src="https://static.netshoes.com.br/produtos/calca-adidas-allset-3s-masculina/60/FBA-83AQ-060/FBA-83AQ-060_zoom1.jpg?ts=1776592187&ims=1088x" alt="">
+                            </div>
+                        </td>
+                        <td class="col-produto">
+                            <p class="prod-nome">Calça Adidas Allset 3S</p>
+                            <p class="prod-sku">SKU: AD-AL-83AQ</p>
+                        </td>
+                        <td><span class="badge-tam badge-tam-orange">MASCULINO</span></td>
+                        <td class="prod-preco">R$ 299,99</td>
+                        <td class="prod-preco-antigo">R$ 399,99</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-value">7</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td><span class="status status-ativo">Ativo</span></td>
+                        <td class="col-acoes">
+                            <a href="#" class="action-link">Editar</a>
+                            <a href="#" class="action-link action-link-orange">Pausar</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-foto">
+                            <div class="img-placeholder">
+                                <img src="https://static.netshoes.com.br/produtos/tenis-olympikus-corre-4/60/2I3-0603-960/2I3-0603-960_zoom1.jpg?ts=1776592025&ims=1088x" alt="">
+                            </div>
+                        </td>
+                        <td class="col-produto">
+                            <p class="prod-nome">Tênis Olympikus Corre 4</p>
+                            <p class="prod-sku">SKU: OL-CR4-0603</p>
+                        </td>
+                        <td><span class="badge-tam badge-tam-orange">MASCULINO</span></td>
+                        <td class="prod-preco">R$ 499,99</td>
+                        <td class="prod-preco-antigo">R$ 599,99</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-value">5</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td><span class="status status-inativo">Inativo</span></td>
+                        <td class="col-acoes">
+                            <a href="#" class="action-link">Editar</a>
+                            <a href="#" class="action-link action-link-orange">Ativar</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-foto">
+                            <div class="img-placeholder">
+                                <img src="https://static.netshoes.com.br/produtos/tenis-fila-rt-low-masculino/12/SFK-07WZ-012/SFK-07WZ-012_zoom1.jpg?ts=1776592528&ims=1088x" alt="">
+                            </div>
+                        </td>
+                        <td class="col-produto">
+                            <p class="prod-nome">Tênis Fila Rt-Low</p>
+                            <p class="prod-sku">SKU: FL-RTL-07WZ</p>
+                        </td>
+                        <td><span class="badge-tam badge-tam-orange">MASCULINO</span></td>
+                        <td class="prod-preco">R$ 188,99</td>
+                        <td class="prod-preco-antigo">R$ 299,99</td>
+                        <td>
+                            <div class="qty-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-value">21</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </td>
+                        <td><span class="status status-ativo">Ativo</span></td>
+                        <td class="col-acoes">
+                            <a href="#" class="action-link">Editar</a>
+                            <a href="#" class="action-link action-link-orange">Pausar</a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Paginação -->
+        <div class="pagination">
+            <p>Exibindo <strong>1-12</strong> de <strong>12</strong> itens</p>
+            <div class="pagination-btns">
+                <button class="page-btn" disabled>Anterior</button>
+                <button class="page-btn" disabled>Próximo</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/estoque.js"></script>
+</body>
+
+</html>
