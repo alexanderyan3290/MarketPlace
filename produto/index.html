@@ -1,0 +1,460 @@
+<!-- =============================================================
+   produto/index.html
+   ============================================================= -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MetaMarket</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/produtos.css" />
+    <link rel="stylesheet" href="../assets/css/telas.css" />
+</head>
+
+<body>
+
+    <!-- ===================== SETA DE RETORNO ===================== -->
+    <a class="btn-voltar" id="btnVoltar" href="#" onclick="voltarPagina(event)">
+        <i class='bx bx-arrow-back'></i>
+
+    </a>
+
+    <!-- ===================== TOPO FIXO ===================== -->
+    <div class="top-fixed">
+
+        <!-- BARRA DE OFERTAS -->
+        <div class="offers-bar">
+            <div class="promo-track">
+                <div class="promo">
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
+                    <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
+                    <p><span>20%</span> OFF NO PIX</p>
+                    <p>PARCELE ATÉ 3X SEM JUROS</p>
+                </div>
+                <div class="promo">
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
+                    <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
+                    <p><span>20%</span> OFF NO PIX</p>
+                    <p>PARCELE ATÉ 3X SEM JUROS</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU PRINCIPAL -->
+        <nav class="main-header">
+            <div class="menu-toggle">
+                <i class='bx bx-menu-alt-left'></i>
+            </div>
+            <div class="logo">
+                <img src="../assets/img/marketplace.png" alt="">
+                <span>MetaMarket</span>
+            </div>
+            <div class="main-nav">
+                <a href="../index.html">HOME</a>
+                <a href="#">MASCULINO</a>
+                <a href="#">FEMININO</a>
+                <a href="#">INFANTIL</a>
+                <a href="#">ESPORTE</a>
+            </div>
+            <div class="header-icons">
+                <i class='bx bx-search-alt-2 search-btn'></i>
+                <div class="favorite-menu">
+                    <i class='bx bx-heart' id="favBtn"></i>
+                    <span id="favCount">0</span>
+                </div>
+                <i class='bx bx-shopping-bag' id="bagBtn"></i>
+                <div class="perfil-menu" id="profileBtn">
+                    <span>Olá, visitante</span>
+                    <i class='bx bx-user'></i>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ===================== BUSCA ===================== -->
+    <div class="search-container">
+        <div class="search-header">
+            <div class="search-logo">
+                <img src="../assets/img/marketplace.png" alt="">
+            </div>
+            <div class="search-input-area">
+                <i class='bx bx-search'></i>
+                <input type="text" class="search-box" placeholder="Buscar produtos...">
+            </div>
+            <button class="close-search">Cancelar</button>
+        </div>
+
+        <div class="search-body">
+
+            <!-- MENU LATERAL DE CATEGORIAS -->
+            <aside class="search-categories">
+                <h4>Categorias</h4>
+                <ul>
+                    <li class="cat-item active" data-categoria="todos">Todos</li>
+                    <li class="cat-item" data-categoria="masculino">Masculino</li>
+                    <li class="cat-item" data-categoria="feminino">Feminino</li>
+                    <li class="cat-item" data-categoria="infantil">Infantil</li>
+                    <li class="cat-item" data-categoria="roupas">Roupas</li>
+                    <li class="cat-item" data-categoria="moveis">Móveis</li>
+                    <li class="cat-item" data-categoria="eletrodomesticos">Eletrodomésticos</li>
+                    <li class="cat-item" data-categoria="brinquedos">Brinquedos</li>
+                    <li class="cat-item" data-categoria="petshop">Pet Shop</li>
+                    <li class="cat-item" data-categoria="esporte">Esporte</li>
+                    <li class="cat-item" data-categoria="livros">Livros</li>
+                </ul>
+            </aside>
+
+            <!-- ÁREA PRINCIPAL DE RESULTADOS -->
+            <div class="search-products">
+                <div class="products-space"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===================== PAINEL FAVORITOS ===================== -->
+    <div class="fav-panel">
+        <div class="fav-top">
+            <h2>Favoritos</h2>
+            <span id="closeFav" class="close-fav">&times;</span>
+        </div>
+        <div id="favItems" class="favItems"></div>
+    </div>
+
+    <!-- ===================== PAINEL SACOLA ===================== -->
+    <div class="bag-panel" id="bagPanel">
+        <div class="bag-top">
+            <h2>Sua Sacola</h2>
+            <i class='bx bx-x close-bag' id="closeBag"></i>
+        </div>
+        <div class="bagItems" id="bagItems">
+            <div class="empty-bag">
+                <p>Nenhum produto adicionado</p>
+            </div>
+        </div>
+        <div class="bag-footer">
+            <div class="total">
+                <h3>Total</h3>
+                <span id="totalPrice">R$ 0,00</span>
+            </div>
+            <button class="finish-btn" id="finishBtn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- ===================== PAINEL PERFIL ===================== -->
+    <div class="profile-panel" id="profilePanel">
+
+        <div class="profile-top">
+            <h2>Minha Conta</h2>
+            <i class='bx bx-x close-profile' id="closeProfile"></i>
+        </div>
+
+        <div class="profile-content">
+
+            <div class="profile-user">
+                <i class='bx bxs-user-circle'></i>
+                <h3>Visitante</h3>
+                <p></p>
+            </div>
+
+            <div class="profile-links">
+                <a href="#"><i class='bx bx-package'></i> Meus Pedidos</a>
+                <a href="#"><i class='bx bx-heart'></i> Favoritos</a>
+                <a href="#"><i class='bx bx-map'></i> Endereços</a>
+                <a href="#"><i class='bx bx-cog'></i> Configurações</a>
+                <a href="../index.html" class="logout">
+                    <i class='bx bx-log-out'></i> Sair
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="page">
+
+        <!-- ===================== PRODUCT SECTION ===================== -->
+        <div class="product-section">
+
+            <!-- Gallery -->
+            <div class="gallery">
+                <div class="main-img-wrap">
+                    <img id="mainImg" src="https://imgnike-a.akamaihd.net/1920x1920/059071IDA2.jpg" alt="Produto" />
+                    <button class="gallery-btn prev" onclick="changeImg(-1)"><i class='bx bx-chevron-left'></i></button>
+                    <button class="gallery-btn next" onclick="changeImg(1)"><i class='bx bx-chevron-right'></i></button>
+                </div>
+                <div class="thumbs">
+                    <div class="thumb active" onclick="setImg(0)">
+                        <img src="https://imgnike-a.akamaihd.net/1920x1920/059071IDA2.jpg" alt="" />
+                    </div>
+                    <div class="thumb" onclick="setImg(1)">
+                        <img src="https://imgnike-a.akamaihd.net/1920x1920/059071IDA3.jpg" alt="" />
+                    </div>
+                    <div class="thumb" onclick="setImg(2)">
+                        <img src="https://imgnike-a.akamaihd.net/1920x1920/059071IDA6.jpg" alt="" />
+                    </div>
+                    <div class="thumb" onclick="setImg(3)">
+                        <img src="https://imgnike-a.akamaihd.net/1920x1920/059071IDA7.jpg" alt="" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info -->
+            <div class="product-info">
+                <div class="category-label">Categoria</div>
+
+                <div class="product-name-row">
+                    <span class="product-name">Nome do Produto</span>
+                    <span class="badge-stock">DESCONTO</span>
+                </div>
+
+                <!-- Avaliação inline -->
+                <div class="avaliacao-row">
+                    <span class="avaliacao-nota">0.0</span>
+                    <span class="stars-avaliacao"></span>
+                    <span class="avaliacao-texto">avaliações</span>
+                </div>
+
+                <div class="price-row">
+                    <span class="price-now">R$ 0,00</span>
+                    <span class="price-old">R$ 0,00</span>
+                </div>
+
+                <p class="product-desc">Carregando informações do produto...</p>
+
+                <div class="size-wrap">
+                    <div class="size-label">Tamanho</div>
+                    <div class="size-options"></div>
+                </div>
+
+                <div class="quantity-row">
+                    <button class="qty-btn" onclick="changeQty(-1)">−</button>
+                    <span class="qty-num" id="qtyNum">1</span>
+                    <button class="qty-btn" onclick="changeQty(1)">+</button>
+                    <button class="btn-cart">Adicionar ao carrinho</button>
+                    <button class="btn-wish">
+                        <i class='bx bx-heart'>
+                            <i class='bx bxs-heart'></i>
+                        </i>
+                    </button>
+                </div>
+
+                <div class="meta-row">
+                    <div>SKU : <span>—</span></div>
+                </div>
+
+                <div class="share-row">
+                    Compartilhar :
+                    <div class="share-icon wp"><i class='bx bxl-whatsapp'></i></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== TABS ===================== -->
+        <div class="tabs-section">
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('desc', this)">DESCRIÇÃO</div>
+                <div class="tab" onclick="switchTab('vendedor', this)">VENDEDOR</div>
+                <div class="tab" onclick="switchTab('info', this)">INFORMAÇÕES</div>
+                <div class="tab" onclick="switchTab('review', this)">COMENTÁRIOS</div>
+            </div>
+
+            <div id="tab-desc" class="tab-content active">
+                <p>Carregando descrição...</p>
+            </div>
+
+            <!-- ===================== ABA VENDEDOR ===================== -->
+            <div id="tab-vendedor" class="tab-content">
+                <div class="vendedor-painel">
+
+                    <!-- CARD DE META -->
+                    <div class="v-card v-meta">
+                        <h3>Meta</h3>
+                        <div class="v-barra">
+                            <div class="v-progresso"></div>
+                        </div>
+                        <p class="v-meta-text"></p>
+                    </div>
+
+                    <!-- LINHA DE CARDS -->
+                    <div class="v-linha">
+
+                        <!-- CARD AVALIAÇÃO -->
+                        <div class="v-card v-avaliacao">
+                            <h3>Avaliação</h3>
+                            <div class="v-nota-grande"></div>
+                            <div class="v-stars"></div>
+                            <p class="v-texto-avaliacoes"></p>
+                        </div>
+
+                        <!-- CARD REPUTAÇÃO -->
+                        <div class="v-card v-reputacao">
+                            <h3>Reputação</h3>
+                            <div class="v-reputacao-info">
+                                <div class="v-reputacao-item">
+                                    <div class="v-reputacao-texto">
+                                        <i class='bx bx-trending-up v-satisfacao'></i>
+                                        <span>Satisfação</span>
+                                    </div>
+                                    <strong class="v-satisfacao-num">0%</strong>
+                                </div>
+                                <div class="v-reputacao-item">
+                                    <div class="v-reputacao-texto">
+                                        <i class='bx bx-like v-recomendacao'></i>
+                                        <span>Recomendação</span>
+                                    </div>
+                                    <strong class="v-recomendacao-num">0%</strong>
+                                </div>
+                                <div class="v-reputacao-item">
+                                    <div class="v-reputacao-texto">
+                                        <i class='bx bx-message-rounded v-comentario'></i>
+                                        <span>Comentários</span>
+                                    </div>
+                                    <strong class="v-comentario-num">0</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CARD CAMPANHA -->
+                        <div class="v-card v-campanha">
+                            <h3>Campanha</h3>
+                            <div class="v-campanha-info">
+                                <div class="v-campanha-item">
+                                    <span>Nome da campanha</span>
+                                    <strong class="v-campanha-nome"></strong>
+                                </div>
+                                <div class="v-campanha-item">
+                                    <span>Status</span>
+                                    <strong class="v-campanha-status"></strong>
+                                </div>
+                                <div class="v-campanha-item">
+                                    <span>Encerramento</span>
+                                    <strong class="v-campanha-prazo"></strong>
+                                </div>
+                                <div class="v-campanha-item">
+                                    <span>Apoiadores</span>
+                                    <strong class="v-campanha-apoiadores"></strong>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-info" class="tab-content">
+                <table class="attr-table">
+                    <thead>
+                        <tr>
+                            <th>Atributo</th>
+                            <th>Detalhes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">Carregando informações...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="tab-review" class="tab-content">
+                <p class="review-text">Carregando comentários...</p>
+            </div>
+        </div>
+
+        <!-- ===================== PRODUTOS RELACIONADOS ===================== -->
+        <div class="related-section">
+            <div class="related-label">Você também pode gostar</div>
+            <div class="related-title">Produtos <em>Relacionados</em></div>
+            <div class="related-grid" id="related-grid">
+                <!-- Preenchido dinamicamente pelo produto.js -->
+            </div>
+        </div>
+
+        <!-- ===================== FOOTER STRIP ===================== -->
+        <div class="footer-strip">
+            <div class="footer-item">
+                <span class="footer-icon"><i class='bx bx-package'></i></span>
+                <div class="footer-text">
+                    <strong>Frete Grátis</strong>
+                    <span>Nas compras acima de R$ 299</span>
+                </div>
+            </div>
+            <div class="footer-item">
+                <span class="footer-icon"><i class='bx bx-credit-card'></i></span>
+                <div class="footer-text">
+                    <strong>Pagamento Flexível</strong>
+                    <span>Pix, cartão e boleto</span>
+                </div>
+            </div>
+            <div class="footer-item">
+                <span class="footer-icon"><i class='bx bx-headphone'></i></span>
+                <div class="footer-text">
+                    <strong>Suporte 24×7</strong>
+                    <span>Estamos sempre online</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- ===================== RODAPÉ ===================== -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-coll">
+                    <h3>MarketPlace</h3>
+                    <p>Encontre os melhores produtos com os melhores preços.</p>
+                </div>
+                <div class="footer-coll">
+                    <h3>PRODUTOS</h3>
+                    <ul>
+                        <li><a href="#">Mulher</a></li>
+                        <li><a href="#">Homem</a></li>
+                        <li><a href="#">Calçados</a></li>
+                        <li><a href="#">Tênis</a></li>
+                        <li><a href="#">Roupa</a></li>
+                        <li><a href="#">Acessórios</a></li>
+                        <li><a href="#">Pet Shop</a></li>
+                        <li><a href="#">Eletrônicos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-coll">
+                    <h3>SUPORTE</h3>
+                    <ul>
+                        <li><a href="#">Podemos Ajudar</a></li>
+                        <li><a href="#">Atendimento ao Cliente</a></li>
+                        <li><a href="#">Dúvidas Frequentes</a></li>
+                        <li><a href="#">Como Comprar</a></li>
+                        <li><a href="#">Entregas e Fretes</a></li>
+                        <li><a href="#">Opções de Pagamento</a></li>
+                        <li><a href="#">Troca e Devolução</a></li>
+                    </ul>
+                </div>
+                <div class="footer-coll">
+                    <h3>INFORMAÇÃO CORPORATIVA</h3>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MarketPlace - Todos os direitos reservados</p>
+            </div>
+        </footer>
+
+    </div>
+
+
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/produto.js"></script>
+    <script src="../assets/js/telas.js"></script>
+    <script src="../assets/js/favorito.js"></script>
+    <script src="../assets/js/sacola.js"></script>
+</body>
+
+</html>
