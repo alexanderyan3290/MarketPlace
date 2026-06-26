@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/avaliacao.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>MetaMarket - Avaliações do vendedor</title>
+</head>
+
+<body>
+
+    <!-- ===================== TOPO FIXO ===================== -->
+    <div class="top-fixed">
+
+        <!-- BARRA DE OFERTAS -->
+        <div class="offers-bar">
+            <div class="promo-track">
+                <div class="promo">
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
+                    <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
+                    <p><span>20%</span> OFF NO PIX</p>
+                    <p>PARCELE ATÉ 3X SEM JUROS</p>
+                </div>
+                <div class="promo">
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
+                    <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
+                    <p><span>20%</span> OFF NO PIX</p>
+                    <p>PARCELE ATÉ 3X SEM JUROS</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU PRINCIPAL -->
+        <nav class="main-header">
+            <div class="menu-toggle">
+                <i class='bx bx-menu-alt-left'></i>
+            </div>
+            <div class="logo">
+                <span>MetaMarket</span>
+            </div>
+            <div class="main-nav">
+                <a href="#">MASCULINO</a>
+                <a href="#">FEMININO</a>
+                <a href="#">INFANTIL</a>
+                <a href="#">ESPORTE</a>
+            </div>
+            <div class="header-icons">
+                <i class='bx bx-search-alt-2 search-btn'></i>
+                <div class="favorite-menu">
+                    <i class='bx bx-heart' id="favBtn"></i>
+                    <span id="favCount">0</span>
+                </div>
+                <i class='bx bx-shopping-bag' id="bagBtn"></i>
+                <div class="perfil-menu" id="profileBtn">
+                    <span>Olá, alexander</span>
+                    <i class='bx bx-user'></i>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ===================== CONTEÚDO DA TELA DE AVALIAÇÕES ===================== -->
+    <div class="reviews-container">
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="../cliente/">Home</a>
+            <span class="sep">&gt;</span>
+            <a href="#" id="breadcrumbVendedor"></a>
+            <span class="sep">&gt;</span>
+            <span class="current">Avaliações</span>
+        </div>
+
+        <h1 class="page-title">Avaliações do vendedor</h1>
+
+        <!-- Seller info -->
+        <div class="seller-info">
+            <div class="seller-logo">
+                <i class='bx bx-book-open'></i>
+            </div>
+            <div class="seller-text">
+                <h2 id="sellerNome"></h2>
+                <p>SKU: GRFR65646HGJ</p>
+            </div>
+            <a href="#" id="sellerProductsBtn" class="seller-products-btn">
+                Ver produtos do vendedor
+                <i class='bx bx-chevron-right'></i>
+            </a>
+        </div>
+
+        <div class="main-grid">
+
+            <!-- LEFT COLUMN -->
+            <div class="left-col-reviews">
+
+                <div class="reviews-header">
+                    <h3>Avaliações dos clientes (310)</h3>
+                    <div class="sort-dropdown">
+                        <button class="sort-btn" id="sortBtn">
+                            <span>Mais recentes</span>
+                            <i class='bx bx-chevron-down'></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-top">
+                        <div class="avatar avatar-blue">JS</div>
+                        <div class="review-meta">
+                            <div class="review-name-row">
+                                <span class="review-name">João Silva</span>
+                                <span class="verified"><i class='bx bx-check-shield'></i> Compra verificada</span>
+                            </div>
+                            <span class="review-date">20 de abril de 2026</span>
+                        </div>
+                        <button class="more-btn" aria-label="Mais opções">
+                            <i class='bx bx-dots-vertical-rounded'></i>
+                        </button>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <h4 class="review-title">Acervo excelente!</h4>
+                    <p class="review-text">Encontrei livros que procurava há tempos, em ótimo estado de conservação. O retorno chegou antes do prazo!</p>
+                    <button class="helpful-btn">
+                        <i class='bx bx-like'></i>
+                        12 pessoas acharam útil
+                    </button>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-top">
+                        <div class="avatar avatar-peach">MC</div>
+                        <div class="review-meta">
+                            <div class="review-name-row">
+                                <span class="review-name">Maria Clara</span>
+                                <span class="verified"><i class='bx bx-check-shield'></i> Compra verificada</span>
+                            </div>
+                            <span class="review-date">18 de abril de 2026</span>
+                        </div>
+                        <button class="more-btn" aria-label="Mais opções">
+                            <i class='bx bx-dots-vertical-rounded'></i>
+                        </button>
+                    </div>
+                    <div class="stars">★★★★<span class="star-empty">★</span></div>
+                    <h4 class="review-title">Muito bom</h4>
+                    <p class="review-text">Livro bem cuidado e capa em ótimo estado. Só achei a fila de espera um pouco longa, mas é questão de demanda.</p>
+                    <button class="helpful-btn">
+                        <i class='bx bx-like'></i>
+                        7 pessoas acharam útil
+                    </button>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-top">
+                        <div class="avatar avatar-tan">RP</div>
+                        <div class="review-meta">
+                            <div class="review-name-row">
+                                <span class="review-name">Rafael Pereira</span>
+                                <span class="verified"><i class='bx bx-check-shield'></i> Compra verificada</span>
+                            </div>
+                            <span class="review-date">16 de abril de 2026</span>
+                        </div>
+                        <button class="more-btn" aria-label="Mais opções">
+                            <i class='bx bx-dots-vertical-rounded'></i>
+                        </button>
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <h4 class="review-title">Perfeito para o dia a dia</h4>
+                    <p class="review-text">Atendimento atencioso e indicações de leitura sob medida. Volto sempre, tanto para estudar quanto para lazer.</p>
+                    <button class="helpful-btn">
+                        <i class='bx bx-like'></i>
+                        4 pessoas acharam útil
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="right-col-reviews">
+
+                <!-- Rating summary -->
+                <div class="card-box rating-summary">
+                    <div class="rating-summary-top">
+                        <div class="rating-score">
+                            <span class="score-number">4.3</span>
+                            <div class="stars stars-lg">★★★★★</div>
+                            <span class="score-based">Baseado em 310 avaliações</span>
+                        </div>
+                        <div class="rating-bars">
+                            <div class="rating-bar-row">
+                                <span class="bar-label">5 ★</span>
+                                <div class="bar-track"><div class="bar-fill" style="width: 90%;"></div></div>
+                                <span class="bar-count">190</span>
+                            </div>
+                            <div class="rating-bar-row">
+                                <span class="bar-label">4 ★</span>
+                                <div class="bar-track"><div class="bar-fill" style="width: 25%;"></div></div>
+                                <span class="bar-count">80</span>
+                            </div>
+                            <div class="rating-bar-row">
+                                <span class="bar-label">3 ★</span>
+                                <div class="bar-track"><div class="bar-fill" style="width: 8%;"></div></div>
+                                <span class="bar-count">25</span>
+                            </div>
+                            <div class="rating-bar-row">
+                                <span class="bar-label">2 ★</span>
+                                <div class="bar-track"><div class="bar-fill" style="width: 2%;"></div></div>
+                                <span class="bar-count">10</span>
+                            </div>
+                            <div class="rating-bar-row">
+                                <span class="bar-label">1 ★</span>
+                                <div class="bar-track"><div class="bar-fill" style="width: 2%;"></div></div>
+                                <span class="bar-count">5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review form -->
+                <div class="card-box review-form">
+                    <h3>Avalie este vendedor</h3>
+                    <p class="form-subtitle">Compartilhe sua opinião com outros clientes</p>
+
+                    <div class="form-group">
+                        <label>Sua avaliação</label>
+                        <div class="star-input" id="starInput">
+                            <span class="star-choice" data-value="1">★</span>
+                            <span class="star-choice" data-value="2">★</span>
+                            <span class="star-choice" data-value="3">★</span>
+                            <span class="star-choice" data-value="4">★</span>
+                            <span class="star-choice" data-value="5">★</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reviewTitle">Título da avaliação</label>
+                        <input type="text" id="reviewTitle" placeholder="Resuma sua experiência">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reviewText">Sua avaliação</label>
+                        <textarea id="reviewText" placeholder="Conte mais sobre o produto, como foi sua experiência?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Adicionar fotos (opcional)</label>
+                        <label class="photo-upload" for="photoInput">
+                            <i class='bx bx-image-add'></i>
+                            <span class="photo-upload-title">Adicionar fotos</span>
+                            <span class="photo-upload-sub">JPEG, PNG até 5MB (máx. 5 fotos)</span>
+                            <input type="file" id="photoInput" accept="image/jpeg,image/png" multiple hidden>
+                        </label>
+                    </div>
+
+                    <button class="submit-btn" id="submitBtn">Enviar avaliação</button>
+
+                    <p class="terms-text">Ao enviar, você concorda com nossos <a href="#">Termos e Condições.</a></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== RODAPÉ ===================== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-coll">
+                <h3>MarketPlace</h3>
+                <p>Encontre os melhores produtos com os melhores preços.</p>
+            </div>
+            <div class="footer-coll">
+                <h3>PRODUTOS</h3>
+                <ul>
+                    <li><a href="#">Mulher</a></li>
+                    <li><a href="#">Homem</a></li>
+                    <li><a href="#">Calçados</a></li>
+                    <li><a href="#">Tênis</a></li>
+                    <li><a href="#">Roupa</a></li>
+                    <li><a href="#">Acessórios</a></li>
+                    <li><a href="#">Pet Shop</a></li>
+                    <li><a href="#">Eletrônicos</a></li>
+                </ul>
+            </div>
+            <div class="footer-coll">
+                <h3>SUPORTE</h3>
+                <ul>
+                    <li><a href="#">Podemos Ajudar</a></li>
+                    <li><a href="#">Atendimento ao Cliente</a></li>
+                    <li><a href="#">Dúvidas Frequentes</a></li>
+                    <li><a href="#">Como Comprar</a></li>
+                    <li><a href="#">Entregas e Fretes</a></li>
+                    <li><a href="#">Opções de Pagamento</a></li>
+                    <li><a href="#">Troca e Devolução</a></li>
+                </ul>
+            </div>
+            <div class="footer-coll">
+                <h3>INFORMAÇÃO CORPORATIVA</h3>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MarketPlace - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/avaliacao.js"></script>
+    <script src="../assets/js/favorito.js"></script>
+    <script src="../assets/js/sacola.js"></script>
+
+    <!-- Breadcrumb + seller info dinâmicos via URL -->
+    <script>
+        (function () {
+            const params       = new URLSearchParams(window.location.search);
+            const nomeVendedor = params.get("nome") || "SaberExpress";
+            const urlPerfil    = `../perfil-publico/index.html?nome=${encodeURIComponent(nomeVendedor)}`;
+
+            // Breadcrumb
+            const breadcrumbEl = document.getElementById("breadcrumbVendedor");
+            if (breadcrumbEl) {
+                breadcrumbEl.textContent = nomeVendedor;
+                breadcrumbEl.href        = urlPerfil;
+            }
+
+            // Nome na seller-info
+            const sellerNomeEl = document.getElementById("sellerNome");
+            if (sellerNomeEl) sellerNomeEl.textContent = nomeVendedor;
+
+            // Botão "Ver produtos do vendedor"
+            const sellerBtn = document.getElementById("sellerProductsBtn");
+            if (sellerBtn) sellerBtn.href = urlPerfil;
+        })();
+    </script>
+
+</body>
+
+</html>
