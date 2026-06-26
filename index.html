@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MarketPlace</title>
+    <title>MetaMarket</title>
     <link rel="stylesheet" href="assets/css/homes.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="icon" href="assets/img/logo.png" type="image/png">
@@ -46,7 +46,7 @@
             </div>
             <div class="logo">
                 <img src="assets/img/marketplace.png" alt="">
-                <span>MarketPlace</span>
+                <span>MetaMarket</span>
             </div>
             <div class="main-nav">
                 <a href="#">MASCULINO</a>
@@ -79,9 +79,32 @@
             </div>
             <button class="close-search">Cancelar</button>
         </div>
-        <div class="search-products">
-            <h3>Produtos sugeridos</h3>
-            <div class="products-space"></div>
+
+        <div class="search-body">
+
+            <!-- MENU LATERAL DE CATEGORIAS -->
+            <aside class="search-categories">
+                <h4>Categorias</h4>
+                <ul>
+                    <li class="cat-item active" data-categoria="todos">Todos</li>
+                    <li class="cat-item" data-categoria="masculino">Masculino</li>
+                    <li class="cat-item" data-categoria="feminino">Feminino</li>
+                    <li class="cat-item" data-categoria="infantil">Infantil</li>
+                    <li class="cat-item" data-categoria="roupas">Roupas</li>
+                    <li class="cat-item" data-categoria="moveis">Móveis</li>
+                    <li class="cat-item" data-categoria="eletrodomesticos">Eletrodomésticos</li>
+                    <li class="cat-item" data-categoria="brinquedos">Brinquedos</li>
+                    <li class="cat-item" data-categoria="petshop">Pet Shop</li>
+                    <li class="cat-item" data-categoria="esporte">Esporte</li>
+                    <li class="cat-item" data-categoria="livros">Livros</li>
+                </ul>
+            </aside>
+
+            <!-- ÁREA PRINCIPAL DE RESULTADOS -->
+            <div class="search-products">
+                <div class="products-space"></div>
+            </div>
+
         </div>
     </div>
 
@@ -218,17 +241,23 @@
                 <div class="info-items">
                     <div class="info-box">
                         <span><i class='bx bx-leaf'></i></span>
-                        <div class="info-bann"><h4>PRODUTOS <br> SUSTENTÁVEIS</h4></div>
+                        <div class="info-bann">
+                            <h4>PRODUTOS <br> SUSTENTÁVEIS</h4>
+                        </div>
                     </div>
                     <div class="line"></div>
                     <div class="info-box">
                         <span><i class='bx bx-check-shield'></i></span>
-                        <div class="info"><h4>QUALIDADE<br> GARANTIDA</h4></div>
+                        <div class="info">
+                            <h4>QUALIDADE<br> GARANTIDA</h4>
+                        </div>
                     </div>
                     <div class="line"></div>
                     <div class="info-box">
                         <span><i class='bx bx-basket'></i></span>
-                        <div class="info"><h4>COMPRA E<br> FAÇA O BEM</h4></div>
+                        <div class="info">
+                            <h4>COMPRA E<br> FAÇA O BEM</h4>
+                        </div>
                     </div>
                 </div>
                 <div class="button2">
@@ -301,7 +330,9 @@
                 <div class="grupo">
                     <div class="card-vendedor meta">
                         <h3>Meta</h3>
-                        <div class="barra"><div class="progresso"></div></div>
+                        <div class="barra">
+                            <div class="progresso"></div>
+                        </div>
                         <p class="meta-text"></p>
                     </div>
                     <div class="linha-inferior">
@@ -318,15 +349,18 @@
                             <h3>Reputação</h3>
                             <div class="reputacao_info">
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
                                     <strong class="satisfacao-num">0%</strong>
                                 </div>
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
                                     <strong class="recomendacao-num">0</strong>
                                 </div>
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
                                     <strong class="comentario-num">0</strong>
                                 </div>
                             </div>
@@ -338,7 +372,9 @@
                 <div class="grupo">
                     <div class="card-vendedor meta">
                         <h3>Meta</h3>
-                        <div class="barra"><div class="progresso"></div></div>
+                        <div class="barra">
+                            <div class="progresso"></div>
+                        </div>
                         <p class="meta-text"></p>
                     </div>
                     <div class="linha-inferior">
@@ -355,15 +391,18 @@
                             <h3>Reputação</h3>
                             <div class="reputacao_info">
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
                                     <strong class="satisfacao-num">0%</strong>
                                 </div>
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
                                     <strong class="recomendacao-num">0</strong>
                                 </div>
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
                                     <strong class="comentario-num">0</strong>
                                 </div>
                             </div>
@@ -375,7 +414,9 @@
                 <div class="grupo">
                     <div class="card-vendedor meta">
                         <h3>Meta</h3>
-                        <div class="barra"><div class="progresso"></div></div>
+                        <div class="barra">
+                            <div class="progresso"></div>
+                        </div>
                         <p class="meta-text"></p>
                     </div>
                     <div class="linha-inferior">
@@ -392,15 +433,18 @@
                             <h3>Reputação</h3>
                             <div class="reputacao_info">
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
                                     <strong class="satisfacao-num">0%</strong>
                                 </div>
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
                                     <strong class="recomendacao-num">0</strong>
                                 </div>
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
                                     <strong class="comentario-num">0</strong>
                                 </div>
                             </div>
@@ -412,7 +456,9 @@
                 <div class="grupo">
                     <div class="card-vendedor meta">
                         <h3>Meta</h3>
-                        <div class="barra"><div class="progresso"></div></div>
+                        <div class="barra">
+                            <div class="progresso"></div>
+                        </div>
                         <p class="meta-text"></p>
                     </div>
                     <div class="linha-inferior">
@@ -429,15 +475,18 @@
                             <h3>Reputação</h3>
                             <div class="reputacao_info">
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
                                     <strong class="satisfacao-num">0%</strong>
                                 </div>
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
                                     <strong class="recomendacao-num">0</strong>
                                 </div>
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
                                     <strong class="comentario-num">0</strong>
                                 </div>
                             </div>
@@ -449,7 +498,9 @@
                 <div class="grupo">
                     <div class="card-vendedor meta">
                         <h3>Meta</h3>
-                        <div class="barra"><div class="progresso"></div></div>
+                        <div class="barra">
+                            <div class="progresso"></div>
+                        </div>
                         <p class="meta-text"></p>
                     </div>
                     <div class="linha-inferior">
@@ -466,15 +517,18 @@
                             <h3>Reputação</h3>
                             <div class="reputacao_info">
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
                                     <strong class="satisfacao-num">0%</strong>
                                 </div>
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
                                     <strong class="recomendacao-num">0</strong>
                                 </div>
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
                                     <strong class="comentario-num">0</strong>
                                 </div>
                             </div>
@@ -486,7 +540,9 @@
                 <div class="grupo">
                     <div class="card-vendedor meta">
                         <h3>Meta</h3>
-                        <div class="barra"><div class="progresso"></div></div>
+                        <div class="barra">
+                            <div class="progresso"></div>
+                        </div>
                         <p class="meta-text"></p>
                     </div>
                     <div class="linha-inferior">
@@ -503,15 +559,18 @@
                             <h3>Reputação</h3>
                             <div class="reputacao_info">
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-trending-up satisfacao'></i><span>Satisfação</span></div>
                                     <strong class="satisfacao-num">0%</strong>
                                 </div>
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-like recomendacao'></i><span>Recomendação</span></div>
                                     <strong class="recomendacao-num">0</strong>
                                 </div>
                                 <div class="reputacao-item">
-                                    <div class="reputacao-texto"><i class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
+                                    <div class="reputacao-texto"><i
+                                            class='bx bx-message-rounded comentario'></i><span>Comentários</span></div>
                                     <strong class="comentario-num">0</strong>
                                 </div>
                             </div>
@@ -572,12 +631,13 @@
         </div>
     </footer>
 
-    <script src="assets/js/modelo.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="../assets/js/modelo.js"></script>
+    <script src="../assets/js/favorito.js"></script>
+    <script src="../assets/js/sacola.js"></script>
     <script src="assets/js/login.js"></script>
-    <script src="assets/js/cadastro.js"></script>
-    <script src="assets/js/favorito.js"></script>
-    <script src="assets/js/sacola.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=SUA_CHAVE_API&libraries=places"></script>
 
 </body>
+
 </html>
