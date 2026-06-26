@@ -1,0 +1,789 @@
+/* =============================================================
+   GERENCIAMENTO DE ESTOQUE — STYLE.CSS
+   Header e barra de ofertas reaproveitados de telas.css
+   ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&family=Permanent+Marker&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+
+/* =============================================================
+   VARIÁVEIS GLOBAIS
+   ============================================================= */
+
+:root {
+    --cor-primaria: rgb(245, 60, 3);
+    --cor-hover: rgb(188, 131, 8);
+    --cor-fundo: #f3f5fa;
+    --cor-borda: #dcdde1;
+    --cor-sombra: rgba(0, 0, 0, 0.15);
+    --transicao: 0.3s ease;
+
+    --orange: #f0631e;
+    --text-dark: #1a1a1a;
+    --text-gray: #6b7280;
+    --text-light-gray: #9ca3af;
+    --border-color: #e5e7eb;
+    --green-bg: #d6f5e3;
+    --green-text: #16a34a;
+    --red-bg: #fde2e1;
+    --red-text: #dc2626;
+    --gray-bg: #f1f1f4;
+    --gray-text: #6b7280;
+}
+
+
+/* =============================================================
+   RESET BÁSICO
+   ============================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background: #fff;
+    padding-top: 106px;
+}
+
+
+/* =============================================================
+   BARRA DE OFERTAS (TICKER)
+   ============================================================= */
+
+.offers-bar {
+    overflow: hidden;
+    background: #f6f6f6;
+    padding: 10px 0;
+}
+
+.promo-track {
+    display: flex;
+    gap: 50px;
+    width: max-content;
+    animation: scroll 15s linear infinite;
+}
+
+.promo {
+    display: flex;
+    gap: 60px;
+}
+
+.promo p {
+    font-weight: 300;
+    color: black;
+}
+
+.promo span {
+    color: #40c959;
+    font-weight: bold;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* =============================================================
+   HEADER & NAVEGAÇÃO
+   ============================================================= */
+
+.top-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.top-fixed.hidden {
+    transform: translateY(-100%);
+}
+
+.top-fixed.scrolled {
+    box-shadow: 0 4px 20px var(--cor-sombra);
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 30px;
+    border-bottom: 1px solid var(--cor-borda);
+    background: var(--cor-fundo);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.logo {
+    font-size: clamp(18px, 2vw, 28px);
+    font-weight: bold;
+    color: var(--cor-primaria);
+}
+
+.main-nav {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+    font-size: clamp(14px, 1.2vw, 16px);
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #9aa0a8;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 600;
+    transition: color var(--transicao);
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.main-nav a.active {
+    color: #9aa0a8;
+}
+
+.main-nav a.active-page {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.main-nav a.active-page::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--cor-primaria);
+}
+
+.main-nav a:hover {
+    color: var(--cor-hover);
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: clamp(16px, 1.5vw, 22px);
+    color: black;
+    cursor: pointer;
+}
+
+
+/* =============================================================
+   PERFIL
+   ============================================================= */
+
+.perfil-menu {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background: #c3c1c13d;
+    border-radius: 50px;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.perfil-menu i {
+    font-size: 22px;
+}
+
+.perfil-menu span {
+    font-size: 15px;
+    display: block;
+    font-weight: 500;
+    color: #797979;
+    transition: color var(--transicao);
+}
+
+.perfil-menu span:hover {
+    color: black;
+}
+
+
+/* =============================================================
+   CONTAINER DA TELA DE ESTOQUE
+   ============================================================= */
+
+.estoque-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 32px;
+    background: var(--cor-fundo);
+}
+
+/* Cabeçalho da página */
+.estoque-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.new-product-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--orange);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.new-product-btn:hover {
+    background: #d4540f;
+}
+
+.new-product-btn i {
+    font-size: 18px;
+}
+
+
+/* =============================================================
+   CARDS DE RESUMO
+   ============================================================= */
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.summary-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.summary-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--text-light-gray);
+    text-transform: uppercase;
+}
+
+.summary-value-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.summary-value {
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.summary-value small {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-gray);
+}
+
+.summary-value-orange {
+    color: var(--orange);
+}
+
+.summary-suffix {
+    font-size: 14px;
+    color: var(--text-gray);
+    font-weight: 500;
+}
+
+.tag {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 999px;
+}
+
+.tag-green {
+    background: var(--red-bg);
+    color: var(--red-text);
+}
+
+.tag-gray {
+    background: var(--gray-bg);
+    color: var(--gray-text);
+}
+
+
+/* =============================================================
+   FILTROS
+   ============================================================= */
+
+.filters-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px 24px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.search-input-wrap {
+    flex: 1;
+    min-width: 240px;
+}
+
+.search-input-wrap input {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.search-input-wrap input:focus {
+    outline: none;
+    border-color: var(--orange);
+}
+
+.search-input-wrap input::placeholder {
+    color: var(--text-light-gray);
+}
+
+.filters-right {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.filter-select {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.filter-select select {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 36px 12px 16px;
+    font-size: 14px;
+    color: var(--text-dark);
+    background: #fff;
+    appearance: none;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.filter-select select:focus {
+    outline: none;
+    border-color: var(--orange);
+}
+
+.filter-select i {
+    position: absolute;
+    right: 12px;
+    font-size: 18px;
+    color: var(--text-light-gray);
+    pointer-events: none;
+}
+
+
+/* =============================================================
+   TABELA DE PRODUTOS
+   ============================================================= */
+
+.table-wrap {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow-x: auto;
+    margin-bottom: 24px;
+}
+
+.estoque-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.estoque-table thead th {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--text-light-gray);
+    text-transform: uppercase;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.estoque-table tbody td {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+    color: var(--text-dark);
+    vertical-align: middle;
+}
+
+.estoque-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.col-foto {
+    width: 90px;
+}
+
+.col-produto {
+    min-width: 260px;
+}
+
+.col-acoes {
+    white-space: nowrap;
+}
+
+.img-placeholder {
+    width: 56px;
+    height: 56px;
+    background: #f2f2f2;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light-gray);
+    font-size: 22px;
+}
+
+.prod-nome {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+}
+
+.prod-sku {
+    font-size: 12px;
+    color: var(--text-light-gray);
+}
+
+.prod-preco {
+    font-weight: 700;
+}
+
+/* Tamanho */
+.badge-tam {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 6px;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.badge-tam-orange {
+    background: var(--orange);
+    color: #fff;
+}
+
+.badge-tam-gray {
+    background: var(--gray-bg);
+    color: var(--text-gray);
+}
+
+/* Quantidade */
+.qty-control {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.qty-btn {
+    background: #fafafa;
+    border: none;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+.qty-btn:hover {
+    background: #eee;
+}
+
+.qty-value {
+    min-width: 36px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.qty-value-zero {
+    color: var(--red-text);
+}
+
+/* Status */
+.status {
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+}
+
+.status-ativo {
+    background: var(--green-bg);
+    color: var(--green-text);
+}
+
+.status-esgotado {
+    background: var(--red-bg);
+    color: var(--red-text);
+}
+
+.status-inativo {
+    background: var(--gray-bg);
+    color: var(--gray-text);
+}
+
+/* Ações */
+.action-link {
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #2563eb;
+    margin-right: 16px;
+}
+
+.action-link-orange {
+    color: var(--orange);
+    margin-right: 0;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =============================================================
+   PAGINAÇÃO
+   ============================================================= */
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.pagination p {
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.pagination-btns {
+    display: flex;
+    gap: 12px;
+}
+
+.page-btn {
+    border: 1px solid var(--border-color);
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+    background: #f5f5f5;
+}
+
+.page-btn:disabled {
+    color: var(--text-light-gray);
+    cursor: not-allowed;
+}
+
+
+/* =============================================================
+   RESPONSIVO
+   ============================================================= */
+
+@media (max-width: 1024px) {
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .main-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .estoque-container {
+        padding: 16px;
+    }
+
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .main-header {
+        padding: 16px;
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+}
+
+/* =============================================================
+   AJUSTES PARA PRODUTOS REAIS
+   ============================================================= */
+
+/* Imagem do produto dentro do placeholder */
+.img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Preço antigo (riscado) */
+.prod-preco-antigo {
+    font-size: 13px;
+    color: var(--text-light-gray);
+    text-decoration: line-through;
+}
+
+/* Badge de categoria com texto (não só letra) */
+.badge-tam {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    height: auto;
+    min-width: unset;
+}
+
+/* =============================================================
+   AJUSTES PARA PRODUTOS REAIS
+   ============================================================= */
+
+/* Imagem do produto dentro do placeholder */
+.img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Preço antigo (riscado) */
+.prod-preco-antigo {
+    font-size: 13px;
+    color: var(--text-light-gray);
+    text-decoration: line-through;
+}
+
+/* Badge de categoria com texto (não só letra) */
+.badge-tam {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    height: auto;
+    min-width: unset;
+}
+
+/* =============================================================
+   SETA DE RETORNO
+   ============================================================= */
+
+.btn-voltar {
+    position: fixed;
+    top: 130px;
+    left: 20px;
+    z-index: 8000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1.5px solid #e0dfda;
+    border-radius: 50px;
+    padding: 9px 18px 9px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a18;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    transition: background 0.18s, box-shadow 0.18s, transform 0.15s;
+    white-space: nowrap;
+}
+
+.btn-voltar:hover {
+    background: #f7f5f0;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.14);
+    transform: translateX(-2px);
+}
+
+.btn-voltar i {
+    font-size: 20px;
+    color: #c5722a;
+    flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+    .btn-voltar {
+        padding: 10px 12px;
+        border-radius: 50%;
+        top: 108px;
+        left: 14px;
+    }
+}
