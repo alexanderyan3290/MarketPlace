@@ -1,3 +1,7 @@
+<!-- =============================================================
+   cliente/index.html
+   ============================================================= -->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/telas.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <title>Document</title>
+    <title>MetaMarket</title>
 </head>
 
 <body>
@@ -39,7 +43,7 @@
             </div>
             <div class="logo">
                 <img src="../assets/img/marketplace.png" alt="">
-                <span>MarketPlace</span>
+                <span>MetaMarket</span>
             </div>
             <div class="main-nav">
                 <a href="#">MASCULINO</a>
@@ -54,7 +58,7 @@
                     <span id="favCount">0</span>
                 </div>
                 <i class='bx bx-shopping-bag' id="bagBtn"></i>
-                <div class="perfil-menu">
+                <div class="perfil-menu" id="profileBtn">
                     <span>Olá, alexander</span>
                     <i class='bx bx-user'></i>
                 </div>
@@ -74,19 +78,32 @@
             </div>
             <button class="close-search">Cancelar</button>
         </div>
-        <div class="search-products">
-            <div class="search-layout">
 
-                <aside class="sidebar-category active">
-                    <button class="sidebar-btn">Moda</button>
-                    <div class="sidebar-submenu">
-                        <a href="">Camisetas</a>
-                        <a href="">Tênis</a>
-                    </div>
-                </aside>
+        <div class="search-body">
+
+            <!-- MENU LATERAL DE CATEGORIAS -->
+            <aside class="search-categories">
+                <h4>Categorias</h4>
+                <ul>
+                    <li class="cat-item active" data-categoria="todos">Todos</li>
+                    <li class="cat-item" data-categoria="masculino">Masculino</li>
+                    <li class="cat-item" data-categoria="feminino">Feminino</li>
+                    <li class="cat-item" data-categoria="infantil">Infantil</li>
+                    <li class="cat-item" data-categoria="roupas">Roupas</li>
+                    <li class="cat-item" data-categoria="moveis">Móveis</li>
+                    <li class="cat-item" data-categoria="eletrodomesticos">Eletrodomésticos</li>
+                    <li class="cat-item" data-categoria="brinquedos">Brinquedos</li>
+                    <li class="cat-item" data-categoria="petshop">Pet Shop</li>
+                    <li class="cat-item" data-categoria="esporte">Esporte</li>
+                    <li class="cat-item" data-categoria="livros">Livros</li>
+                </ul>
+            </aside>
+
+            <!-- ÁREA PRINCIPAL DE RESULTADOS -->
+            <div class="search-products">
+                <div class="products-space"></div>
             </div>
-            <h3>Produtos sugeridos</h3>
-            <div class="products-space"></div>
+
         </div>
     </div>
 
@@ -119,52 +136,126 @@
         </div>
     </div>
 
+    <!-- ===================== PAINEL PERFIL ===================== -->
+    <div class="profile-panel" id="profilePanel">
+
+        <div class="profile-top">
+            <h2>Minha Conta</h2>
+            <i class='bx bx-x close-profile' id="closeProfile"></i>
+        </div>
+
+        <div class="profile-content">
+
+            <a href="../perfil/" class="profile-user profile-user-link">
+                <i class='bx bxs-user-circle'></i>
+                <h3>Alexander</h3>
+                <p>alexander@email.com</p>
+            </a>
+
+            <div class="profile-links">
+                <a href="#"><i class='bx bx-package'></i> Meus Pedidos</a>
+                <a href="#"><i class='bx bx-heart'></i> Favoritos</a>
+                <a href="#"><i class='bx bx-map'></i> Endereços</a>
+                <a href="../perfil/"><i class='bx bx-cog'></i> Configurações</a>
+                <a href="../index.html" class="logout">
+                    <i class='bx bx-log-out'></i> Sair
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
     <!-- ===================== BANNERS ===================== -->
     <section class="banners">
         <div class="slide active slide1">
-
             <div class="biblioteca-img">
                 <img src="../assets/img/biblioteca.jpeg" alt="">
             </div>
-
             <div class="overlay"></div>
-
-            <div class="biblioteca-content1 animate-up">
+            <div class="biblioteca-content1 animate">
                 <h1>BIBLIOTECA <br> COMUNITÁRIA</h1>
-
                 <p>Conhecimento que transforma. <br>Comunidade que cresce.</p>
-
                 <div class="icones">
                     <div class="infor">
                         <i class="bx bx-book-open"></i>
                         <span>Aprenda</span>
                     </div>
-
                     <div class="infor">
                         <i class="bx bx-group"></i>
                         <span>Compartilhe</span>
                     </div>
-
                     <div class="infor">
                         <i class="bx bx-heart"></i>
                         <span>Transforme</span>
                     </div>
                 </div>
-
                 <h2>Sua história pode começar<span>na próxima página.</span></h2>
+                <a href="../perfil-publico/index.html" class="btn-ver-perfil">
+                    Conhecer o vendedor <i class='bx bx-right-arrow-alt'></i>
+                </a>
             </div>
-
             <div class="circulo-info ">
                 <i class="bx bx-book-open"></i>
                 <p>Um espaço <br>aberto para
                 </p>
                 <strong>TODOS.</strong>
             </div>
+        </div>
 
+        <div class="slide slide2">
+
+            <div class="biblioteca-img">
+                <img src="../assets/img/idosos.jpeg" alt="Lar dos Idosos">
+            </div>
+
+            <div class="overlay2"></div>
+
+            <div class="biblioteca-content2 animate">
+
+                <span class="campanha">CAMPANHA</span>
+
+                <h1>LAR DOS <br> IDOSOS</h1>
+
+                <h2>Conforto e Dignidade</h2>
+
+                <div class="descricao">
+
+                    <h3>APOIE ESTA CAUSA</h3>
+
+                    <p>
+                        Criei esta campanha para contribuir com o Lar dos Idosos. Ao comprar os
+                        produtos participantes, você ajuda a alcançar nossa meta e apoia uma
+                        iniciativa voltada ao bem-estar e à qualidade de vida dos idosos.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="meta-card">
+                <span class="meta-label">
+                    META DA CAMPANHA
+                </span>
+                <div class="meta-valor" id="metaValor">
+                    R$ 0,00
+                </div>
+                <div class="barra">
+                    <div class="progresso" id="progressoMeta"></div>
+                </div>
+                <p class="meta-status" id="statusMeta">
+                    0% alcançado
+                </p>
+            </div>
+        </div>
+
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
         </div>
     </section>
 
-    <div class="categoria">
+    <section class="categoria-elementos">
         <div class="opcoes">
             <i class='bx bx-closet'></i>
             <span>Roupa</span>
@@ -204,7 +295,8 @@
             <i class='bx bx-book'></i>
             <span>Livros</span>
         </div>
-    </div>
+
+    </section>
 
 
     <!-- ===================== PRODUTOS 01 ===================== -->
@@ -212,6 +304,56 @@
         <div class="container" id="produtos-container01"></div>
     </section>
 
+    <!-- ===================== PRODUTOS 02 ===================== -->
+    <section class="main-offers animate">
+        <div class="container" id="produtos-container02"></div>
+    </section>
+
+    <!-- ===================== RODAPÉ ===================== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-coll">
+                <h3>MarketPlace</h3>
+                <p>Encontre os melhores produtos com os melhores preços.</p>
+            </div>
+            <div class="footer-coll">
+                <h3>PRODUTOS</h3>
+                <ul>
+                    <li><a href="#">Mulher</a></li>
+                    <li><a href="#">Homem</a></li>
+                    <li><a href="#">Calçados</a></li>
+                    <li><a href="#">Tênis</a></li>
+                    <li><a href="#">Roupa</a></li>
+                    <li><a href="#">Acessórios</a></li>
+                    <li><a href="#">Pet Shop</a></li>
+                    <li><a href="#">Eletrônicos</a></li>
+                </ul>
+            </div>
+            <div class="footer-coll">
+                <h3>SUPORTE</h3>
+                <ul>
+                    <li><a href="#">Podemos Ajudar</a></li>
+                    <li><a href="#">Atendimento ao Cliente</a></li>
+                    <li><a href="#">Dúvidas Frequentes</a></li>
+                    <li><a href="#">Como Comprar</a></li>
+                    <li><a href="#">Entregas e Fretes</a></li>
+                    <li><a href="#">Opções de Pagamento</a></li>
+                    <li><a href="#">Troca e Devolução</a></li>
+                </ul>
+            </div>
+            <div class="footer-coll">
+                <h3>INFORMAÇÃO CORPORATIVA</h3>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MarketPlace - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/auth.js"></script>
     <script src="../assets/js/telas.js"></script>
     <script src="../assets/js/favorito.js"></script>
     <script src="../assets/js/sacola.js"></script>
