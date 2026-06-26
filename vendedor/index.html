@@ -1,0 +1,312 @@
+<!-- =============================================================
+   vendedor/index.html
+   ============================================================= -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/telas.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>MetaMarket</title>
+</head>
+
+<body>
+
+    <!-- ===================== TOPO FIXO ===================== -->
+    <div class="top-fixed">
+
+        <!-- BARRA DE OFERTAS -->
+        <div class="offers-bar">
+            <div class="promo-track">
+                <div class="promo">
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
+                    <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
+                    <p><span>20%</span> OFF NO PIX</p>
+                    <p>PARCELE ATÉ 3X SEM JUROS</p>
+                </div>
+                <div class="promo">
+                    <p>DEVOLUÇÃO FACILITADA E SEM CUSTO</p>
+                    <p>COMPRE E AJUDE A CHEGAR MAIS PERTO DA META</p>
+                    <p><span>20%</span> OFF NO PIX</p>
+                    <p>PARCELE ATÉ 3X SEM JUROS</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU PRINCIPAL -->
+        <nav class="main-header">
+            <div class="menu-toggle">
+                <i class='bx bx-menu-alt-left'></i>
+            </div>
+            <div class="logo">
+                <img src="../assets/img/marketplace.png" alt="">
+                <span>MetaMarket</span>
+            </div>
+            <div class="main-nav">
+                <a href="#">MASCULINO</a>
+                <a href="#">FEMININO</a>
+                <a href="#">INFANTIL</a>
+                <a href="#">ESPORTE</a>
+            </div>
+            <div class="header-icons">
+                <i class='bx bx-search-alt-2 search-btn'></i>
+                <div class="favorite-menu">
+                    <i class='bx bx-heart' id="favBtn"></i>
+                    <span id="favCount">0</span>
+                </div>
+                <i class='bx bx-shopping-bag' id="bagBtn"></i>
+                <div class="perfil-menu" id="profileBtn">
+                    <span>Olá, alexander</span>
+                    <i class='bx bx-user'></i>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ===================== BUSCA ===================== -->
+    <div class="search-container">
+        <div class="search-header">
+            <div class="search-logo">
+                <img src="../assets/img/marketplace.png" alt="">
+            </div>
+            <div class="search-input-area">
+                <i class='bx bx-search'></i>
+                <input type="text" class="search-box" placeholder="Buscar produtos...">
+            </div>
+            <button class="close-search">Cancelar</a>
+        </div>
+        <div class="search-body">
+            <aside class="search-categories">
+                <h4>Categorias</h4>
+                <ul>
+                    <li class="cat-item active" data-categoria="todos">Todos</li>
+                    <li class="cat-item" data-categoria="masculino">Masculino</li>
+                    <li class="cat-item" data-categoria="feminino">Feminino</li>
+                    <li class="cat-item" data-categoria="infantil">Infantil</li>
+                    <li class="cat-item" data-categoria="roupas">Roupas</li>
+                    <li class="cat-item" data-categoria="moveis">Móveis</li>
+                    <li class="cat-item" data-categoria="eletrodomesticos">Eletrodomésticos</li>
+                    <li class="cat-item" data-categoria="brinquedos">Brinquedos</li>
+                    <li class="cat-item" data-categoria="petshop">Pet Shop</li>
+                    <li class="cat-item" data-categoria="esporte">Esporte</li>
+                    <li class="cat-item" data-categoria="livros">Livros</li>
+                </ul>
+            </aside>
+            <div class="search-products">
+                <div class="products-space"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== PAINEL FAVORITOS ===================== -->
+    <div class="fav-panel">
+        <div class="fav-top">
+            <h2>Favoritos</h2>
+            <span id="closeFav" class="close-fav">&times;</span>
+        </div>
+        <div id="favItems" class="favItems"></div>
+    </div>
+
+    <!-- ===================== PAINEL SACOLA ===================== -->
+    <div class="bag-panel" id="bagPanel">
+        <div class="bag-top">
+            <h2>Sua Sacola</h2>
+            <i class='bx bx-x close-bag' id="closeBag"></i>
+        </div>
+        <div class="bagItems" id="bagItems">
+            <div class="empty-bag">
+                <p>Nenhum produto adicionado</p>
+            </div>
+        </div>
+        <div class="bag-footer">
+            <div class="total">
+                <h3>Total</h3>
+                <span id="totalPrice">R$ 0,00</span>
+            </div>
+            <button class="finish-btn" id="finishBtn">Finalizar Compra</a>
+        </div>
+    </div>
+
+    <!-- ===================== PAINEL PERFIL ===================== -->
+    <div class="profile-panel" id="profilePanel">
+        <div class="profile-top">
+            <h2>Minha Conta</h2>
+            <i class='bx bx-x close-profile' id="closeProfile"></i>
+        </div>
+        <div class="profile-content">
+            <a href="../perfil-venderdor/index.html" class="profile-user profile-user-link">
+                <i class='bx bxs-user-circle'></i>
+                <h3>Alexander</h3>
+                <p>alexander@email.com</p>
+            </a>
+            <div class="profile-links">
+                <a href="#"><i class='bx bx-package'></i> Meus Pedidos</a>
+                <a href="#"><i class='bx bx-heart'></i> Favoritos</a>
+                <a href="#"><i class='bx bx-map'></i> Endereços</a>
+                <a href="../perfil/"><i class='bx bx-cog'></i> Configurações</a>
+                <a href="../index.html" class="logout">
+                    <i class='bx bx-log-out'></i> Sair
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== BANNERS ===================== -->
+    <section class="banners">
+
+        <!-- SLIDE 4 — Banner Plataforma 1 -->
+        <div class="slide active slide4">
+            <div class="img-primary">
+                <img src="../assets/img/bannerplatafor.jpeg" alt="">
+            </div>
+            <!-- SEM .animate — conteúdo deve ser visível imediatamente -->
+            <div class="hero-content1">
+                <span class="badge">DA PLATAFORMA PARA VOCÊ</span>
+                <h1>
+                    A plataforma está<br>
+                    aqui para <span class="highlight">te impulsionar.</span>
+                </h1>
+                <p>
+                    Conte com ferramentas, suporte e recursos
+                    para ajudar você a vender mais e crescer sempre.
+                </p>
+                <div class="button1">
+                    <button class="btn-primary">
+                        Acessar minha plataforma
+                        <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                </div>
+            </div>
+            <div class="banner-features">
+                <div class="feature">
+                    <i class='bx bxs-rocket'></i>
+                    <span>Ferramentas que impulsionam suas vendas</span>
+                </div>
+                <div class="feature">
+                    <i class='bx bxs-shield-check'></i>
+                    <span>Segurança e suporte para você</span>
+                </div>
+                <div class="feature">
+                    <i class='bx bxs-trophy'></i>
+                    <span>Recursos para você alcançar suas metas</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5 — Banner Plataforma 2 -->
+        <div class="slide slide5">
+            <div class="biblioteca-img">
+                <img src="../assets/img/bannerplatafor2.jpeg" alt="Plataforma para Vendedores">
+            </div>
+            <!-- SEM .animate -->
+            <div class="hero-content2">
+                <span class="tag-banner">
+                    <i class='bx bxs-shield'></i>
+                    DA PLATAFORMA PARA VOCÊ
+                </span>
+                <h1>
+                    Mais ferramentas,<br>
+                    mais resultados<br>
+                    <span>para você.</span>
+                </h1>
+                <p>
+                    Tudo o que você precisa para vender mais,
+                    encantar clientes e alcançar seus objetivos.
+                </p>
+                <div class="button1">
+                    <button class="btn-primary">
+                        <i class='bx bx-right-arrow-alt'></i>
+                        Acessar minha plataforma
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DOTS — obrigatório para o JS do carrossel funcionar -->
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+        </div>
+
+    </section>
+
+    <section class="categoria-elementos">
+        <div class="opcoes"><i class='bx bx-closet'></i><span>Roupa</span></div>
+        <div class="opcoes"><i class='bx bx-bed'></i><span>Móveis</span></div>
+        <div class="opcoes"><i class='bx bx-restaurant'></i><span>comida</span></div>
+        <div class="opcoes"><i class='bx bx-desktop'></i><span>Eletrônicos</span></div>
+        <div class="opcoes"><i class='bx bx-joystick'></i><span>Brinquedos</span></div>
+        <div class="opcoes"><i class='bx bxl-baidu'></i><span>Pet Shop</span></div>
+        <div class="opcoes"><i class='bx bx-cycling'></i><span>Esporte</span></div>
+        <div class="opcoes"><i class='bx bx-book'></i><span>Livros</span></div>
+    </section>
+
+    <!-- ===================== PRODUTOS 01 ===================== -->
+    <section class="main-offers animate">
+        <div class="container" id="produtos-container01"></div>
+    </section>
+
+    <!-- ===================== PRODUTOS 02 ===================== -->
+    <section class="main-offers animate">
+        <div class="container" id="produtos-container02"></div>
+    </section>
+
+    <!-- ===================== RODAPÉ ===================== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-coll">
+                <h3>MarketPlace</h3>
+                <p>Encontre os melhores produtos com os melhores preços.</p>
+            </div>
+            <div class="footer-coll">
+                <h3>PRODUTOS</h3>
+                <ul>
+                    <li><a href="#">Mulher</a></li>
+                    <li><a href="#">Homem</a></li>
+                    <li><a href="#">Calçados</a></li>
+                    <li><a href="#">Tênis</a></li>
+                    <li><a href="#">Roupa</a></li>
+                    <li><a href="#">Acessórios</a></li>
+                    <li><a href="#">Pet Shop</a></li>
+                    <li><a href="#">Eletrônicos</a></li>
+                </ul>
+            </div>
+            <div class="footer-coll">
+                <h3>SUPORTE</h3>
+                <ul>
+                    <li><a href="#">Podemos Ajudar</a></li>
+                    <li><a href="#">Atendimento ao Cliente</a></li>
+                    <li><a href="#">Dúvidas Frequentes</a></li>
+                    <li><a href="#">Como Comprar</a></li>
+                    <li><a href="#">Entregas e Fretes</a></li>
+                    <li><a href="#">Opções de Pagamento</a></li>
+                    <li><a href="#">Troca e Devolução</a></li>
+                </ul>
+            </div>
+            <div class="footer-coll">
+                <h3>INFORMAÇÃO CORPORATIVA</h3>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MarketPlace - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <!-- ===================== BOTÃO FLUTUANTE ===================== -->
+    <a href="../estoque/" class="fab-btn" id="fabBtn" title="Gerenciar Estoque">
+        <i class='bx bx-plus'></i>
+    </a>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/telas.js"></script>
+    <script src="../assets/js/favorito.js"></script>
+    <script src="../assets/js/sacola.js"></script>
+</body>
+
+</html>
